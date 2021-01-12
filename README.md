@@ -17,7 +17,11 @@
 ## Description
 
 ## Installation
+Run npm install for dependencies.
 
+Scripts:
+npm start (starts webpack with babel)
+npm server (starts server and hosts on localhost:3000)
 ## Usage
 
 ## Related Projects
