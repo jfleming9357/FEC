@@ -1,0 +1,35 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MithrilHRATX53/FEC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MithrilHRATX53/FEC/issues"
+  },
+  "homepage": "https://github.com/MithrilHRATX53/FEC#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "chai": "^4.2.0",
+    "eslint": "^7.17.0",
+    "webpack": "4.44.1",
+    "webpack-cli": "^4.3.1"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.12.10",
+    "@babel/register": "^7.12.10",
+    "mocha": "^8.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
