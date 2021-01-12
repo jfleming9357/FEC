@@ -1,3 +1,23 @@
-# FEC
+# Team Mithril - Front End Capstone Project
 
-FRONT END CAPSTONE BABBYYYYYYYYYY
+## Overview
+
+## Table of Contents
+
+## Description
+
+## Installation
+
+## Usage
+
+## Related Projects
+
+## Team Members
+
+## Contributing
+
+## Roadmap
+
+## License
+
+
