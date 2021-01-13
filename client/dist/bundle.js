@@ -81,14 +81,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./client/index.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./Client/index.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./client/App.jsx":
+/***/ "./Client/App.jsx":
 /*!************************!*\
-  !*** ./client/App.jsx ***!
+  !*** ./Client/App.jsx ***!
   \************************/
 /*! exports provided: App */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -98,16 +98,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "App", function() { return App; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ProductOverview/ProductOverview */ "./Client/components/ProductOverview/ProductOverview.js");
+
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "I like pie");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__["ProductOverview"], null));
 };
 
 /***/ }),
 
-/***/ "./client/index.jsx":
+/***/ "./Client/components/ProductOverview/ProductOverview.js":
+/*!**************************************************************!*\
+  !*** ./Client/components/ProductOverview/ProductOverview.js ***!
+  \**************************************************************/
+/*! exports provided: ProductOverview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductOverview", function() { return ProductOverview; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var ProductOverview = function ProductOverview() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Product Overview"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Product overview info..."));
+};
+
+/***/ }),
+
+/***/ "./Client/index.jsx":
 /*!**************************!*\
-  !*** ./client/index.jsx ***!
+  !*** ./Client/index.jsx ***!
   \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -118,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ "./client/App.jsx");
+/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ "./Client/App.jsx");
 
 
 
