@@ -15,7 +15,6 @@ export const App = () => {
 
       </div>
       <div>
-
         <RatingsAndReviews />
       </div>
     </div>
