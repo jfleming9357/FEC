@@ -23,6 +23,8 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",
     "webpack": "4.44.1",
     "webpack-cli": "^4.3.1"
@@ -30,7 +32,6 @@
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
-    "enzyme": "^3.11.0",
     "jest": "^26.6.3",
     "mocha": "^8.2.1",
     "react": "^17.0.1",
