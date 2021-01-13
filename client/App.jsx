@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { ProductOverview } from './components/ProductOverview/ProductOverview';
 
 export const App = () => {
-    return (
-        <div>
-            I like pies
-        </div>
-    )
-}
+  return (
+    <div>
+      <ProductOverview />
+    </div>
+  );
+};
