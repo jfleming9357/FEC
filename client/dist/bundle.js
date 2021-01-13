@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_2__["App"], null), document.getElementById("root"));
+Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_jsx__WEBPACK_IMPORTED_MODULE_2__["App"], null), document.getElementById('root'));
 
 /***/ }),
 
