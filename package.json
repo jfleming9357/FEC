@@ -30,6 +30,8 @@
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
+    "enzyme": "^3.11.0",
+    "jest": "^26.6.3",
     "mocha": "^8.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
