@@ -100,10 +100,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ProductOverview/ProductOverview */ "./client/components/ProductOverview/ProductOverview.js");
 /* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_RatingsReviews_RatingsReviews_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/RatingsReviews/RatingsReviews.jsx */ "./client/components/RatingsReviews/RatingsReviews.jsx");
+
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__["ProductOverview"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__["ProductOverview"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_RatingsReviews_RatingsReviews_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null))) //asdasd
+  ;
 };
 
 /***/ }),
@@ -116,6 +119,25 @@ var App = function App() {
 /***/ (function(module, exports) {
 
 throw new Error("Module parse failed: Unexpected token (5:4)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| export const ProductOverview = () => {\n|   return (\n>     <>\n|       <h1>Product Overview</h1>\n|       <div>Product overview info...</div>");
+
+/***/ }),
+
+/***/ "./client/components/RatingsReviews/RatingsReviews.jsx":
+/*!*************************************************************!*\
+  !*** ./client/components/RatingsReviews/RatingsReviews.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var RatingsAndReviews = function RatingsAndReviews(props) {};
+
+/* harmony default export */ __webpack_exports__["default"] = (RatingsAndReviews);
 
 /***/ }),
 

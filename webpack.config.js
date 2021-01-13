@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/Client/dist',
+    path: __dirname + '/client/dist',
   },
-  mode: 'development',
+  mode: 'development'
 };
