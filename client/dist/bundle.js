@@ -81,14 +81,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./Client/index.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./client/index.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./Client/App.jsx":
+/***/ "./client/App.jsx":
 /*!************************!*\
-  !*** ./Client/App.jsx ***!
+  !*** ./client/App.jsx ***!
   \************************/
 /*! exports provided: App */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -98,7 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "App", function() { return App; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ProductOverview/ProductOverview */ "./Client/components/ProductOverview/ProductOverview.js");
+/* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ProductOverview/ProductOverview */ "./client/components/ProductOverview/ProductOverview.js");
+/* harmony import */ var _components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_ProductOverview_ProductOverview__WEBPACK_IMPORTED_MODULE_1__);
 
 
 var App = function App() {
@@ -107,28 +108,20 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./Client/components/ProductOverview/ProductOverview.js":
+/***/ "./client/components/ProductOverview/ProductOverview.js":
 /*!**************************************************************!*\
-  !*** ./Client/components/ProductOverview/ProductOverview.js ***!
+  !*** ./client/components/ProductOverview/ProductOverview.js ***!
   \**************************************************************/
-/*! exports provided: ProductOverview */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductOverview", function() { return ProductOverview; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var ProductOverview = function ProductOverview() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Product Overview"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Product overview info..."));
-};
+throw new Error("Module parse failed: Unexpected token (5:4)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| export const ProductOverview = () => {\n|   return (\n>     <>\n|       <h1>Product Overview</h1>\n|       <div>Product overview info...</div>");
 
 /***/ }),
 
-/***/ "./Client/index.jsx":
+/***/ "./client/index.jsx":
 /*!**************************!*\
-  !*** ./Client/index.jsx ***!
+  !*** ./client/index.jsx ***!
   \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -139,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ "./Client/App.jsx");
+/* harmony import */ var _App_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.jsx */ "./client/App.jsx");
 
 
 
