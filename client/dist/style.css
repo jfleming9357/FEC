@@ -1,0 +1,21 @@
+.d-module {
+  display: grid;
+  border: 1px solid black;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.d-search-bar {
+  grid-column: 1 / span 2;
+}
+
+.d-question-list {
+  grid-column: 1 / span 2;
+}
+
+.d-border-button {
+  border: 1px solid black;
+}
