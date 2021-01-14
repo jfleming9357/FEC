@@ -242,6 +242,7 @@ body {
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
   gap: 0px 0px;
+  font-family: Calibri;
   grid-template-areas:
     "SortReviews SortReviews"
     "ReviewSideBar ReviewList"
@@ -252,25 +253,11 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
+  border-width: 0px 0px 0px 0px;
 }
 .SortReviews {
   grid-area: SortReviews;
 
-}
-
-.RatingSummary {
-  grid-area: RatingSummary;
-  height: 100px;
-}
-
-.RatingBreakdown {
-  grid-area: RatingBreakdown;
-  height: 100px;
-}
-
-.ProductBreakdown {
-  grid-area: ProductBreakdown;
-  height: 100px;
 }
 
 .ReviewList { grid-area: ReviewList; }
@@ -283,21 +270,21 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content:first baseline;
-  padding: 0 22px;
-  font-size: 20px;
-  /* font-weight: 300; */
-  color: #3b3b3b;
-  height: 60px;
-  line-height: 60px;
-  background: #ffffff;
+  justify-content:space-evenly;
+  font-weight: 300;
+  line-height: 80px;
   cursor: pointer;
 }
 
 .jbutton {
+  width: 120px;
+  padding: 22px 22px;
+  font-size: 20px;
+  align-items: center;
   border-width: 2px 2px 2px 2px;
   border-style: solid;
   border-color: #394a6d;
+  background: #ffffff;
 }
 
 .IndividualReview {
@@ -313,3 +300,39 @@ body {
 .jStars { grid-area: jStars; }
 .ReviewText { grid-area: ReviewText; }
 .jDate { grid-area: jDate; }
+
+.SideBarContainer{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px 20px;
+  height: 600px;
+  grid-template-areas:
+    "RatingSummary"
+    "RatingBreakdown"
+    "ProductBreakdown";
+}
+
+.RatingSummary {
+  grid-area: RatingSummary;
+  height: 200px;
+  /* border-width: 2px 2px 0px 2px; */
+  /* border-style: solid;
+  border-color: #394a6d; */
+}
+
+.RatingBreakdown {
+  grid-area: RatingBreakdown;
+  height: 200px;
+  /* border-width: 2px 2px 0px 2px; */
+  /* border-style: solid;
+  border-color: #394a6d; */
+}
+
+.ProductBreakdown {
+  grid-area: ProductBreakdown;
+  height: 200px;
+  /* border-width: 0px 2px 2px 2px; */
+  /* border-style: solid;
+  border-color: #394a6d; */
+}

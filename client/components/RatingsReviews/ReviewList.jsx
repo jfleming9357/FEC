@@ -38,7 +38,7 @@ export const ReviewList = (props) => {
       <div>{reviews}</div>
       <div className='jButtonContainer'>
         <button className='jButton'>More Reviews</button>
-        <button className='jButton'>Add Review</button>
+        <button className='jButton'>Add A Review</button>
       </div>
     </div>
   );

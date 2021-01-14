@@ -1,9 +1,8 @@
 import React from 'react';
-import { Header } from './components/defaults/header';
+import { Header } from './components/defaults/Header.js';
 import { ProductOverview } from './components/ProductOverview/index';
 import RatingsAndReviews from './components/RatingsReviews/RatingsReviews.jsx';
 import QuestionsAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-
 export const App = () => {
   return (
     <div>
