@@ -1,12 +1,13 @@
 import React from 'react';
-import exampleProductDetails12012 from './exampleData.js';
+import exampleData from './exampleData.js';
 
-class RelatedItems extends React.Component {
+
+class Outfit extends React.Component {
   constructor(props) {
     super(props);
-  }
-  this.state = {
-
+    this.state = {
+      outfitList: []
+    }
   }
 
   /// methods here
@@ -14,8 +15,10 @@ class RelatedItems extends React.Component {
   render() {
     return (
       <div>
-
+      ***ANOTHER MAGICAL CAROUSEL, THIS IS OF ITEMS IN YOUR STUPID OUTFIT!***
       </div>
     )
   }
 }
+
+export default Outfit;
