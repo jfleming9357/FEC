@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductOverview } from './components/ProductOverview/ProductOverview';
+import { ProductOverview } from './components/ProductOverview/index';
 import RatingsAndReviews from './components/RatingsReviews/RatingsReviews.jsx';
 
 export const App = () => {
@@ -8,16 +8,9 @@ export const App = () => {
       <div>
         <ProductOverview />
       </div>
-      <div>
-
-      </div>
-      <div>
-
-      </div>
-      <div>
-
-        <RatingsAndReviews />
-      </div>
+      <div></div>
+      <div></div>
+      <div>{/* <RatingsAndReviews /> */}</div>
     </div>
     //asdasd
   );

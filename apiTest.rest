@@ -1,4 +1,5 @@
-@githubAuth = yourGithubApi
+@githubAuth = abc4f35b8fe9a24a45c30966aff140cbaa46ae2d
+##### PRODUCTOVERVIEW
 
 ### Retrieves the list of products.
 GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products
@@ -15,3 +16,20 @@ Authorization: {{githubAuth}}
 ### Returns the id's of products related to the product specified.
 GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products/12012/related
 Authorization: {{githubAuth}}
+
+##### REVIEWS
+POST https://app-hrsei-api.herokuapp.com/api/fec2/hratx/reviews
+Authorization: {{githubAuth}}
+Content-Type: application/json
+
+{
+    "product_id" : 12012,
+    "rating": 5,
+    "summary": "pies",
+    "body": "pies",
+    "recommend": true,
+    "name": "pies",
+    "email": "pies@pie.com",
+    "photos":[],
+    "characteristics":{}    
+}
