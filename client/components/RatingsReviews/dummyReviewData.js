@@ -1,4 +1,4 @@
-module.exports.metaData = {
+export const metaData = {
   'product_id': '12012',
   'ratings': {
     '2': '1',
@@ -29,7 +29,7 @@ module.exports.metaData = {
   }
 };
 
-module.exports.reviewData = {
+export const reviewData = {
   'product': '12012',
   'page': 0,
   'count': 5,

@@ -24,6 +24,10 @@ npm start (starts webpack with babel)
 npm server (starts server and hosts on localhost:3000)
 ## Usage
 
+Send server requests to http://localhost:3000/proxy/api/fec2/hratx/ plus your desired endpoint.
+
+Ensure you have a .env file with the variable TOKEN set as your github api key.
+
 ## Related Projects
 
 ## Team Members
