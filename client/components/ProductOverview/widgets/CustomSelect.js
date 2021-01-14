@@ -10,7 +10,9 @@ export const CustomSelect = ({ options, defaultTitle }) => {
         </div>
         <div className="custom-options">
           {options.map((option) => (
-            <span className="custom-option">{option}</span>
+            <span key={option} className="custom-option">
+              {option}
+            </span>
           ))}
         </div>
       </div>

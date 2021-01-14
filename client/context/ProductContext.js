@@ -1,13 +1,18 @@
-import { createContext, useState } from 'react';
-import { singleProd } from '../components/ProductOverview/tempData';
+import React, { createContext, useState } from 'react';
+import {
+  singleProd,
+  singleProdStyle,
+} from '../components/ProductOverview/tempData';
 
 export const ProductContext = createContext();
-export const ProductProvider = ({ child }) => {
-  const [curProduct, setCurProduct] = useState(singleProd);
+export const ProductProvider = ({ children }) => {
+  let currentProduct = singleProd;
+  currentProduct.styles = singleProdStyle;
+  const [curProduct, setCurProduct] = useState(currentProduct);
 
   return (
     <ProductContext.Provider value={{ curProduct }}>
-      {child}
+      {children}
     </ProductContext.Provider>
   );
 };
