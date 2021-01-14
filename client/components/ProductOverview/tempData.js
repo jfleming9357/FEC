@@ -1,6 +1,6 @@
 // Retrieves the list of products.
 // GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products
-const getAllProd = [
+export const getAllProd = [
   {
     id: 12012,
     campus: 'hratx',
@@ -64,7 +64,7 @@ const getAllProd = [
 
 // Returns all product level information for a specified product id.
 // GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products/12012
-const singleProd = {
+export const singleProd = {
   id: 12012,
   campus: 'hratx',
   name: 'Camo Onesie',
@@ -89,7 +89,7 @@ const singleProd = {
 
 // Returns the all styles available for the given product.
 // GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products/12012/styles
-const singleProdStyle = {
+export const singleProdStyle = {
   product_id: '12012',
   results: [
     {
@@ -523,4 +523,4 @@ const singleProdStyle = {
 
 // Returns the id's of products related to the product specified.
 // GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products/12012/related
-const relatedProds = [12013, 12014, 12019, 12018];
+export const relatedProds = [12013, 12014, 12019, 12018];
