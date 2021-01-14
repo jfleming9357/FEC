@@ -227,3 +227,82 @@ body {
   margin: auto;
   font-size: 23px;
 }
+
+
+
+.jcontainer{
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "SortReviews SortReviews"
+    "ReviewSideBar ReviewList"
+    "ReviewSideBar ReviewList"
+    "ReviewSideBar ReviewList";
+}
+
+.ReviewSideBar {
+  grid-area: ReviewSideBar;
+  height: 500px;
+}
+.SortReviews {
+  grid-area: SortReviews;
+
+}
+
+.RatingSummary {
+  grid-area: RatingSummary;
+  height: 100px;
+}
+
+.RatingBreakdown {
+  grid-area: RatingBreakdown;
+  height: 100px;
+}
+
+.ProductBreakdown {
+  grid-area: ProductBreakdown;
+  height: 100px;
+}
+
+.ReviewList { grid-area: ReviewList; }
+
+.jcontainer > div {
+  border: 1px solid black;
+}
+
+.jButtonContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content:first baseline;
+  padding: 0 22px;
+  font-size: 20px;
+  /* font-weight: 300; */
+  color: #3b3b3b;
+  height: 60px;
+  line-height: 60px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.jbutton {
+  border-width: 2px 2px 2px 2px;
+  border-style: solid;
+  border-color: #394a6d;
+}
+
+.IndividualReview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.8fr;
+  gap: 20px 20px;
+  height: 200px;
+  grid-template-areas:
+    "jStars . jDate"
+    "ReviewText ReviewText ReviewText";
+}
+.jStars { grid-area: jStars; }
+.ReviewText { grid-area: ReviewText; }
+.jDate { grid-area: jDate; }
