@@ -1,5 +1,7 @@
 ////// PRODUCTS:
-[
+
+// List from get request to /products:
+const exampleProductsList = [
     {
       "id": 12012,
       "campus": "hratx",
@@ -58,7 +60,7 @@
 ]
 
 //// PRODUCT DETAILS (by product_id):
-
+const exampleProductDetails12012 =
 {
   "id": 12012,
   "campus": "hratx",
@@ -81,6 +83,7 @@
   ]
 }
 
+const exampleProductDetails12013 =
 {
   "id": 12013,
   "campus": "hratx",
@@ -107,6 +110,7 @@
   ]
 }
 
+const exampleProductDetails12014 =
 {
   "id": 12014,
   "campus": "hratx",
@@ -129,6 +133,7 @@
   ]
 }
 
+const exampleProductDetails12015 =
 {
   "id": 12015,
   "campus": "hratx",
@@ -151,6 +156,7 @@
   ]
 }
 
+const exampleProductDetails12016 =
 {
   "id": 12016,
   "campus": "hratx",
@@ -183,6 +189,8 @@
 
 ///// PRODUCT STYLES (by /products/:product_id/styles) :
 ///// UGH THEY ARE SO LONG!
+
+const exampleProductStyles12012 =
 {
   "product_id": "12012",
   "results": [
@@ -543,6 +551,7 @@
   ]
 }
 
+const exampleProductStyles12013 =
 {
   "product_id": "12013",
   "results": [
@@ -625,6 +634,7 @@
   ]
 }
 
+const exampleProductStyles12014 =
 {
   "product_id": "12014",
   "results": [
@@ -985,6 +995,7 @@
   ]
 }
 
+const exampleProductStyles12015 =
 {
   "product_id": "12015",
   "results": [
@@ -1522,6 +1533,7 @@
   ]
 }
 
+const exampleProductStyles12016 =
 {
   "product_id": "12016",
   "results": [
@@ -1926,6 +1938,7 @@
 
 ///// RELATED PRODUCTS (by /products/:product_id/related)
 
+const exampleRelatedProducts12012 =
 //12012
 [
   12013,
@@ -1934,6 +1947,7 @@
   12018
 ]
 
+const exampleRelatedProducts12013 =
 //12013
 [
   12014,
@@ -1942,6 +1956,7 @@
   12016
 ]
 
+const exampleRelatedProducts12014 =
 //12014
 [
   12016,
@@ -1951,6 +1966,7 @@
   12012
 ]
 
+const exampleRelatedProducts12015 =
 // 12015
 [
   12012,
@@ -1960,6 +1976,7 @@
   12019
 ]
 
+const exampleRelatedProducts12016 =
 //12016
 [
   12017,
@@ -1969,3 +1986,21 @@
   12012,
   12014
 ]
+
+export default exampleProductsList;
+export default exampleProductDetails12012;
+export default exampleProductDetails12013;
+export default exampleProductDetails12014;
+export default exampleProductDetails12015;
+export default exampleProductDetails12016;
+export default exampleProductStyles12012;
+export default exampleProductStyles12013;
+export default exampleProductStyles12014;
+export default exampleProductStyles12015;
+export default exampleProductStyles12016;
+export default exampleRelatedProducts12012;
+export default exampleRelatedProducts12013;
+export default exampleRelatedProducts12014;
+export default exampleRelatedProducts12015;
+export default exampleRelatedProducts12016;
+
