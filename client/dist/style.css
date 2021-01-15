@@ -28,10 +28,25 @@ body {
 
 .d-question-list {
   grid-column: 1 / span 2;
+  display: grid;
+  row-gap: 20px;
 }
 
 .d-border-button {
   border: 1px solid black;
+  padding: 20px;
+}
+
+.d-underlined {
+  text-decoration: underline;
+}
+
+.d-question-toolbar {
+  float: right;
+}
+
+.d-underlined:hover {
+  filter: brightness(150%);
 }
 
 .mBody {

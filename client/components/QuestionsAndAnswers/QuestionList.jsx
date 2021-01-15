@@ -1,11 +1,16 @@
 import React from 'react';
 import Question from './Question.jsx';
 
-const QuestionList = () => {
+const QuestionList = ({ questions }) => {
   return (
     <div className="d-question-list">
-      Placeholder QuestionList
-      <Question />
+      {questions.map(question =>
+        <Question
+          id={question.question_id}
+          key={question.question_id}
+          question={question}
+        />
+      )}
     </div>
   );
 };

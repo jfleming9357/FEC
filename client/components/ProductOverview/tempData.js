@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+/* eslint-disable camelcase */
 // Retrieves the list of products.
 // GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products
 export const getAllProd = [
