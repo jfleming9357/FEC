@@ -1,24 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
+import { SelectorIndicator } from './SelectorIndicator';
+import { motion } from 'framer-motion';
 
 export const StyleSelector = () => {
-  const { curProduct } = useContext(ProductContext);
-  // backgroundImage: `url(${
-  //   product['default?']
-  //     ? 'https://images.unsplash.com/photo-1534011546717-407bced4d25c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80'
-  //     : 'https://images.unsplash.com/photo-1447958272669-9c562446304f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80'
-  // })`,
+  const { curProduct, curStyle, updateCurStyle } = useContext(ProductContext);
 
   return (
-    <div>
-      <div className="styleSelectorLbl">
-        STYLE = {curProduct.styles.results[0].name}
-      </div>
+    <div className="mStyleBody">
+      <div className="styleSelectorLbl">STYLE = {curStyle.name}</div>
       <div className="prodStyles">
         {curProduct.styles.results.map((product, i) => (
-          <div
+          <motion.div
             key={i}
+            onClick={() => updateCurStyle(product)}
+            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 0.95 }}
+            animate={{ scale: 0.85 }}
+            initial={{ scale: 0.9 }}
             style={{
+              cursor: 'pointer',
               height: '80px',
               width: '80px',
               backgroundColor: 'lightcoral',
@@ -26,8 +27,8 @@ export const StyleSelector = () => {
               backgroundImage: `url(${product.photos[0].thumbnail_url})`,
             }}
           >
-            <div>X</div>
-          </div>
+            {curStyle.style_id === product.style_id && <SelectorIndicator />}
+          </motion.div>
         ))}
       </div>
     </div>

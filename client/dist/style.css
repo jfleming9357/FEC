@@ -52,6 +52,7 @@ body {
 .mBody {
   margin: auto;
   height: 100vh;
+  min-width: 1000px;
   width: 80vw;
 }
 
@@ -63,10 +64,26 @@ body {
 }
 
 .mGalleryBody {
+  background-color: rgb(58, 58, 57);
+  position: relative;
+  display: flex;
   height: 630px;
   width: 800px;
-  background-color: orange;
-  float: right;
+}
+
+.mSubImages {
+  position: absolute;
+  width: 100px;
+  height: 450px;
+  background-color: pink;
+  /* display: flex; */
+}
+
+.mSubImages > div {
+  width: 60px;
+  height: 60px;
+  background-color: lightblue;
+  margin: 2px;
 }
 
 .mProdMainInfo {
@@ -250,6 +267,19 @@ body {
   font-size: 23px;
 }
 
+.mSelectorIndicator {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.mStyleBody {
+  user-select: none;
+}
 
 
 .jcontainer{
