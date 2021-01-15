@@ -1,14 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from './SearchBar.jsx';
 import QuestionList from './QuestionList.jsx';
 import AddQuestion from './AddQuestion.jsx';
 import tempProductQuestions from './tempData.js';
+import { ProductContext } from '../../context/ProductContext.js';
+import axios from 'axios';
 
 const QuestionsAndAnswers = (props) => {
+  const { curProduct } = useContext(ProductContext);
   const [ numQuestions, setNumQuestions ] = useState(2);
   //Initial questions set is sorted by helpfulness
   const initialQuestions = tempProductQuestions.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
   const [ questions, setQuestions ] = useState(initialQuestions);
+
+  curProduct.id = 12013;
+  //Initial data fetch
+  useEffect(() => {
+    axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}`)
+      .then(res => {
+        setQuestions(res.data.results);
+        console.log(res.data.results);
+      });
+  }, [curProduct.id]);
 
   const handleAddQuestion = () => {
     console.log('Adding question!');
