@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 
-const Answer = ({ answer, asker }) => (
-  <div className="d-answer">
-    <p>{answer.body}</p>
-    <div className="d-answer-toolbar">
-      {`by ${answer.answerer_name}`}
-      {asker === answer.answerer_name && <span> - <strong>Seller</strong></span>}
-      {`, ${moment(answer.date).format('MMM DD, YYYY').toString()}  |  Helpful ? `}
-      <span className="d-underlined">Yes</span>
-      {` (${answer.helpfulness})  | `}
-      <span className="d-underlined">Report</span>
+const Answer = ({ answer, asker }) => {
+  const [reported, setReported] = useState(false);
+  const [ helpful, setHelpful ] = useState(false);
+
+  const handleToggleHelpful = () => {
+    //TODO
+    console.log('called');
+    setHelpful(!helpful);
+  }
+
+  return <>
+    <div className="d-answer">
+      <div>{answer.body}</div>
+      <div className="d-answer-toolbar">
+        {`by ${answer.answerer_name}`}
+        {asker === answer.answerer_name && <span> - <strong>Seller</strong></span>}
+        {`, ${moment(answer.date).format('MMM DD, YYYY').toString()}  |  Helpful ? `}
+        <span
+          className="d-underlined"
+          onClick={handleToggleHelpful}
+          style={helpful ? {textDecoration: 'none'} : null}
+        >Yes</span>
+        {` (${answer.helpfulness})  | `}
+        {reported
+          ? <span
+              className="d-underlined"
+              onClick={() => setReported(false)}
+              style={{filter: "brightness(300%)", textDecoration: 'none'}}
+            >Reported</span>
+          : <span
+              className="d-underlined"
+              onClick={() => setReported(true)}
+            >Report</span>
+        }
+      </div>
     </div>
-  </div>
-);
+  </>
+};
 
 export default Answer;
