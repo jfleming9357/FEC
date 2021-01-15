@@ -242,7 +242,7 @@ body {
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
   gap: 0px 0px;
-  font-family: Calibri;
+  font-family: "adobe-clean", sans-serif;
   grid-template-areas:
     "SortReviews SortReviews"
     "ReviewSideBar ReviewList"
@@ -316,23 +316,26 @@ body {
 .RatingSummary {
   grid-area: RatingSummary;
   height: 200px;
-  /* border-width: 2px 2px 0px 2px; */
-  /* border-style: solid;
-  border-color: #394a6d; */
 }
 
 .RatingBreakdown {
   grid-area: RatingBreakdown;
   height: 200px;
-  /* border-width: 2px 2px 0px 2px; */
-  /* border-style: solid;
-  border-color: #394a6d; */
 }
 
 .ProductBreakdown {
   grid-area: ProductBreakdown;
   height: 200px;
-  /* border-width: 0px 2px 2px 2px; */
-  /* border-style: solid;
-  border-color: #394a6d; */
+}
+
+.overallRating {
+  font-size: 65px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.jstars {
+  position: absolute;
+  left: 8%;
+  top: 152%;
 }

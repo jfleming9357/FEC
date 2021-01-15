@@ -11,9 +11,11 @@ const RatingsAndReviews = (props) => {
     <SortReviews />
     <ReviewList id={props.reviewId || 12012}/>
     <div className='ReviewSideBar'>
-      <RatingSummary />
-      <RatingBreakdown />
-      <ProductBreakdown />
+      <div className='SideBarContainer'>
+        <RatingSummary />
+        <RatingBreakdown />
+        <ProductBreakdown />
+      </div>
     </div>
   </div>);
 };
