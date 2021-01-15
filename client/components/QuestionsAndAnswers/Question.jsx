@@ -8,7 +8,12 @@ const Question = ({ question }) => {
     <div className="d-question">
       <div className="d-question-top">
         <span className="d-question-body">Q: {question.question_body}</span>
-        <span className="d-question-toolbar">Helpful ? <span className="d-underlined">Yes </span>{question.question_helpfulness} | <span className="d-underlined">Add Answer</span></span>
+        <span className="d-question-toolbar">
+          {'Helpful ? '}
+          <span className="d-underlined">Yes </span>
+          {`${question.question_helpfulness} | `}
+          <span className="d-underlined">Add Answer</span>
+        </span>
       </div>
 
       <AnswerList
