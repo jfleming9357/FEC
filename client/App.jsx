@@ -18,9 +18,8 @@ export const App = () => {
       </div>
       <QuestionsAndAnswers product_id={12012} /> {/* Placeholder product id before we connect modules */}
       <div> <br />
-        <RatingsAndReviews />
+        <RatingsAndReviews product_id={12012}/>
       </div>
-
     </div>
   );
 };

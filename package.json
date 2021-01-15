@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MithrilHRATX53/FEC#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
@@ -27,12 +28,12 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",
     "express": "^4.17.1",
+    "react-bars": "^0.1.2",
     "webpack": "4.44.1",
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
-    "@babel/register": "^7.12.10",
     "@brainhubeu/react-carousel": "^1.19.26",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
@@ -44,6 +45,7 @@
     "moment": "^2.29.1",
     "pure-react-carousel": "^1.27.6",
     "react": "^17.0.1",
+    "react-charts": "^2.0.0-beta.7",
     "react-dom": "^17.0.1",
     "react-star-ratings": "^2.3.0"
   }

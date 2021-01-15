@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddReview from './AddReview.jsx';
-const getReviews = (pId) => {
-  let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' + pId;
+const getReviews = (productId) => {
+  let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' + productId;
   return axios.get(url)
     .then((response) => {
       return response;
