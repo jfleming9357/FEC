@@ -27,8 +27,7 @@ const Answer = ({ answer, asker }) => {
         {reported
           ? <span
               className="d-underlined"
-              onClick={() => setReported(false)}
-              style={{filter: "brightness(300%)", textDecoration: 'none'}}
+              style={{filter: "brightness(300%)", textDecoration: 'none', pointerEvents: 'none' }}
             >Reported</span>
           : <span
               className="d-underlined"
