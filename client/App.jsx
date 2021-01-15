@@ -13,13 +13,14 @@ export const App = () => {
       <div className="container">
         <ProductOverview />
       </div>
+      <div>
+        <RelatedAndOutfit />
+      </div>
       <QuestionsAndAnswers product_id={12012} /> {/* Placeholder product id before we connect modules */}
       <div> <br />
         <RatingsAndReviews />
       </div>
-      <div>
-        <RelatedAndOutfit />
-      </div>
+
     </div>
   );
 };
