@@ -30,7 +30,7 @@ let tempProductQuestions = {
           'id': 541305,
           'body': 'It says not to',
           'date': '2018-03-08T00:00:00.000Z',
-          'answerer_name': 'ceasar',
+          'answerer_name': 'cleopatra',
           'helpfulness': 0,
           'photos': []
         },
