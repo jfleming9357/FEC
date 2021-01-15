@@ -20,6 +20,7 @@ body {
   padding: 20px;
   column-gap: 20px;
   row-gap: 20px;
+  max-height: 100vh;
 }
 
 .d-search-bar {
@@ -29,7 +30,14 @@ body {
 .d-question-list {
   grid-column: 1 / span 2;
   display: grid;
+  overflow-y: scroll;
   row-gap: 20px;
+}
+
+.d-question {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 3ch auto;
 }
 
 .d-border-button {
@@ -45,8 +53,14 @@ body {
   float: right;
 }
 
-.d-underlined:hover {
-  filter: brightness(150%);
+.d-answer {
+  border: 1px solid black;
+  margin-bottom: 1ch;
+}
+
+.d-underlined:hover, .d-adjust-answers:hover {
+  filter: brightness(300%);
+  cursor: pointer;
 }
 
 .mBody {
@@ -380,6 +394,7 @@ body {
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 /* Three column layout */
 .side {
   float: left;
@@ -440,3 +455,10 @@ body {
   text-decoration: underline;
   font-weight: bold;
 }
+=======
+/* .jstars {
+  position: absolute;
+  left: 8%;
+  top: 152%;
+} */
+>>>>>>> 86bf8ba3e33621670e4837fe2369be45b310cbbd
