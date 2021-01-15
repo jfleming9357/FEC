@@ -28,7 +28,6 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",
     "express": "^4.17.1",
-    "react-bars": "^0.1.2",
     "webpack": "4.44.1",
     "webpack-cli": "^4.3.1"
   },
