@@ -1,10 +1,13 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({ handleInput }) => {
   return (
-    <div className="d-border-button d-search-bar">
-      Placeholder SearchBar
-    </div>
+    <input
+      className="d-border-button d-search-bar"
+      placeholder="Have a question? Search for Answers..."
+      onChange={handleInput}
+    >
+    </input>
   );
 };
 

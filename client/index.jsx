@@ -1,5 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { App } from './App.jsx';
+import { ProductProvider } from './context/ProductContext';
 
-render(<App />, document.getElementById('root'));
+
+
+render(<ProductProvider><App /></ProductProvider>, document.getElementById('root'));
