@@ -1,79 +1,74 @@
-import Carousel from '@brainhubeu/react-carousel';
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 export const ImageGallery = () => {
-  const [caroulVal, setCaroulVal] = useState(0);
   const { curStyle } = useContext(ProductContext);
-  const [caroulImgs, setCaroulImgs] = useState([]);
+  const [slideValue, setSlideValue] = useState(1);
 
-  const getCaroulImgs = () => {
-    setCaroulImgs([]);
-    curStyle.photos.forEach((photo) => {
-      setCaroulImgs([
-        ...caroulImgs,
-        <img height="630px" width="800px" src={photo.url} />,
-      ]);
-    });
-  };
-
-  useEffect(() => {
-    getCaroulImgs();
-  }, [curStyle]);
-
-  const [slides, setSlides] = useState([
-    <img
-      height="630px"
-      width="800px"
-      src={
-        'https://i.picsum.photos/id/482/200/200.jpg?hmac=_oPafYMoTEVlnjtzFvYD5JoiK6Q-xfxbki4tYEMuGRI'
-      }
-    />,
-    <img
-      height="630px"
-      width="800px"
-      src={
-        'https://i.picsum.photos/id/577/200/200.jpg?hmac=o426LHIb2MgD4TJnSfBnhpGdOTOdofsp1A7yraIpo-Y'
-      }
-    />,
-    <img
-      height="630px"
-      width="800px"
-      src={
-        'https://i.picsum.photos/id/61/200/200.jpg?hmac=RL-JLeHTLsWK7354qjYNQ1iuDxeoCv-kYRTUYun2h34'
-      }
-    />,
-    <img
-      height="630px"
-      width="800px"
-      src={
-        'https://i.picsum.photos/id/58/200/200.jpg?hmac=aol3E3KC2fpsVXlPhgxLR9-CLoUQa-kbswhZx-gYzCE'
-      }
-    />,
-    <img
-      height="630px"
-      width="800px"
-      src={
-        'https://i.picsum.photos/id/622/200/200.jpg?hmac=0opC4wvaKSUqImE8atOt5HC8k6S4bXipDuItdfzK9s4'
-      }
-    />,
-  ]);
-
-  const updateVal = (v) => [setCaroulVal(v)];
+  const nextBtnHandler = () => {};
+  const prevBtnHandler = () => {};
 
   return (
-    <div className="mGalleryBody">
-      {/* <Carousel value={caroulVal} slides={slides} onChange={setCaroulVal} /> */}
-      {/* <div className="mSubImages">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div> */}
+    <div id="mainProdCarousel" className="carousel slide" data-wrap="false">
+      <div
+        className="position-absolute row h-100 w-100"
+        style={{ zIndex: '1' }}
+      >
+        <div className="col-2">
+          <div className="col p-3">
+            {curStyle.photos.map((thumbnail, i) => (
+              <div
+                key={i}
+                data-bs-target="#mainProdCarousel"
+                data-bs-slide-to={i}
+                className="bg-secondary my-3"
+                style={{
+                  height: '60px',
+                  width: '60px',
+                  backgroundImage: `url(${thumbnail.thumbnail_url})`,
+                  borderBottom: '3px solid black',
+                  opacity: 0.5,
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
+        <div className="col-10 d-flex justify-content-between align-items-center">
+          <a
+            onClick={() => console.log('PREV')}
+            href="#mainProdCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+          </a>
+          <a
+            onClick={() => console.log('NEXT')}
+            href="#mainProdCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+          </a>
+        </div>
+      </div>
+      <div style={{ height: '700px' }} className="carousel-inner">
+        {curStyle.photos.map((photo, i) => (
+          <div
+            key={i}
+            className={
+              i === 0 ? 'carousel-item active h-100' : 'carousel-item h-100'
+            }
+          >
+            <img src={photo.url} className="d-block w-100 h-100" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

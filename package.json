@@ -23,18 +23,20 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
+    "css-loader": "^5.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",
     "express": "^4.17.1",
+    "style-loader": "^2.0.0",
     "webpack": "4.44.1",
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
-    "@brainhubeu/react-carousel": "^1.19.26",
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.0-beta1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
@@ -44,6 +46,7 @@
     "moment": "^2.29.1",
     "pure-react-carousel": "^1.27.6",
     "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
     "react-star-ratings": "^2.3.0"
   }
