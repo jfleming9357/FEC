@@ -10,8 +10,7 @@ export const ProductOverview = () => {
   return (
     <div className="d-block">
       <div className="row">
-        <div className="col-lg-7">
-          {/* <ImageGallery /> */}
+        <div className="col-lg-7"> 
           <NewImg />
         </div>
         <div className="col-lg-5 row d-flex flex-wrap align-content-around">

@@ -10,3 +10,4 @@ render(
   </ProductProvider>,
   document.getElementById('root')
 );
+import { ProductProvider } from './context/ProductContext';
