@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
+import ratingCalculations from './ratingCalculations.jsx';
 
-const RatingSummary = (props) => {
+const RatingSummary = ({ allRatings }) => {
+  let { ratingAverage } = ratingCalculations(allRatings);
+
   return (
     <div>
-      <div>Ratings {'&'} Reviews </div>
+      <div>Ratings &amp; Reviews </div>
       <div className='RatingSummary'>
         <div className='jstars'>
           <StarRatings
-            rating={3.5}
+            rating={ratingAverage}
             starRatedColor='#394a6d'
             numberOfStars={5}
             name='rating'
             starDimension='15px'
           />
         </div>
-        <div className='overallRating'>3.5</div>
+        <div className='overallRating'>{ratingAverage.toFixed(1)}</div>
       </div>
     </div>
   );
