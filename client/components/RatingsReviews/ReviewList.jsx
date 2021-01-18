@@ -13,13 +13,14 @@ const getReviews = (productId) => {
 };
 
 export const ReviewList = (props) => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [moreReviews, setMoreReviews] = useState('');
-  if (loading) {
+  // if (loading) {
+  useEffect(() => {
     getReviews(props.id)
       .then(((data) => {
-        setLoading(false);
+        // setLoading(false);
         setReviews(data.data.results.map((result) => {
           return (
             <div className='ReviewList' key={result.review_id}>
@@ -32,7 +33,9 @@ export const ReviewList = (props) => {
           );
         }));
       }));
-  }
+  });
+
+  // }
   return (
     <div className='ReviewList'>
       <div>{reviews}</div>

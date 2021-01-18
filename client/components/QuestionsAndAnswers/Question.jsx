@@ -10,9 +10,9 @@ const Question = ({ question }) => {
 
   const handleToggleHelpful = () => {
     //TODO
-    console.log('called');
+    // console.log('called');
     setHelpful(!helpful);
-  }
+  };
 
   return (
     <div className="d-question">

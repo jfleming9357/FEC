@@ -428,11 +428,7 @@ body {
 }
 
 /* Individual bars */
-.jbar-5 {height: 14px; background-color: black;}
-.jbar-4 {height: 14px; background-color: black;}
-.jbar-3 {height: 14px; background-color: black;}
-.jbar-2 {height: 14px; background-color: black;}
-.jbar-1 {height: 14px; background-color: black;}
+.jbars {height: 14px; background-color: black;}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 300px) {
