@@ -19,24 +19,23 @@ const QuestionsAndAnswers = (props) => {
     axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}`)
       .then(res => {
         setQuestions(res.data.results);
-        console.log(res.data.results);
       });
   }, [curProduct.id]);
 
   const handleAddQuestion = () => {
-    console.log('Adding question!');
+    // console.log('Adding question!');
     //TODO
-  }
+  };
 
   //Search function
   const handleSearch = (e) => {
     let val = e.target.value;
     if (val.length > 2) {
-      setQuestions(initialQuestions.filter((question => question.question_body.toLowerCase().indexOf(val) > -1)))
+      setQuestions(initialQuestions.filter((question => question.question_body.toLowerCase().indexOf(val) > -1)));
     } else {
       setQuestions(initialQuestions);
     }
-  }
+  };
 
   return (
     <div

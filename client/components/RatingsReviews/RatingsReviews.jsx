@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReviewList } from './ReviewList.jsx';
 import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
@@ -10,38 +10,35 @@ import axios from 'axios';
 const getMetaData = function (productId) {
   let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/meta?product_id=' + productId;
   return axios.get(url)
-    .then((response) => {
-      return response;
-    })
     .catch((err) => {
       throw err;
     });
 };
 
 const RatingsAndReviews = (props) => {
-  const [metaData, setMetaData] = useState([]);
-  if (metaData.length === 0) {
+  const [metaData, setMetaData] = useState(undefined);
+  useEffect(() => {
     getMetaData(props.product_id)
       .then((data) => {
-        setMetaData(data);
+        setMetaData(data.data);
       })
       .catch((err) => {
         throw err;
       });
-    return (<div>Loading...</div>);
-  } else {
-    return (<div className='jcontainer'>
+  });
+  if (metaData) {
+    return (<div className="jcontainer">
       <SortReviews />
       <ReviewList id={props.product_id || 12012}/>
-      <div className='ReviewSideBar'>
-        <div className='SideBarContainer'>
-          <RatingSummary allRatings={metaData.data.ratings}/>
-          <RatingBreakdown allRatings={metaData.data.ratings}/>
-          <ProductBreakdown characteristics={metaData.data.characteristics}/>
+      <div className="ReviewSideBar">
+        <div className="SideBarContainer">
+          <RatingSummary allRatings={metaData.ratings}/>
+          <RatingBreakdown allRatings={metaData.ratings}/>
+          <ProductBreakdown characteristics={metaData.characteristics}/>
         </div>
       </div>
     </div>);
-  }
+  } else { return (<div>Loading...</div>); }
 
 };
 

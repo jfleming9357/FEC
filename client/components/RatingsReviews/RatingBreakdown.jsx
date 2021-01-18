@@ -7,62 +7,29 @@ const RatingBreakdown = ({ allRatings }) => {
   let ratingPercentages = [];
   // individual star review / ratingsCount
   for (let x = 1; x < 6; x++) {
-    ratingPercentages.push((allRatings[x] / ratingStats.ratingsCount) * 100);
+    if (!allRatings[x]) {
+      allRatings[x] = 0;
+    }
+    ratingPercentages.unshift((allRatings[x] / ratingStats.ratingsCount) * 100);
   }
-  console.log(ratingPercentages);
+  var counter = 6;
   return (
-    <div className='jbarGraph'>
+    <div className="jbarGraph">
       <div className="row">
-        <div className="side">
-          <div className='jXAxis'>5 stars</div>
-        </div>
-        <div className="middle">
-          <div className="jbar-container">
-            <div className="jbar-5" style={{'width': `${ratingPercentages[4] || '0'}%`}}></div>
-          </div>
-        </div>
-        <div className="side right">
-        </div>
-        <div className="side">
-          <div className='jXAxis'>4 stars</div>
-        </div>
-        <div className="middle">
-          <div className="jbar-container">
-            <div className="jbar-4" style={{'width': `${ratingPercentages[3] || '0'}%`}}></div>
-          </div>
-        </div>
-        <div className="side right">
-        </div>
-        <div className="side">
-          <div className='jXAxis'>3 star</div>
-        </div>
-        <div className="middle">
-          <div className="jbar-container">
-            <div className="jbar-3" style={{'width': `${ratingPercentages[2] || '0'}%`}}></div>
-          </div>
-        </div>
-        <div className="side right">
-        </div>
-        <div className="side">
-          <div className='jXAxis'>2 star</div>
-        </div>
-        <div className="middle">
-          <div className="jbar-container">
-            <div className="jbar-2" style={{'width': `${ratingPercentages[1] || '0'}%`}}></div>
-          </div>
-        </div>
-        <div className="side right">
-        </div>
-        <div className="side">
-          <div className='jXAxis'>1 star</div>
-        </div>
-        <div className="middle">
-          <div className="jbar-container">
-            <div className="jbar-1" style={{'width': `${ratingPercentages[0] || '0'}%`}}></div>
-          </div>
-        </div>
-        <div className="side right">
-        </div>
+        {ratingPercentages.map((percentage) => {
+          counter--;
+          return (
+            <div key={counter}>
+              <div className="side">
+                <div className='jXAxis'>{counter} stars</div>
+              </div>
+              <div className="middle">
+                <div className="jbar-container">
+                  <div className="jbars" style={{'width': `${percentage}%`}}></div>
+                </div>
+              </div>
+            </div>);
+        })}
       </div>
     </div>
 
