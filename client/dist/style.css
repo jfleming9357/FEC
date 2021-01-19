@@ -110,7 +110,7 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
-  border-width: 0px 0px 0px 0px;
+  /* border-width: 0px 0px 0px 0px; */
 }
 
 .SortReviews {
@@ -147,6 +147,7 @@ body {
 }
 
 .IndividualReview {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1.8fr;
@@ -256,6 +257,10 @@ body {
   font-weight: bold;
 }
 
+#helpfulAndReport {
+  position: absolute;
+  bottom: 0;
+}
 .mCarouselStyle {
   background-color: transparent;
   border: none;
