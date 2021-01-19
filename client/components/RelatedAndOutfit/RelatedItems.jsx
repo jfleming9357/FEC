@@ -32,11 +32,11 @@ class RelatedItems extends React.Component {
         //   return this.state.cachedProductInfo[item];
         // }
       })
-    )
-    .then(() => {
-      this.setState({ relatedProductInfo: relatedProdInfoArr })
+      )
+      .then(() => {
+        this.setState({ relatedProductInfo: relatedProdInfoArr })
+      })
       // return relatedProdInfoArr;
-    })
   }
 
   getRelatedProductIds(productId) {
@@ -67,11 +67,11 @@ class RelatedItems extends React.Component {
         className='c-related-items-carousel'
         naturalSlideHeight={500}
         naturalSlideWidth={380}
-        totalSlides={this.state.relatedProductIds.length}
+        totalSlides={this.state.relatedProductInfo.length}
         visibleSlides={1}
         >
         <Slider>
-          {this.state.relatedProductIds.map((product) => {
+          {this.state.relatedProductInfo.map((product) => {
             console.log('Do I ever hit this line? ', product);
             return (
             <Slide key={product}>
