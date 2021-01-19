@@ -20,10 +20,11 @@ export const HooksRelatedItems = () => {
           if (index === relatedProductIds.length - 1) {
             console.log(relatedProdInfoArr);
             setRelatedProductInfo(relatedProdInfoArr);
+            setInitialized(true);
           }
         })
         .catch((error) => {
-          console.error('OOOPS!  There was an error getting the information about related product.');
+          console.error(error,'OOOPS!  There was an error getting the information about related product.');
         });
     });
   };
@@ -31,7 +32,6 @@ export const HooksRelatedItems = () => {
     let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12013/related';
     axios.get(url)
       .then((results) => {
-        console.log(results);
         setRelatedProductIds(results.data);
       })
       .catch((error) => {
@@ -42,10 +42,6 @@ export const HooksRelatedItems = () => {
   useEffect(() => {
     getRelatedProductInfo();
   }, [relatedProductIds]);
-
-  useEffect(() => {
-    setInitialized(true);
-  }, [relatedProductInfo]);
 
   if (initialized) {
     return (<div onClick={() => {
