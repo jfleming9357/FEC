@@ -17,9 +17,8 @@ export const HooksRelatedItems = () => {
       axios.get(url)
         .then((results) => {
           relatedProdInfoArr.push(results.data);
-          if (index === relatedProductIds.length - 1) {
+          if (relatedProdInfoArr.length === relatedProductIds.length) {
             setRelatedProductInfo(relatedProdInfoArr);
-            setInitialized(true);
           }
         })
         .catch((error) => {
@@ -42,7 +41,14 @@ export const HooksRelatedItems = () => {
     getRelatedProductInfo();
   }, [relatedProductIds]);
 
-  if (initialized) {
+  useEffect(() => {
+    if (relatedProductIds.length > 0 && relatedProductInfo.length === relatedProductIds.length) {
+      setInitialized(true);
+    }
+  }, [relatedProductInfo]);
+
+  if (initialized === true) {
+    console.log(relatedProductInfo);
     return (<div onClick={() => {
     }}>{relatedProductInfo.map((item, index) => {
         return (<div key={index}>{item.name}</div>);
