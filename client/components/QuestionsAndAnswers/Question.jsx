@@ -15,29 +15,29 @@ const Question = ({ question }) => {
       .catch(err => {throw err});
   }
 
-  const handleToggleHelpful = () => {
-    //TODO
-    // console.log('called');
-    setHelpful(!helpful);
+  const handleHelpful = () => {
+    axios.put(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/helpful?question_id=${question.question_id}`)
+      .then(() => setHelpful(!helpful))
+      .catch(err => {throw err});
   };
 
   return (
     <div className="d-question">
-      <span className="d-question-Q">Q:</span>
+      <strong className="d-question-Q">Q:</strong>
       <div className="d-question-top">
         <span className="d-question-body">{question.question_body}</span>
         <span className="d-question-toolbar">
           {'Helpful ? '}
           <span
             className="d-underlined"
-            onClick={handleToggleHelpful}
+            onClick={helpful ? null : handleHelpful}
             style={helpful ? {textDecoration: 'none'} : null}
           >Yes </span>
-          {`${question.question_helpfulness} | `}
+          {`${helpful ? question.question_helpfulness + 1 : question.question_helpfulness} | `}
           <AddAnswer handleSubmit={handleNewAnswer} question_id={question.question_id} />
         </span>
       </div>
-      <div className="d-question-A">A:</div>
+      <strong className="d-question-A">A:</strong>
       <div className="d-question-bottom">
         <AnswerList
           answers={answers.length > numAnswers ? answers.slice(0, numAnswers) : answers}
@@ -48,7 +48,7 @@ const Question = ({ question }) => {
             className="d-adjust-answers"
             onClick={() => setNumAnswers(answers.length)}>SEE MORE ANSWERS
           </strong>)
-          : (numAnswers === answers.length && <strong
+          : (numAnswers === answers.length && numAnswers > 2 && <strong
             className="d-adjust-answers"
             onClick={() => setNumAnswers(2)}>Collapse Answers
           </strong>)

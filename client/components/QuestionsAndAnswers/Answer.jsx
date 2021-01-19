@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import axios from 'axios';
 
 const Answer = ({ answer, asker }) => {
   const [reported, setReported] = useState(false);
   const [ helpful, setHelpful ] = useState(false);
 
-  const handleToggleHelpful = () => {
-    //TODO
-    setHelpful(!helpful);
+  const handleHelpful = () => {
+    axios.put(`proxy/api/fec2/hratx/qa/answers/${answer.id}/helpful?question_id=${answer.id}`)
+      .then(() => setHelpful(true))
+      .catch(err => {throw err});
+  };
+
+  const handleReport = () => {
+    axios.put(`proxy/api/fec2/hratx/qa/answers/${answer.id}/report?question_id=${answer.id}`)
+      .then(() => setReported(true))
+      .catch(err => {throw err});
   };
 
   return <>
@@ -19,10 +27,10 @@ const Answer = ({ answer, asker }) => {
         {`, ${moment(answer.date).format('MMM DD, YYYY').toString()}  |  Helpful ? `}
         <span
           className="d-underlined"
-          onClick={handleToggleHelpful}
+          onClick={helpful ? null : handleHelpful}
           style={helpful ? {textDecoration: 'none'} : null}
         >Yes</span>
-        {` (${answer.helpfulness})  | `}
+        {` (${helpful ? answer.helpfulness + 1 : answer.helpfulness})  | `}
         {reported
           ? <span
             className="d-underlined"
@@ -30,7 +38,7 @@ const Answer = ({ answer, asker }) => {
           >Reported</span>
           : <span
             className="d-underlined"
-            onClick={() => setReported(true)}
+            onClick={handleReport}
           >Report</span>
         }
       </div>
