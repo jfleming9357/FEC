@@ -16,26 +16,27 @@ export const ReviewList = (props) => {
   // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [moreReviews, setMoreReviews] = useState('');
-  // if (loading) {
+  const [initialized, setInitialized] = useState(false);
   useEffect(() => {
-    getReviews(props.id)
-      .then(((data) => {
-        // setLoading(false);
-        setReviews(data.data.results.map((result) => {
-          return (
-            <div className='ReviewList' key={result.review_id}>
-              <div className="IndividualReview">
-                <div className="ReviewText">{result.summary}</div>
-                <div className="jStars">Stars Placeholder</div>
-                <div className="jDate">Date Placeholder</div>
+    if (!initialized) {
+      getReviews(props.id)
+        .then(((data) => {
+          setInitialized(true);
+          setReviews(data.data.results.map((result) => {
+            return (
+              <div className='ReviewList' key={result.review_id}>
+                <div className="IndividualReview">
+                  <div className="ReviewText">{result.summary}</div>
+                  <div className="jStars">Stars Placeholder</div>
+                  <div className="jDate">Date Placeholder</div>
+                </div>
               </div>
-            </div>
-          );
+            );
+          }));
         }));
-      }));
+    }
   });
 
-  // }
   return (
     <div className='ReviewList'>
       <div>{reviews}</div>
