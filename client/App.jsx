@@ -14,10 +14,10 @@ export const App = () => {
     <div>
       <Header />
       <br />
-      <div className="container">
+      <div style={{ overflow: 'hidden' }} className="container">
         <ProductOverview />
       </div>
-      <div>
+      <div> <br />
         <RelatedAndOutfit />
       </div>
       <QuestionsAndAnswers product_id={12012} />
