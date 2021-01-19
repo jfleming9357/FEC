@@ -15,7 +15,7 @@ class RelatedItems extends React.Component {
       relatedProductInfo: undefined,
       /// once a product has been gathered, don't do it again!
       cachedProductInfo: {}
-    }
+    };
   }
 
   getRelatedProductInfo(array) {
@@ -23,36 +23,37 @@ class RelatedItems extends React.Component {
     return Promise.all(
       array.map((item) => {
         // if (!this.state.cachedProductInfo[item]) {
-          let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/' + item.toString();
-          axios.get(url)
+        let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/' + item.toString();
+        axios.get(url)
           .then((results) => {
             relatedProdInfoArr.push(results.data);
           })
-          .catch((error) => { console.error(`OOOPS!  There was an error getting the information about related product ${item}.`)
-          })
+          .catch((error) => {
+            console.error(`OOOPS!  There was an error getting the information about related product ${item}.`);
+          });
         // }  else {
         //   return this.state.cachedProductInfo[item];
         // }
       })
     )
-    .then(() => {
-      console.log(relatedProdInfoArr);
-      this.setState({ relatedProductInfo: relatedProdInfoArr }, () => {
-      })
-    })
+      .then(() => {
+        console.log(relatedProdInfoArr);
+        this.setState({ relatedProductInfo: relatedProdInfoArr }, () => {
+        });
+      });
   }
 
   getRelatedProductIds(productId) {
     let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/' + productId + '/related';
     axios.get(url)
-    .then((results) => {this.state.relatedProductIds = results.data})
-    .then(() => this.getRelatedProductInfo(this.state.relatedProductIds))
-    .then((data) => {
+      .then((results) => { this.state.relatedProductIds = results.data; })
+      .then(() => this.getRelatedProductInfo(this.state.relatedProductIds))
+      .then((data) => {
 
       })
-    .catch((error) => {
-      console.error('OOOPS!  There was an error getting the list of items related to this one.');
-    })
+      .catch((error) => {
+        console.error('OOOPS!  There was an error getting the list of items related to this one.');
+      });
   }
 
   componentDidMount() {
@@ -67,13 +68,14 @@ class RelatedItems extends React.Component {
       return (<div>{this.state.relatedProductInfo.map((data) => {
         return (
           <div>data.id</div>
-        )
+        );
       })}</div>);
     } else {
-      return (<div>nothing</div>)
+      return (<div>nothing</div>);
     }
 
-    return (
+    //return (
+    { /*this.state.relatedProductInfo ? <div>Data Found {this.state.relatedProductInfo.length}</div> : <div onClick={() => {console.log(this.state.relatedProductInfo)}}>Loading....</div>}
       <div style={{ height: 'auto', width: '400px' }}>
       <CarouselProvider
         className='c-related-items-carousel'
@@ -106,7 +108,7 @@ class RelatedItems extends React.Component {
         <ButtonBack>Back</ButtonBack>
         <ButtonNext>Next</ButtonNext>
       </CarouselProvider>
-    </div> )
+            </div> */}
   }
 }
 
