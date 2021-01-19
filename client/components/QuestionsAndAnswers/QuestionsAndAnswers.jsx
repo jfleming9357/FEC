@@ -18,7 +18,6 @@ const QuestionsAndAnswers = (props) => {
     axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}&count=50`)
       .then(res => {
         setQuestions(res.data.results);
-        console.log(res.data.results);
       });
   }, [curProduct.id]);
 
@@ -35,11 +34,11 @@ const QuestionsAndAnswers = (props) => {
   const handleSearch = (e) => {
     let val = e.target.value;
     if (val.length > 2) {
-      setQuestions(initialQuestions.filter((question => question.question_body.toLowerCase().indexOf(val) > -1)))
+      setQuestions(initialQuestions.filter((question => question.question_body.toLowerCase().indexOf(val) > -1)));
     } else {
       setQuestions(initialQuestions);
     }
-  }
+  };
 
   return (
     <div
