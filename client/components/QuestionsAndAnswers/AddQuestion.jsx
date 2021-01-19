@@ -11,9 +11,7 @@ const AddQuestion = ({ handleSubmit }) => {
   const [email, setEmail] = useState('');
   
   const handleClickSubmit = () => {
-    axios.post(`proxy/api/fec2/hratx/qa/questions`, { body: question, name: nickname, email: email, product_id: curProduct.id })
-      .then(res => console.log(res))
-      .catch(err => {throw err});
+    handleSubmit({ body: question, name: nickname, email: email, product_id: curProduct.id })
     setShow(false);
   }
 

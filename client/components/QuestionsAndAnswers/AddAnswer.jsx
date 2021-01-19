@@ -3,7 +3,7 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import { ProductContext } from '../../context/ProductContext';
 import axios from 'axios';
 
-const AddAnswer = ({ question_id }) => {
+const AddAnswer = ({ question_id, handleSubmit }) => {
     const { curProduct } = useContext(ProductContext);
     const [show, setShow] = useState(false);
     const [ answer, setAnswer ] = useState('');
@@ -11,9 +11,7 @@ const AddAnswer = ({ question_id }) => {
     const [ email, setEmail ] = useState('');
 
     const handleClickSubmit = () => {
-        axios.post(`proxy/api/fec2/hratx/qa/questions/${question_id}/answers`, { body: answer, name: nickname, email: email, photos: [] })
-          .then(res => console.log(res))
-          .catch(err => {throw err});
+        handleSubmit({ body: answer, name: nickname, email: email, photos: [] }) 
         setShow(false);
     }
     

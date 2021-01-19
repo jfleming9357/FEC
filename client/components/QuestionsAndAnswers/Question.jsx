@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
+import axios from 'axios';
 
 const Question = ({ question }) => {
+  const [ answers, setAnswers ] = useState(Object.values(question.answers).sort((a, b) => b.helpfulness - a.helpfulness));
   const [ numAnswers, setNumAnswers ] = useState(2);
   const [ helpful, setHelpful ] = useState(false);
 
-  //Get and sort answers
-  let answers = Object.values(question.answers).sort((a, b) => b.helpfulness - a.helpfulness);
+  const handleNewAnswer = (answer) => {
+    axios.post(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/answers`, answer)
+      .then(() => setAnswers([...answers, { id: answers.length + 1, body: answer.body, answerer_name: answer.name, date: new Date(), helpfulness: 0, photos: answer.photos }]))
+      .then(() => setNumAnswers(answers.length + 1))
+      .catch(err => {throw err});
+  }
 
   const handleToggleHelpful = () => {
     //TODO
@@ -28,7 +34,7 @@ const Question = ({ question }) => {
             style={helpful ? {textDecoration: 'none'} : null}
           >Yes </span>
           {`${question.question_helpfulness} | `}
-          <AddAnswer question_id={question.question_id} />
+          <AddAnswer handleSubmit={handleNewAnswer} question_id={question.question_id} />
         </span>
       </div>
       <div className="d-question-A">A:</div>
