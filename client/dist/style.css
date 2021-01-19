@@ -58,8 +58,8 @@ body {
   margin-bottom: 1ch;
 }
 
-.d-underlined:hover, .d-adjust-answers:hover {
-  filter: brightness(300%);
+.d-underlined:hover, .d-adjust-answers:hover, .d-border-button:hover {
+  filter: brightness(200%);
   cursor: pointer;
 }
 

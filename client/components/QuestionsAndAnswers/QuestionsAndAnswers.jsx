@@ -13,7 +13,6 @@ const QuestionsAndAnswers = (props) => {
   const initialQuestions = tempProductQuestions.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
   const [ questions, setQuestions ] = useState(initialQuestions);
 
-  curProduct.id = 12013;
   //Initial data fetch
   useEffect(() => {
     axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}`)
@@ -59,7 +58,7 @@ const QuestionsAndAnswers = (props) => {
             </button>}
         </>
       }
-      <AddQuestion handleClick={handleAddQuestion} />
+      <AddQuestion handleSubmit={handleAddQuestion} />
     </div>
   );
 };
