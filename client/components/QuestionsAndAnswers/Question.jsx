@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.jsx';
+import AddAnswer from './AddAnswer.jsx';
 
 const Question = ({ question }) => {
   const [ numAnswers, setNumAnswers ] = useState(2);
@@ -27,7 +28,7 @@ const Question = ({ question }) => {
             style={helpful ? {textDecoration: 'none'} : null}
           >Yes </span>
           {`${question.question_helpfulness} | `}
-          <span className="d-underlined">Add Answer</span>
+          <AddAnswer question_id={question.question_id} />
         </span>
       </div>
       <div className="d-question-A">A:</div>
