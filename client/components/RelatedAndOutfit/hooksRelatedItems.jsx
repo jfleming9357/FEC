@@ -18,7 +18,6 @@ export const HooksRelatedItems = () => {
         .then((results) => {
           relatedProdInfoArr.push(results.data);
           if (index === relatedProductIds.length - 1) {
-            console.log(relatedProdInfoArr);
             setRelatedProductInfo(relatedProdInfoArr);
             setInitialized(true);
           }
