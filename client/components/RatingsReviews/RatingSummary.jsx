@@ -15,7 +15,7 @@ const RatingSummary = ({ allRatings }) => {
             starRatedColor='#394a6d'
             numberOfStars={5}
             name='rating'
-            starDimension='15px'
+            starDimension='20px'
           />
         </div>
         <div className='overallRating'>{ratingAverage.toFixed(1)}</div>

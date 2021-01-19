@@ -312,7 +312,7 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
-  border-width: 0px 0px 0px 0px;
+  /* border-width: 0px 0px 0px 0px; */
 }
 
 .SortReviews {
@@ -348,6 +348,7 @@ body {
 }
 
 .IndividualReview {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1.8fr;
@@ -356,6 +357,9 @@ body {
   grid-template-areas:
     "jStars . jDate"
     "ReviewText ReviewText ReviewText";
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
 }
 .jStars { grid-area: jStars; }
 .ReviewText { grid-area: ReviewText; }
@@ -449,4 +453,9 @@ body {
 .jXAxis {
   text-decoration: underline;
   font-weight: bold;
+}
+
+#helpfulAndReport {
+  position: absolute;
+  bottom: 0;
 }
