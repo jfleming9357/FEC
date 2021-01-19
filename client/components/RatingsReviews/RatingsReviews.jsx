@@ -17,14 +17,19 @@ const getMetaData = function (productId) {
 
 const RatingsAndReviews = (props) => {
   const [metaData, setMetaData] = useState(undefined);
+  const [initialized, setInitialized] = useState(false);
   useEffect(() => {
-    getMetaData(props.product_id)
-      .then((data) => {
-        setMetaData(data.data);
-      })
-      .catch((err) => {
-        throw err;
-      });
+    if (!initialized) {
+      getMetaData(props.product_id)
+        .then((data) => {
+          console.log(data);
+          setInitialized(true);
+          setMetaData(data.data);
+        })
+        .catch((err) => {
+          throw err;
+        });
+    }
   });
   if (metaData) {
     return (<div className="jcontainer">
