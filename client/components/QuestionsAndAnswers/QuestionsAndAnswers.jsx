@@ -29,7 +29,6 @@ const QuestionsAndAnswers = (props) => {
     })
     .then(() => setNumQuestions(questions.length))
     .catch(err => console.log('Error: ', err));
-    
   }
 
   //Search function
