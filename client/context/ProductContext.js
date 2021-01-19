@@ -1,28 +1,59 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
   singleProd,
   singleProdStyle,
 } from '../components/ProductOverview/tempData';
+import axios from 'axios';
 
 export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
-  let currentProduct = singleProd;
-  currentProduct.styles = singleProdStyle;
+  const [allProducts, setAllProducts] = useState(null);
+  const [curProduct, setCurProduct] = useState(null);
+  const [curStyle, setCurStyle] = useState(null);
 
-  const getDefaultStlye = () => {
-    let curStyle = curProduct.styles.results[0];
+  useEffect(() => {
+    if (!allProducts) {
+      getAllProduct();
+    } else {
+      // getSingleProduct(allProducts[0].id);
+      getSingleProduct(12016);
+    }
+  }, [allProducts]);
 
-    curProduct.styles.results.forEach((prod) => {
-      if (prod['default?']) {
-        curStyle = prod;
-      }
-    });
-
-    return curStyle;
+  const getAllProduct = () => {
+    return axios
+      .get('/proxy/api/fec2/hratx/products')
+      .then(({ data }) => setAllProducts(data))
+      .catch((err) => console.log(err));
   };
 
-  const [curProduct, setCurProduct] = useState(currentProduct);
-  const [curStyle, setCurStyle] = useState(getDefaultStlye);
+  const getSingleProduct = (prodID) => {
+    let tempProduct;
+    axios
+      .get(`/proxy/api/fec2/hratx/products/${prodID}`)
+      .then(({ data }) => {
+        tempProduct = data;
+      })
+      .then(() => {
+        return axios
+          .get(`/proxy/api/fec2/hratx/products/${prodID}/styles`)
+          .then(({ data }) => {
+            tempProduct.styles = data;
+            setCurProduct(tempProduct);
+
+            let tempStyle = tempProduct.styles.results[0];
+
+            tempProduct.styles.results.forEach((prod) => {
+              if (prod['default?']) {
+                tempStyle = prod;
+              }
+            });
+
+            setCurStyle(tempStyle);
+          });
+      })
+      .catch((err) => console.log(err));
+  };
 
   const updateCurStyle = (prodStyle) => {
     setCurStyle(prodStyle);
