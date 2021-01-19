@@ -8,7 +8,9 @@ export const StyleSelector = () => {
 
   return (
     <div className="mStyleBody">
-      <div className="styleSelectorLbl">STYLE = {curStyle.name}</div>
+      <div className="fs-4">
+        STYLE <b>&gt;</b> {curStyle.name}
+      </div>
       <div className="prodStyles">
         {curProduct.styles.results.map((product, i) => (
           <motion.div

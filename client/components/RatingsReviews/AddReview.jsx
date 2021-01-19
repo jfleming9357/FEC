@@ -12,7 +12,7 @@ const AddReview = () => {
       <button className='jButton' onClick={handleShow}>Add A Review</button>
       <Modal show={show}
         onHide={handleClose}>
-          tempProductQuestions
+          WOW A MODAL
       </Modal>
     </div>
   );

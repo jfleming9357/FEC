@@ -17,7 +17,8 @@ export const App = () => {
         <RelatedAndOutfit />
       </div>
       <QuestionsAndAnswers product_id={12012} /> {/* Placeholder product id before we connect modules */}
-      <div> <br />
+      <div> 
+        <br />
         <RatingsAndReviews product_id={12012}/>
       </div>
     </div>
