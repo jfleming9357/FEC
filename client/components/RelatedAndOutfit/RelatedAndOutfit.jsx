@@ -16,16 +16,17 @@ class RelatedAndOutfit extends React.Component {
   render() {
     return (
       <div
-        id="related-items-and-outfit"
-        className="c-module">
-        <div
-          className='c-related-items'>   RELATED ITEMS
+        className="c-related-items-and-outfit">
+          <section className='c-related-items'>
+        <div>
           <RelatedItems />
         </div>
-        <div
-          className='c-outfit'>   YOUR OUTFIT
+        </section>
+        <section className="c-outfit">
+        <div>
           <Outfit />
         </div>
+        </section>
       </div>
     )
   }
