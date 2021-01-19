@@ -60,14 +60,8 @@ class RelatedItems extends React.Component {
   render() {
     // console.log('Got related product ids? ', this.state.relatedProductIds);
     console.log('Got related product info? ', this.state.relatedProductInfo);
-    if (this.state.relatedProductInfo.length === 0) {
-      return (<div>NOTHING TO SEE HERE</div>);
-    } else {
-      return (<div>WE HAVE UPDATED!</div>)
-    }
 
-    //return (
-        {/*this.state.relatedProductInfo ? <div>Data Found {this.state.relatedProductInfo.length}</div> : <div onClick={() => {console.log(this.state.relatedProductInfo)}}>Loading....</div>}
+    return (
       <div style={{ height: 'auto', width: '400px' }}>
       <CarouselProvider
         className='c-related-items-carousel'
@@ -100,10 +94,8 @@ class RelatedItems extends React.Component {
         <ButtonBack>Back</ButtonBack>
         <ButtonNext>Next</ButtonNext>
       </CarouselProvider>
-      </div> */ }
-  //  );
+    </div> )
   }
-
 }
 
 export default RelatedItems;
