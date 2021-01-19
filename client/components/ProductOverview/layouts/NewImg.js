@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import {
@@ -10,7 +10,7 @@ import {
   Dot,
 } from 'pure-react-carousel';
 
-export const ImageGallery = () => {
+export const NewImg = () => {
   const { curStyle } = useContext(ProductContext);
   const [curSlide, setCurSlide] = useState(0);
 

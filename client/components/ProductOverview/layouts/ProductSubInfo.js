@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProductContext } from '../../../context/ProductContext';
 
 export const ProductSubInfo = () => {
+  const { curProduct } = useContext(ProductContext);
+
   return (
-    <div className="contianer">
-      <div className="container">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged.
-      </div>
+    <div
+      style={{ backgroundColor: 'pink' }}
+      className="container mRowBContainer"
+    >
+      <div className="h4">{curProduct.slogan}</div>
+      <div className="display-7">{curProduct.description}</div>
     </div>
   );
 };

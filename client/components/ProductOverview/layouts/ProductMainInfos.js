@@ -1,9 +1,9 @@
 import { ProductContext } from '../../../context/ProductContext';
 import React, { useContext } from 'react';
-import { CustomSelect } from '../widgets/CustomSelect';
-import { Ratings } from '../widgets/Ratings';
 import { StyleSelector } from '../widgets/StyleSelector';
 import { ToBagToFavBtns } from '../widgets/ToBagToFavBtns';
+import { GetSizeGetQty } from '../widgets/GetSizeGetQty';
+import { Ratings } from '../widgets/Ratings';
 
 export const ProductMainInfos = () => {
   const { curProduct, curStyle } = useContext(ProductContext);
@@ -16,12 +16,12 @@ export const ProductMainInfos = () => {
   }
 
   return (
-    <div className="mProdMainInfo">
+    <>
       <Ratings />
       <div className="fs-4 text-muted">{curProduct.category}</div>
-      <div className="fs-2 fw-bold">{curProduct.name}</div>
+      <div className="fs-1 fw-bold">{curProduct.name}</div>
       {curStyle.sale_price ? (
-        <div className="fs-5 fw-bold d-flex">
+        <div className="col fs-5 d-flex fw-bold">
           <p style={{ color: 'red' }}>${curStyle.sale_price}</p>
           <u style={{ marginLeft: '10px', textDecoration: 'line-through' }}>
             ${curStyle.original_price}
@@ -32,16 +32,21 @@ export const ProductMainInfos = () => {
           <p>${curStyle.original_price}</p>
         </div>
       )}
+      <div className="col">
+        <div className="btn btn-outline-secondary">
+          <i class="fab fa-facebook"></i> Facebook
+        </div>
+        <div className="btn btn-outline-secondary mx-3">
+          <i class="fab fa-twitter"></i> Twitter
+        </div>
+        <div className="btn btn-outline-secondary">
+          <i class="fab fa-pinterest"></i> Pinterest
+        </div>
+      </div>
 
       <StyleSelector />
-
-      <div className="mSizeQtyRow">
-        <CustomSelect options={curSizes} defaultTitle="Select Size" />
-      </div>
-
-      <div className="mCartStar">
-        <ToBagToFavBtns />
-      </div>
-    </div>
+      <GetSizeGetQty />
+      <ToBagToFavBtns />
+    </>
   );
 };
