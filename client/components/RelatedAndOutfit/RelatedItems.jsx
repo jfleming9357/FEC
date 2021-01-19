@@ -1,16 +1,18 @@
 import React from 'react';
-import exampleData from './exampleData.js';
 import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import CardRelated from './CardRelated.jsx';
+
+
 
 class RelatedItems extends React.Component {
   constructor() {
     super();
     this.state = {
       relatedProductIds: [],
-      relatedProductInfo: [],
+      relatedProductInfo: undefined,
       /// once a product has been gathered, don't do it again!
       cachedProductInfo: {}
     }
@@ -32,11 +34,12 @@ class RelatedItems extends React.Component {
         //   return this.state.cachedProductInfo[item];
         // }
       })
-      )
-      .then(() => {
-        this.setState({ relatedProductInfo: relatedProdInfoArr })
+    )
+    .then(() => {
+      console.log(relatedProdInfoArr);
+      this.setState({ relatedProductInfo: relatedProdInfoArr }, () => {
       })
-      // return relatedProdInfoArr;
+    })
   }
 
   getRelatedProductIds(productId) {
@@ -44,10 +47,9 @@ class RelatedItems extends React.Component {
     axios.get(url)
     .then((results) => {this.state.relatedProductIds = results.data})
     .then(() => this.getRelatedProductInfo(this.state.relatedProductIds))
-    // .then((data) => {
-    //   console.log('WE MADE IT TO LINE 48!!!', data);
-    //   this.setState({relatedProductInfo: data});
-    //   })
+    .then((data) => {
+
+      })
     .catch((error) => {
       console.error('OOOPS!  There was an error getting the list of items related to this one.');
     })
@@ -60,6 +62,16 @@ class RelatedItems extends React.Component {
   render() {
     // console.log('Got related product ids? ', this.state.relatedProductIds);
     console.log('Got related product info? ', this.state.relatedProductInfo);
+    if (this.state.relatedProductInfo) {
+      console.log('rel', this.state.relatedProductInfo);
+      return (<div>{this.state.relatedProductInfo.map((data) => {
+        return (
+          <div>data.id</div>
+        )
+      })}</div>);
+    } else {
+      return (<div>nothing</div>)
+    }
 
     return (
       <div style={{ height: 'auto', width: '400px' }}>
