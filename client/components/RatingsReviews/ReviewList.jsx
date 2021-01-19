@@ -18,24 +18,24 @@ export const ReviewList = (props) => {
   const [moreReviews, setMoreReviews] = useState('');
   const [initialized, setInitialized] = useState(false);
   useEffect(() => {
-    if (!initialized) {
-      getReviews(props.id)
-        .then(((data) => {
-          setInitialized(true);
-          setReviews(data.data.results.map((result) => {
-            return (
-              <div className='ReviewList' key={result.review_id}>
-                <div className="IndividualReview">
-                  <div className="ReviewText">{result.summary}</div>
-                  <div className="jStars">Stars Placeholder</div>
-                  <div className="jDate">Date Placeholder</div>
-                </div>
+    getReviews(props.id)
+      .then(((data) => {
+        setReviews(data.data.results.map((result) => {
+          return (
+            <div className='ReviewList' key={result.review_id}>
+              <div className="IndividualReview">
+                <div className="ReviewText">{result.summary}</div>
+                <div className="jStars">Stars Placeholder</div>
+                <div className="jDate">Date Placeholder</div>
               </div>
-            );
-          }));
+            </div>
+          );
         }));
-    }
-  });
+      }))
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
 
   return (
     <div className='ReviewList'>
