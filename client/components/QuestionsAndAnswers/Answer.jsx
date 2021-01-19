@@ -7,9 +7,8 @@ const Answer = ({ answer, asker }) => {
 
   const handleToggleHelpful = () => {
     //TODO
-    console.log('called');
     setHelpful(!helpful);
-  }
+  };
 
   return <>
     <div className="d-answer">
@@ -26,17 +25,17 @@ const Answer = ({ answer, asker }) => {
         {` (${answer.helpfulness})  | `}
         {reported
           ? <span
-              className="d-underlined"
-              style={{filter: "brightness(300%)", textDecoration: 'none', pointerEvents: 'none' }}
-            >Reported</span>
+            className="d-underlined"
+            style={{filter: 'brightness(300%)', textDecoration: 'none', pointerEvents: 'none' }}
+          >Reported</span>
           : <span
-              className="d-underlined"
-              onClick={() => setReported(true)}
-            >Report</span>
+            className="d-underlined"
+            onClick={() => setReported(true)}
+          >Report</span>
         }
       </div>
     </div>
-  </>
+  </>;
 };
 
 export default Answer;
