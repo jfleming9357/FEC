@@ -32,21 +32,23 @@ export const ProductMainInfos = () => {
           <p>${curStyle.original_price}</p>
         </div>
       )}
-      <div className="col">
-        <div className="btn btn-outline-secondary">
-          <i class="fab fa-facebook"></i> Facebook
-        </div>
-        <div className="btn btn-outline-secondary mx-3">
-          <i class="fab fa-twitter"></i> Twitter
-        </div>
-        <div className="btn btn-outline-secondary">
-          <i class="fab fa-pinterest"></i> Pinterest
+
+      <div className="row">
+        <div className="col">
+          <div className="btn btn-outline-secondary">
+            <i className="fab fa-facebook"></i> Facebook
+          </div>
+          <div className="btn btn-outline-secondary mx-3">
+            <i className="fab fa-twitter"></i> Twitter
+          </div>
+          <div className="btn btn-outline-secondary">
+            <i className="fab fa-pinterest"></i> Pinterest
+          </div>
         </div>
       </div>
 
       <StyleSelector />
       <GetSizeGetQty />
-      <ToBagToFavBtns />
     </>
   );
 };
