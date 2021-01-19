@@ -17,25 +17,52 @@ export const GetSizeGetQty = () => {
   };
 
   return (
-    <div className="row g-7 ">
-      <div className="col-8">
-        <select onChange={getSizeHandler} className="form-select">
-          {sizeSelected === false && <option>Select Size</option>}
-          {Object.keys(curStyle.skus).map((key, i) => (
-            <option key={i} value={curStyle.skus[key].quantity}>
-              {curStyle.skus[key].size}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="col-4">
-        {!sizeSelected ? (
-          <select className="form-select" disabled>
-            <option value="empty">-</option>
+    <div className="dropdown">
+      <div className="row g-7 ">
+        <div className="col-8">
+          <select
+            disabled={curStyle.skus.null ? true : false}
+            onChange={getSizeHandler}
+            className="form-select"
+          >
+            {sizeSelected === false && (
+              <option>
+                {curStyle.skus.null ? 'OUT OF STOCK' : 'Select Size'}
+              </option>
+            )}
+            {Object.keys(curStyle.skus).map((key, i) => (
+              <option key={i} value={curStyle.skus[key].quantity}>
+                {curStyle.skus[key].size}
+              </option>
+            ))}
           </select>
-        ) : (
-          <select className="form-select">{totalQty}</select>
-        )}
+        </div>
+        <div className="col-4">
+          {!sizeSelected ? (
+            <select className="form-select" disabled>
+              <option value="empty">-</option>
+            </select>
+          ) : (
+            <select className="form-select">{totalQty}</select>
+          )}
+        </div>
+      </div>
+      <br />
+      <div className="row g-7">
+        <div className="col-10">
+          {curStyle.skus.null ? (
+            <></>
+          ) : (
+            <div className="btn form-control btn-outline-secondary btn-lg">
+              ADD TO BAG
+            </div>
+          )}
+        </div>
+        <div className="col-2">
+          <div className="btn form-control btn-outline-secondary btn-lg">
+            <i className="bi bi-star"></i>
+          </div>
+        </div>
       </div>
     </div>
   );
