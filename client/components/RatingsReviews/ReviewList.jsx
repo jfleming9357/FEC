@@ -3,6 +3,7 @@ import axios from 'axios';
 import AddReview from './AddReview.jsx';
 import StarRatings from 'react-star-ratings';
 import { helpfulClick, reportClick } from './handleReviewClicks.jsx';
+import { IndividualReview } from './individualReview.jsx';
 
 const getReviews = (productId) => {
   let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' + productId;
@@ -23,7 +24,6 @@ export const ReviewList = (props) => {
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
-
   useEffect(() => {
     let counter = 0;
     getReviews(props.id)
@@ -34,29 +34,12 @@ export const ReviewList = (props) => {
           result.date = monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
           if (counter <= numReviews ) {
             return (
-              <div className='ReviewList' key={result.review_id}>
-                <div className="IndividualReview">
-                  <div className="jStars"> <StarRatings
-                    rating={result.rating}
-                    starRatedColor='#394a6d'
-                    numberOfStars={5}
-                    name='rating'
-                    starDimension='20px'
-                  /></div>
-                  <div className="jDate">{result.reviewer_name + ' ' + result.date}</div><br />
-                  <div className="ReviewText">
-                    <strong>{result.summary}</strong>
-                    <div>{result.body}</div>
-                    <div id="jResponse">{result.response}</div>
-                    <div id="helpfulAndReport">Helpful?&nbsp;
-                      <span
-                        className="d-underlined"
-                        onClick={helpfulClick}
-                      >Yes</span> {result.helpfulness}   |&nbsp;
-                      <span onClick={reportClick}>Report</span></div>
-                  </div>
-                </div>
-              </div>
+              <IndividualReview
+                result={result}
+                counter={counter}
+                date={date}
+                key={counter}
+              />
             );
           }
         }));
