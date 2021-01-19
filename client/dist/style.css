@@ -276,3 +276,8 @@ body {
   border: 1px solid black;
   text-align: center;
 }
+
+.jModal {
+  height: 200%;
+  width: 200%;
+}

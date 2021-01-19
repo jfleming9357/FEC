@@ -4,7 +4,7 @@ import exampleData from './exampleData.js';
 class RelatedItems extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
 
@@ -25,7 +25,7 @@ class RelatedItems extends React.Component {
       <div>
        *** MAGICAL CAROUSEL OF RELATED ITEMS! ***
       </div>
-    )
+    );
   }
 }
 
