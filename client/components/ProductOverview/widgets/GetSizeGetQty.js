@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 
 export const GetSizeGetQty = () => {
-  const { curStyle } = useContext(ProductContext);
+  const { curStyle, getProductRating } = useContext(ProductContext);
   const [totalQty, setTotalQty] = useState([<option key="123">QTY</option>]);
   const [sizeSelected, setSizeSelected] = useState(false);
+  const [dropdownMsg, setDropdownMsg] = useState('');
 
   const getSizeHandler = (e) => {
     let qtyLimit = e.target.value > 15 ? 15 : e.target.value;
@@ -16,14 +17,34 @@ export const GetSizeGetQty = () => {
     setTotalQty([newItems]);
   };
 
+  $('#sizeSelect option').on({
+    click: function () {
+      $('#sizeSelect').attr('size', 1);
+      setDropdownMsg('');
+    },
+  });
+
+  const btnHandler = () => {
+    if (sizeSelected) {
+      alert('Product added');
+    } else {
+      setDropdownMsg('Please select size');
+      var s = $('#sizeSelect').attr('size') == 1 ? 5 : 1;
+      $('#sizeSelect').attr('size', s);
+    }
+  };
+
   return (
     <div className="dropdown">
       <div className="row g-7 ">
         <div className="col-8">
+          <p className="text-danger">{dropdownMsg}</p>
           <select
+            id="sizeSelect"
             disabled={curStyle.skus.null ? true : false}
             onChange={getSizeHandler}
             className="form-select"
+            size="1"
           >
             {sizeSelected === false && (
               <option>
@@ -38,6 +59,7 @@ export const GetSizeGetQty = () => {
           </select>
         </div>
         <div className="col-4">
+          <p></p>
           {!sizeSelected ? (
             <select className="form-select" disabled>
               <option value="empty">-</option>
@@ -53,7 +75,10 @@ export const GetSizeGetQty = () => {
           {curStyle.skus.null ? (
             <></>
           ) : (
-            <div className="btn form-control btn-outline-secondary btn-lg">
+            <div
+              onClick={() => btnHandler()}
+              className="btn form-control btn-outline-secondary btn-lg"
+            >
               ADD TO BAG
             </div>
           )}

@@ -1,7 +1,6 @@
 import { ProductContext } from '../../../context/ProductContext';
 import React, { useContext } from 'react';
 import { StyleSelector } from '../widgets/StyleSelector';
-import { ToBagToFavBtns } from '../widgets/ToBagToFavBtns';
 import { GetSizeGetQty } from '../widgets/GetSizeGetQty';
 import { Ratings } from '../widgets/Ratings';
 
