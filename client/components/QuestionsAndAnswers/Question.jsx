@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.jsx';
 import AddAnswer from './AddAnswer.jsx';
@@ -12,13 +13,13 @@ const Question = ({ question }) => {
     axios.post(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/answers`, answer)
       .then(() => setAnswers([...answers, { id: answers.length + 1, body: answer.body, answerer_name: answer.name, date: new Date(), helpfulness: 0, photos: answer.photos }]))
       .then(() => setNumAnswers(answers.length + 1))
-      .catch(err => {throw err});
-  }
+      .catch(err => { throw err; });
+  };
 
   const handleHelpful = () => {
     axios.put(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/helpful?question_id=${question.question_id}`)
       .then(() => setHelpful(!helpful))
-      .catch(err => {throw err});
+      .catch(err => { throw err; });
   };
 
   return (
