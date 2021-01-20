@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
-import { SelectorIndicator } from './SelectorIndicator';
 import { motion } from 'framer-motion';
 
 export const StyleSelector = () => {
@@ -30,7 +29,9 @@ export const StyleSelector = () => {
                 backgroundImage: `url(${product.photos[0].thumbnail_url})`,
               }}
             >
-              {curStyle.style_id === product.style_id && <SelectorIndicator />}
+              {curStyle.style_id === product.style_id && (
+                <div className="mSelectorIndicator">✓</div>
+              )}
             </motion.div>
           ) : (
             <div key={product.style_id}></div>
