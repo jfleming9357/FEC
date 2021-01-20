@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
@@ -9,11 +10,11 @@ const AddQuestion = ({ handleSubmit }) => {
   const [question, setQuestion] = useState('');
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
-  
+
   const handleClickSubmit = () => {
-    handleSubmit({ body: question, name: nickname, email: email, product_id: curProduct.id })
+    handleSubmit({ body: question, name: nickname, email: email, product_id: curProduct.id });
     setShow(false);
-  }
+  };
 
   return <>
     <div
@@ -44,7 +45,7 @@ const AddQuestion = ({ handleSubmit }) => {
           </Form.Group>
           <Form.Group>
             <Form.Label>Your Email</Form.Label>
-            <Form.Control required type="email" placeholder="joe_josephson@joe.com" onChange={(e) => setEmail(e.target.value)}/>  
+            <Form.Control required type="email" placeholder="joe_josephson@joe.com" onChange={(e) => setEmail(e.target.value)}/>
           </Form.Group>
         </Form>
       </Modal.Body>
