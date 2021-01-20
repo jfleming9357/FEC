@@ -1,28 +1,28 @@
-/* eslint-disable camelcase */
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { ProductContext } from '../../context/ProductContext';
+import axios from 'axios';
 
-const AddQuestion = ({ handleSubmit }) => {
+// eslint-disable-next-line camelcase
+const AddAnswer = ({ question_id, handleSubmit }) => {
   const { curProduct } = useContext(ProductContext);
   const [show, setShow] = useState(false);
-  const [question, setQuestion] = useState('');
-  const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
+  const [ answer, setAnswer ] = useState('');
+  const [ nickname, setNickname ] = useState('');
+  const [ email, setEmail ] = useState('');
 
   const handleClickSubmit = () => {
-    handleSubmit({ body: question, name: nickname, email: email, product_id: curProduct.id });
+    handleSubmit({ body: answer, name: nickname, email: email, photos: [] });
     setShow(false);
   };
 
   return <>
-    <div
-      className="d-border-button"
+    <span
       onClick={() => setShow(true)}
+      className="d-underlined"
     >
-      Add A Question
-    </div>
+            Add Answer
+    </span>
     <Modal
       show={show}
       onHide={() => setShow(false)}
@@ -36,8 +36,8 @@ const AddQuestion = ({ handleSubmit }) => {
       <Modal.Body>
         <Form>
           <Form.Group>
-            <Form.Label>Your Question</Form.Label>
-            <Form.Control required type="text" as="textarea" onChange={(e) => setQuestion(e.target.value)} />
+            <Form.Label>Your Answer</Form.Label>
+            <Form.Control required type="text" as="textarea" onChange={(e) => setAnswer(e.target.value)} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Your Nickname</Form.Label>
@@ -51,14 +51,14 @@ const AddQuestion = ({ handleSubmit }) => {
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => setShow(false)}>
-          Close
+                Close
         </Button>
         <Button variant="primary" onClick={handleClickSubmit}>
-          Submit
+                Submit
         </Button>
       </Modal.Footer>
     </Modal>
   </>;
 };
 
-export default AddQuestion;
+export default AddAnswer;

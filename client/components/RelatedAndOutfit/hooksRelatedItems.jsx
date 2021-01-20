@@ -8,7 +8,6 @@ import CardRelated from './CardRelated.jsx';
 export const HooksRelatedItems = () => {
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
-  const [initialized, setInitialized] = useState(false);
 
   const getRelatedProductInfo = () => {
     let relatedProdInfoArr = [];
@@ -22,10 +21,11 @@ export const HooksRelatedItems = () => {
           }
         })
         .catch((error) => {
-          console.error(error,'OOOPS!  There was an error getting the information about related product.');
+          console.error(error, 'OOOPS!  There was an error getting the information about related product.');
         });
     });
   };
+
   useEffect(() => {
     let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12013/related';
     axios.get(url)
@@ -41,19 +41,8 @@ export const HooksRelatedItems = () => {
     getRelatedProductInfo();
   }, [relatedProductIds]);
 
-  useEffect(() => {
-    if (relatedProductIds.length > 0 && relatedProductInfo.length === relatedProductIds.length) {
-      setInitialized(true);
-    }
-  }, [relatedProductInfo]);
-
-  if (initialized === true) {
-    console.log(relatedProductInfo);
-    return (<div onClick={() => {
-    }}>{relatedProductInfo.map((item, index) => {
-        return (<div key={index}>{item.name}</div>);
-      })}</div>);
-  } else {
-    return (<div>Loading...</div>);
-  }
+  return (<div onClick={() => {
+  }}>{relatedProductInfo.map((item, index) => {
+      return (<div key={index}>{item.name}</div>);
+    })}</div>);
 };

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from './SearchBar.jsx';
 import QuestionList from './QuestionList.jsx';
@@ -11,20 +12,23 @@ const QuestionsAndAnswers = (props) => {
   const [ numQuestions, setNumQuestions ] = useState(2);
   //Initial questions set is sorted by helpfulness
   const initialQuestions = tempProductQuestions.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
-  const [ questions, setQuestions ] = useState(initialQuestions);
+  const [ questions, setQuestions ] = useState([]);
 
-  curProduct.id = 12013;
   //Initial data fetch
   useEffect(() => {
-    axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}`)
+    axios.get(`proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}&count=50`)
       .then(res => {
         setQuestions(res.data.results);
       });
   }, [curProduct.id]);
 
-  const handleAddQuestion = () => {
-    // console.log('Adding question!');
-    //TODO
+  const handleAddQuestion = (question) => {
+    axios.post('proxy/api/fec2/hratx/qa/questions', question)
+      .then(() => {
+        setQuestions([...questions, { question_id: questions.length + 1, question_body: question.body, question_helpfulness: 0, asker_name: question.name}]);
+      })
+      .then(() => setNumQuestions(questions.length))
+      .catch(err => console.log('Error: ', err));
   };
 
   //Search function
@@ -58,7 +62,7 @@ const QuestionsAndAnswers = (props) => {
             </button>}
         </>
       }
-      <AddQuestion handleClick={handleAddQuestion} />
+      <AddQuestion handleSubmit={handleAddQuestion} />
     </div>
   );
 };

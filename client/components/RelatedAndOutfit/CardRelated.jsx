@@ -1,7 +1,7 @@
 import React from 'react';
 
 var CardRelated = (props) => {
-  console.log("got props?", props)
+  console.log('got props?', props);
   return (
     <article className="c-related-card">
       {/* NEEDS IMAGE */}
@@ -18,9 +18,9 @@ var CardRelated = (props) => {
         <h3>Product Name</h3>
         <h5>Product Price, StarsRating</h5>
       </div>
-  </article>
-  )
-}
+    </article>
+  );
+};
 
 
 export default CardRelated;
