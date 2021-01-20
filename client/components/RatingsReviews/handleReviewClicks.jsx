@@ -12,6 +12,7 @@ export const helpfulClick = (e) => {
 };
 
 export const reportClick = (e) => {
+  //axios call works, disabled so that i dont accidentally remove all the reviews for testing
   console.log('go cry about it');
   let url = `http://localhost:3000/proxy/api/fec2/hratx/reviews/${e.target.id}/report`;
   // axios.put(url)
