@@ -48,20 +48,20 @@ const QuestionsAndAnswers = (props) => {
       <strong>QUESTIONS &amp; ANSWERS</strong>
       <SearchBar handleInput={handleSearch}/>
       {questions.length > 0 &&
-        <>
-          <QuestionList
-            questions={questions.length > numQuestions ? questions.slice(0, numQuestions) : questions}
-          />
-          {numQuestions < questions.length &&
-            <button
-              className="d-border-button"
-              onClick={() => setNumQuestions(numQuestions + 2)}
-            >
-              More Questions
-            </button>}
-        </>
+        <QuestionList
+          questions={questions.length > numQuestions ? questions.slice(0, numQuestions) : questions}
+        />
       }
-      <AddQuestion handleSubmit={handleAddQuestion} />
+      <div className="d-module-bottom">
+        {questions.length > 0 && numQuestions < questions.length &&
+          <button
+            className="d-border-button d-more-questions"
+            onClick={() => setNumQuestions(numQuestions + 2)}
+          >
+            More Questions
+          </button>}
+        <AddQuestion handleSubmit={handleAddQuestion} />
+      </div>
     </div>
   );
 };

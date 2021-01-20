@@ -17,7 +17,7 @@ const AddQuestion = ({ handleSubmit }) => {
 
   return <>
     <div
-      className="d-border-button"
+      className="d-add-question d-border-button"
       onClick={() => setShow(true)}
     >
       Add A Question
