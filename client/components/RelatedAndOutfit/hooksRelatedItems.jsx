@@ -22,7 +22,7 @@ export const HooksRelatedItems = () => {
           }
         })
         .catch((error) => {
-          console.error(error,'OOOPS!  There was an error getting the information about related product.');
+          console.error(error, 'OOOPS!  There was an error getting the information about related product.');
         });
     });
   };
@@ -48,7 +48,6 @@ export const HooksRelatedItems = () => {
   }, [relatedProductInfo]);
 
   if (initialized === true) {
-    console.log(relatedProductInfo);
     return (<div onClick={() => {
     }}>{relatedProductInfo.map((item, index) => {
         return (<div key={index}>{item.name}</div>);

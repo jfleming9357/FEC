@@ -37,7 +37,6 @@ class RelatedItems extends React.Component {
       })
     )
       .then(() => {
-        console.log(relatedProdInfoArr);
         this.setState({ relatedProductInfo: relatedProdInfoArr }, () => {
         });
       });
