@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.jsx';
+import AddAnswer from './AddAnswer.jsx';
+import axios from 'axios';
 
 const Question = ({ question }) => {
+  const [ answers, setAnswers ] = useState(Object.values(question.answers).sort((a, b) => b.helpfulness - a.helpfulness));
   const [ numAnswers, setNumAnswers ] = useState(2);
   const [ helpful, setHelpful ] = useState(false);
 
-  //Get and sort answers
-  let answers = Object.values(question.answers).sort((a, b) => b.helpfulness - a.helpfulness);
+  const handleNewAnswer = (answer) => {
+    axios.post(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/answers`, answer)
+      .then(() => setAnswers([...answers, { id: answers.length + 1, body: answer.body, answerer_name: answer.name, date: new Date(), helpfulness: 0, photos: answer.photos }]))
+      .then(() => setNumAnswers(answers.length + 1))
+      .catch(err => {throw err});
+  }
 
-  const handleToggleHelpful = () => {
-    //TODO
-    // console.log('called');
-    setHelpful(!helpful);
+  const handleHelpful = () => {
+    axios.put(`proxy/api/fec2/hratx/qa/questions/${question.question_id}/helpful?question_id=${question.question_id}`)
+      .then(() => setHelpful(!helpful))
+      .catch(err => {throw err});
   };
 
   return (
     <div className="d-question">
-      <span className="d-question-Q">Q:</span>
+      <strong className="d-question-Q">Q:</strong>
       <div className="d-question-top">
         <span className="d-question-body">{question.question_body}</span>
         <span className="d-question-toolbar">
           {'Helpful ? '}
           <span
             className="d-underlined"
-            onClick={handleToggleHelpful}
+            onClick={helpful ? null : handleHelpful}
             style={helpful ? {textDecoration: 'none'} : null}
           >Yes </span>
-          {`${question.question_helpfulness} | `}
-          <span className="d-underlined">Add Answer</span>
+          {`${helpful ? question.question_helpfulness + 1 : question.question_helpfulness} | `}
+          <AddAnswer handleSubmit={handleNewAnswer} question_id={question.question_id} />
         </span>
       </div>
-      <div className="d-question-A">A:</div>
+      <strong className="d-question-A">A:</strong>
       <div className="d-question-bottom">
         <AnswerList
           answers={answers.length > numAnswers ? answers.slice(0, numAnswers) : answers}
@@ -41,7 +48,7 @@ const Question = ({ question }) => {
             className="d-adjust-answers"
             onClick={() => setNumAnswers(answers.length)}>SEE MORE ANSWERS
           </strong>)
-          : (numAnswers === answers.length && <strong
+          : (numAnswers === answers.length && numAnswers > 2 && <strong
             className="d-adjust-answers"
             onClick={() => setNumAnswers(2)}>Collapse Answers
           </strong>)
