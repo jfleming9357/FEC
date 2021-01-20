@@ -110,7 +110,6 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
-  /* border-width: 0px 0px 0px 0px; */
 }
 
 .SortReviews {
@@ -119,10 +118,6 @@ body {
 
 .ReviewList {
   grid-area: ReviewList;
-}
-
-.jcontainer > div {
-  border: 1px solid black;
 }
 
 .jButtonContainer {
@@ -154,8 +149,10 @@ body {
   gap: 20px 20px;
   height: 200px;
   grid-template-areas:
-    "jStars . jDate"
-    "ReviewText ReviewText ReviewText";
+    'jStars . jDate'
+    'ReviewText ReviewText ReviewText';
+  border: 2px solid black;
+  border-width: 0px 0px 2px 0px;
 }
 .jStars {
   grid-area: jStars;
@@ -181,7 +178,7 @@ body {
 
 .RatingSummary {
   grid-area: RatingSummary;
-  height: 200px;
+  height: 75px;
 }
 
 .RatingBreakdown {
@@ -200,7 +197,6 @@ body {
   font-weight: bold;
 }
 
-<<<<<<< HEAD
 .c-related-items-and-outfit{
   position: center;
   min-width: auto;
@@ -232,7 +228,7 @@ body {
   margin: 0 auto;
   border: 1px solid black;
   padding: 10px;
-=======
+}
 /* Three column layout */
 .side {
   float: left;
@@ -267,10 +263,7 @@ body {
 }
 
 /* Individual bars */
-.jbars {
-  height: 14px;
-  background-color: black;
-}
+.jbars {height: 10px; background-color: black;}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 300px) {
@@ -312,7 +305,6 @@ body {
   background-color: white;
   border: 1px solid black;
   text-align: center;
->>>>>>> 413e6a51482077162de0b602ce81f7af9f86cdd1
 }
 
 .c-related-card{
@@ -320,6 +312,10 @@ body {
   height: 340px;
 }
 
+.jModal {
+  height: 200%;
+  width: 200%;
+}
 .c-related-card-header {
   max-height: 30px;
   max-width: 20px;

@@ -7,7 +7,7 @@ class Outfit extends React.Component {
     super(props);
     this.state = {
       outfitList: []
-    }
+    };
   }
 
   /// methods here
@@ -16,7 +16,7 @@ class Outfit extends React.Component {
     return (
       <div>
       </div>
-    )
+    );
   }
 }
 

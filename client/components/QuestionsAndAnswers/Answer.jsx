@@ -9,13 +9,13 @@ const Answer = ({ answer, asker }) => {
   const handleHelpful = () => {
     axios.put(`proxy/api/fec2/hratx/qa/answers/${answer.id}/helpful?question_id=${answer.id}`)
       .then(() => setHelpful(true))
-      .catch(err => {throw err});
+      .catch(err => { throw err; });
   };
 
   const handleReport = () => {
     axios.put(`proxy/api/fec2/hratx/qa/answers/${answer.id}/report?question_id=${answer.id}`)
       .then(() => setReported(true))
-      .catch(err => {throw err});
+      .catch(err => { throw err; });
   };
 
   return <>
