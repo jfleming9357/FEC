@@ -29,7 +29,7 @@ const RatingsAndReviews = (props) => {
   if (metaData) {
     return (<div className="jcontainer">
       <SortReviews />
-      <ReviewList id={props.product_id || 12012}/>
+      <ReviewList id={props.product_id || 12013} characteristics={metaData.characteristics}/>
       <div className="ReviewSideBar">
         <div className="SideBarContainer">
           <RatingSummary allRatings={metaData.ratings}/>

@@ -28,7 +28,7 @@ export const ReviewList = (props) => {
       .then(((data) => {
         setReviews(data.data.results.map((result, index) => {
           let date = new Date(result.date);
-          result.date = monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+          result.date = monthNames[date.getMonth()] + ' ' + (parseInt(date.getDate()) + 1) + ', ' + date.getFullYear();
           if (index < numReviews ) {
             return (
               <IndividualReview
@@ -56,7 +56,7 @@ export const ReviewList = (props) => {
             setNumReviews(numReviews + 2);
           }}>More Reviews</button>
         }
-        <AddReview />
+        <AddReview productId={props.id} characteristics={props.characteristics}/>
       </div>
     </div>
   );
