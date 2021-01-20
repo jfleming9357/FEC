@@ -33,124 +33,136 @@ export const ImageGallery = () => {
   };
 
   return (
-    <CarouselProvider
-      totalSlides={curStyle.photos.length}
-      naturalSlideHeight={100}
-      naturalSlideWidth={100}
-      dragEnabled={false}
-    >
-      <div style={{ height: '700px', width: '700px', position: 'relative' }}>
+    <div className="m-auto">
+      <CarouselProvider
+        totalSlides={curStyle.photos.length}
+        naturalSlideHeight={100}
+        naturalSlideWidth={100}
+        dragEnabled={false}
+      >
         <div
-          className="position-absolute row h-100 w-100"
-          style={{ zIndex: '1' }}
+          className="bg-secondary"
+          style={{
+            height: '700px',
+            width: '700px',
+            position: 'relative',
+          }}
         >
-          <div className="col-2">
-            <div className="col p-3">
-              {curSlide - 6 > 0 && curSlide !== 0 && (
+          <div
+            className="position-absolute row h-100 w-100"
+            style={{ zIndex: '1' }}
+          >
+            <div className="col-2">
+              <div className="col p-3">
+                {curSlide - 6 > 0 && curSlide !== 0 && (
+                  <ButtonBack
+                    onClick={() => prevImg()}
+                    className="mCarouselStyle"
+                  >
+                    <span>
+                      <i className="fas fa-arrow-up text-light fs-3"></i>
+                    </span>
+                  </ButtonBack>
+                )}
+                {curStyle.photos.map(({ thumbnail_url }, i) => {
+                  return (
+                    thumbnail_url &&
+                    i >= slideStart &&
+                    i < slideEnd && (
+                      <Dot
+                        onClick={() => setCurSlide(i)}
+                        className="mCarouselStyle"
+                        slide={i}
+                        key={i}
+                      >
+                        <div
+                          className="bg-secondary my-2"
+                          style={{
+                            height: '50px',
+                            width: '50px',
+                            backgroundImage: `url(${thumbnail_url})`,
+                            opacity: curSlide === i ? '' : '50%',
+                            border: curSlide === i && '2px solid black',
+                          }}
+                        ></div>
+                      </Dot>
+                    )
+                  );
+                })}
+                {curStyle.photos.length - 6 > 0 &&
+                  curSlide !== curStyle.photos.length - 1 && (
+                    <ButtonNext
+                      onClick={() => nextImg()}
+                      className="mCarouselStyle"
+                    >
+                      <span>
+                        <i className="fas fa-arrow-down text-light fs-3"></i>
+                      </span>
+                    </ButtonNext>
+                  )}
+              </div>
+            </div>
+            <div className="col-10 d-flex justify-content-between align-items-center">
+              {curSlide !== 0 ? (
                 <ButtonBack
                   onClick={() => prevImg()}
                   className="mCarouselStyle"
                 >
-                  <span>
-                    <i className="fas fa-arrow-up text-light fs-3"></i>
-                  </span>
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
                 </ButtonBack>
+              ) : (
+                <div></div>
               )}
-              {curStyle.photos.map(({ thumbnail_url }, i) => {
-                return (
-                  thumbnail_url &&
-                  i >= slideStart &&
-                  i < slideEnd && (
-                    <Dot
-                      onClick={() => setCurSlide(i)}
-                      className="mCarouselStyle"
-                      slide={i}
-                      key={i}
-                    >
-                      <div
-                        className="bg-secondary my-2"
-                        style={{
-                          height: '50px',
-                          width: '50px',
-                          backgroundImage: `url(${thumbnail_url})`,
-                          opacity: curSlide === i ? '' : '50%',
-                          border: curSlide === i && '2px solid black',
-                        }}
-                      ></div>
-                    </Dot>
-                  )
-                );
-              })}
-              {curStyle.photos.length - 6 > 0 &&
-                curSlide !== curStyle.photos.length - 1 && (
-                  <ButtonNext
-                    onClick={() => nextImg()}
-                    className="mCarouselStyle"
-                  >
-                    <span>
-                      <i className="fas fa-arrow-down text-light fs-3"></i>
-                    </span>
-                  </ButtonNext>
-                )}
+
+              {curSlide !== curStyle.photos.length - 1 ? (
+                <ButtonNext
+                  onClick={() => nextImg()}
+                  className="mCarouselStyle float-right"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                </ButtonNext>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
-          <div className="col-10 d-flex justify-content-between align-items-center">
-            {curSlide !== 0 ? (
-              <ButtonBack onClick={() => prevImg()} className="mCarouselStyle">
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-              </ButtonBack>
-            ) : (
-              <div></div>
-            )}
-
-            {curSlide !== curStyle.photos.length - 1 ? (
-              <ButtonNext
-                onClick={() => nextImg()}
-                className="mCarouselStyle float-right"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-              </ButtonNext>
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </div>
-        <div className="position-absolute row w-100 h-100">
-          <Slider>
-            {curStyle.photos.map(({ url }, i) => {
-              return url ? (
-                <Slide index={i} key={i}>
+          <div className="position-absolute row w-100 h-100">
+            <Slider>
+              {curStyle.photos.map(({ url }, i) => {
+                return url ? (
+                  <Slide index={i} key={i}>
+                    <div
+                      style={{
+                        height: '700px',
+                        width: '700px',
+                      }}
+                    >
+                      <img src={url} className="d-block w-100 h-100" />
+                    </div>
+                  </Slide>
+                ) : (
                   <div
+                    key={i}
+                    className="text-center d-flex bg-secondary"
                     style={{
                       height: '700px',
                       width: '700px',
                     }}
                   >
-                    <img src={url} className="d-block w-100 h-100" />
+                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
                   </div>
-                </Slide>
-              ) : (
-                <div
-                  key={i}
-                  className="text-center d-flex bg-secondary"
-                  style={{
-                    height: '700px',
-                    width: '700px',
-                  }}
-                >
-                  <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
-                </div>
-              );
-            })}
-          </Slider>
+                );
+              })}
+            </Slider>
+          </div>
         </div>
-      </div>
-    </CarouselProvider>
+      </CarouselProvider>
+    </div>
   );
 };

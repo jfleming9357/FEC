@@ -1,5 +1,5 @@
 # @githubAuth = githubAPI
-@githubAuth = 1fb845aaa6292e2a2531f9233e4e8929fd6a253d
+@githubAuth = 855b41edba3ba7a05482943494e8d12126dfdeb2
 ##### PRODUCTOVERVIEW
 
 ### Retrieves the list of products.
@@ -16,6 +16,10 @@ Authorization: {{githubAuth}}
 
 ### Returns the id's of products related to the product specified.
 GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/products/12013/related
+Authorization: {{githubAuth}}
+
+### Returns a list of reviews for a particular product. This list does not include any reported reviews.
+GET https://app-hrsei-api.herokuapp.com/api/fec2/hratx/reviews?product_id=12012
 Authorization: {{githubAuth}}
 
 ##### REVIEWS
