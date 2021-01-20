@@ -127,7 +127,6 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
-  /* border-width: 0px 0px 0px 0px; */
 }
 
 .SortReviews {
@@ -136,10 +135,6 @@ body {
 
 .ReviewList {
   grid-area: ReviewList;
-}
-
-.jcontainer > div {
-  border: 1px solid black;
 }
 
 .jButtonContainer {
@@ -171,8 +166,10 @@ body {
   gap: 20px 20px;
   height: 200px;
   grid-template-areas:
-    "jStars . jDate"
-    "ReviewText ReviewText ReviewText";
+    'jStars . jDate'
+    'ReviewText ReviewText ReviewText';
+  border: 2px solid black;
+  border-width: 0px 0px 2px 0px;
 }
 .jStars {
   grid-area: jStars;
@@ -198,7 +195,7 @@ body {
 
 .RatingSummary {
   grid-area: RatingSummary;
-  height: 200px;
+  height: 75px;
 }
 
 .RatingBreakdown {
@@ -217,6 +214,38 @@ body {
   font-weight: bold;
 }
 
+.c-related-items-and-outfit{
+  position: center;
+  min-width: auto;
+  height: auto;
+  display: grid;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 20px;
+  row-gap: 20px;
+}
+
+.c-related-items{
+  position: center;
+  min-width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 4px;
+}
+
+.c-related-items-carousel{
+  position: center;
+  margin: 0 auto;
+  padding: 4px;
+}
+
+.c-related-slide{
+  height: auto;
+  width: auto;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 10px;
+}
 /* Three column layout */
 .side {
   float: left;
@@ -251,10 +280,7 @@ body {
 }
 
 /* Individual bars */
-.jbars {
-  height: 14px;
-  background-color: black;
-}
+.jbars {height: 10px; background-color: black;}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 300px) {
@@ -297,3 +323,58 @@ body {
   border: 1px solid black;
   text-align: center;
 }
+
+.c-related-card{
+  max-width:280px;
+  height: 340px;
+}
+
+.jModal {
+  height: 200%;
+  width: 200%;
+}
+.c-related-card-header {
+  max-height: 30px;
+  max-width: 20px;
+  padding: 0px;
+font-family: inherit;
+  font-size: 25px;
+  color: purple;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.c-related-card-header-title{
+  font-family: inherit;
+  font-size: 25px;
+  color: purple;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.c-related-card-button{
+  border: none;
+  box-shadow: none;
+  font-family: inherit;
+  background-color:transparent;
+  color: blue;
+  font-size: 15px;
+  transition:.25s;
+}
+
+.c-related-card-button:hover{
+  transform: translate(10px, 0);
+}
+
+.c-related-card-body{
+  padding: 5px;
+  background-color:#fff;
+  width:100%;
+}
+
+.c-related-card-body-product-info{
+  padding-bottom: 40px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+

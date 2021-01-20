@@ -7,7 +7,7 @@ class Outfit extends React.Component {
     super(props);
     this.state = {
       outfitList: []
-    }
+    };
   }
 
   /// methods here
@@ -15,9 +15,8 @@ class Outfit extends React.Component {
   render() {
     return (
       <div>
-      ***ANOTHER MAGICAL CAROUSEL, THIS IS OF ITEMS IN YOUR STUPID OUTFIT!***
       </div>
-    )
+    );
   }
 }
 

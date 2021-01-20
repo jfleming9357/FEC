@@ -16,7 +16,7 @@ export const ProductProvider = ({ children }) => {
       getAllProduct();
     } else {
       // getSingleProduct(allProducts[0].id);
-      getSingleProduct(12016);
+      getSingleProduct(12012);
     }
   }, [allProducts]);
 
@@ -55,12 +55,33 @@ export const ProductProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const getProductRating = () => {
+    return axios
+      .get('/proxy/api/fec2/hratx/reviews?product_id=12012')
+      .then(({ data }) => {
+        let totalRatings = data.results.length;
+        let curRatings = 0;
+        data.results.forEach(({ rating }) => {
+          curRatings += rating;
+        });
+        return curRatings / totalRatings;
+      })
+      .catch((err) => err);
+  };
+
   const updateCurStyle = (prodStyle) => {
     setCurStyle(prodStyle);
   };
 
   return (
-    <ProductContext.Provider value={{ curProduct, curStyle, updateCurStyle }}>
+    <ProductContext.Provider
+      value={{
+        curProduct,
+        curStyle,
+        updateCurStyle,
+        getProductRating,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );

@@ -19,26 +19,23 @@ const getReviews = (productId) => {
 export const ReviewList = (props) => {
   // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
-  const [moreReviews, setMoreReviews] = useState('');
   const [numReviews, setNumReviews] = useState(2);
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
   useEffect(() => {
-    let counter = 0;
     getReviews(props.id)
       .then(((data) => {
-        setReviews(data.data.results.map((result) => {
-          counter++;
+        setReviews(data.data.results.map((result, index) => {
           let date = new Date(result.date);
           result.date = monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
-          if (counter <= numReviews ) {
+          if (index < numReviews ) {
             return (
               <IndividualReview
+                counter={index}
                 result={result}
-                counter={counter}
                 date={date}
-                key={counter}
+                key={index}
               />
             );
           }
@@ -54,12 +51,10 @@ export const ReviewList = (props) => {
       <div>{reviews}</div>
       <div className='jButtonContainer'>
         { reviews.length > numReviews
-          ?
+          &&
           <button className='jButton' onClick={() => {
             setNumReviews(numReviews + 2);
           }}>More Reviews</button>
-          :
-          null
         }
         <AddReview />
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -33,16 +34,20 @@ export const ImageGallery = () => {
   };
 
   return (
-    <CarouselProvider
-      totalSlides={curStyle.photos.length}
-      naturalSlideHeight={100}
-      naturalSlideWidth={100}
-      dragEnabled={false}
-    >
-      <div style={{ height: '700px', width: '700px', position: 'relative' }}>
+    <div className="m-auto">
+      <CarouselProvider
+        totalSlides={curStyle.photos.length}
+        naturalSlideHeight={100}
+        naturalSlideWidth={100}
+        dragEnabled={false}
+      >
         <div
-          className="position-absolute row h-100 w-100"
-          style={{ zIndex: '1' }}
+          className="bg-secondary"
+          style={{
+            height: '700px',
+            width: '700px',
+            position: 'relative',
+          }}
         >
           <div className="col-2">
             <div className="col p-3">
@@ -83,74 +88,77 @@ export const ImageGallery = () => {
               })}
               {curStyle.photos.length - 6 > 0 &&
                 curSlide !== curStyle.photos.length - 1 && (
-                  <ButtonNext
-                    onClick={() => nextImg()}
-                    className="mCarouselStyle"
-                  >
-                    <span>
-                      <i className="fas fa-arrow-down text-light fs-3"></i>
-                    </span>
-                  </ButtonNext>
-                )}
+                <ButtonNext
+                  onClick={() => nextImg()}
+                  className="mCarouselStyle"
+                >
+                  <span>
+                    <i className="fas fa-arrow-down text-light fs-3"></i>
+                  </span>
+                </ButtonNext>
+              )}
+            </div>
+            <div className="col-10 d-flex justify-content-between align-items-center">
+              {curSlide !== 0 ? (
+                <ButtonBack
+                  onClick={() => prevImg()}
+                  className="mCarouselStyle"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                </ButtonBack>
+              ) : (
+                <div></div>
+              )}
+
+              {curSlide !== curStyle.photos.length - 1 ? (
+                <ButtonNext
+                  onClick={() => nextImg()}
+                  className="mCarouselStyle float-right"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                </ButtonNext>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
-          <div className="col-10 d-flex justify-content-between align-items-center">
-            {curSlide !== 0 ? (
-              <ButtonBack onClick={() => prevImg()} className="mCarouselStyle">
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-              </ButtonBack>
-            ) : (
-              <div></div>
-            )}
-
-            {curSlide !== curStyle.photos.length - 1 ? (
-              <ButtonNext
-                onClick={() => nextImg()}
-                className="mCarouselStyle float-right"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-              </ButtonNext>
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </div>
-        <div className="position-absolute row w-100 h-100">
-          <Slider>
-            {curStyle.photos.map(({ url }, i) => {
-              return url ? (
-                <Slide index={i} key={i}>
+          <div className="position-absolute row w-100 h-100">
+            <Slider>
+              {curStyle.photos.map(({ url }, i) => {
+                return url ? (
+                  <Slide index={i} key={i}>
+                    <div
+                      style={{
+                        height: '700px',
+                        width: '700px',
+                      }}
+                    >
+                      <img src={url} className="d-block w-100 h-100" />
+                    </div>
+                  </Slide>
+                ) : (
                   <div
+                    key={i}
+                    className="text-center d-flex bg-secondary"
                     style={{
                       height: '700px',
                       width: '700px',
                     }}
                   >
-                    <img src={url} className="d-block w-100 h-100" />
+                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
                   </div>
-                </Slide>
-              ) : (
-                <div
-                  key={i}
-                  className="text-center d-flex bg-secondary"
-                  style={{
-                    height: '700px',
-                    width: '700px',
-                  }}
-                >
-                  <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
-                </div>
-              );
-            })}
-          </Slider>
+                );
+              })}
+            </Slider>
+          </div>
         </div>
-      </div>
-    </CarouselProvider>
+      </CarouselProvider>
+    </div>
   );
 };

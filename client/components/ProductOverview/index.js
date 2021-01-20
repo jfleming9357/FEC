@@ -1,16 +1,22 @@
-import React, { useContext } from 'react';
-import { ProductContext } from '../../context/ProductContext';
+import React, { useContext, useState } from 'react';
 import { ImageGallery } from './layouts/ImageGallery';
-import { NewImg } from './layouts/NewImg';
+import { ProductContext } from '../../context/ProductContext';
 import { ProductMainInfos } from './layouts/ProductMainInfos';
 
 export const ProductOverview = () => {
   const { curProduct } = useContext(ProductContext);
+  const [zoomIn, setZoomIn] = useState(false);
 
   return (
     <div className="d-block">
       <div className="row">
-        <div className="col-7">
+        <div
+          // onClick={() => setZoomIn(!zoomIn)}
+          className={
+            zoomIn ? 'col-12 bg-secondary d-flex' : 'col-7 bg-secondary d-flex'
+          }
+          style={zoomIn ? { cursor: 'zoom-out' } : { cursor: 'zoom-in' }}
+        >
           <ImageGallery />
         </div>
         <div className="col-5 row d-flex flex-wrap align-content-around">
