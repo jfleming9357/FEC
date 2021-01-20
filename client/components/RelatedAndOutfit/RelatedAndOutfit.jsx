@@ -9,7 +9,7 @@ class RelatedAndOutfit extends React.Component {
     super(props);
     this.state = {
       outfit: []
-  }
+    };
   }
 
   /// When product overview changes to a new product, pull new related items:
@@ -18,18 +18,18 @@ class RelatedAndOutfit extends React.Component {
     return (
       <div
         className="c-related-items-and-outfit">
-          <section className='c-related-items'>
-        <div>
-          <HooksRelatedItems />
-        </div>
+        <section className='c-related-items'>
+          <div>
+            <HooksRelatedItems />
+          </div>
         </section>
         <section className="c-outfit">
-        <div>
-          <Outfit />
-        </div>
+          <div>
+            <Outfit />
+          </div>
         </section>
       </div>
-    )
+    );
   }
 }
 

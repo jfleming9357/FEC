@@ -110,7 +110,6 @@ body {
 .ReviewSideBar {
   grid-area: ReviewSideBar;
   height: 500px;
-  /* border-width: 0px 0px 0px 0px; */
 }
 
 .SortReviews {
@@ -119,10 +118,6 @@ body {
 
 .ReviewList {
   grid-area: ReviewList;
-}
-
-.jcontainer > div {
-  border: 1px solid black;
 }
 
 .jButtonContainer {
@@ -156,6 +151,8 @@ body {
   grid-template-areas:
     'jStars . jDate'
     'ReviewText ReviewText ReviewText';
+  border: 2px solid black;
+  border-width: 0px 0px 2px 0px;
 }
 .jStars {
   grid-area: jStars;
@@ -181,7 +178,7 @@ body {
 
 .RatingSummary {
   grid-area: RatingSummary;
-  height: 200px;
+  height: 75px;
 }
 
 .RatingBreakdown {
@@ -267,7 +264,7 @@ body {
 
 /* Individual bars */
 .jbars {
-  height: 14px;
+  height: 10px;
   background-color: black;
 }
 
@@ -318,6 +315,10 @@ body {
   height: 340px;
 }
 
+.jModal {
+  height: 200%;
+  width: 200%;
+}
 .c-related-card-header {
   max-height: 30px;
   max-width: 20px;
