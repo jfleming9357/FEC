@@ -17,7 +17,8 @@ export const App = () => {
       <div style={{ overflow: 'hidden' }} className="container">
         <ProductOverview />
       </div>
-      <div> <br />
+      <div>
+        <br />
         <RelatedAndOutfit />
       </div>
       <QuestionsAndAnswers />

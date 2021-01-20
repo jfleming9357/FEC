@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
 
 body {
   margin: 0;
@@ -99,12 +99,12 @@ body {
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
   gap: 0px 0px;
-  font-family: "adobe-clean", sans-serif;
+  font-family: 'adobe-clean', sans-serif;
   grid-template-areas:
-    "SortReviews SortReviews"
-    "ReviewSideBar ReviewList"
-    "ReviewSideBar ReviewList"
-    "ReviewSideBar ReviewList";
+    'SortReviews SortReviews'
+    'ReviewSideBar ReviewList'
+    'ReviewSideBar ReviewList'
+    'ReviewSideBar ReviewList';
 }
 
 .ReviewSideBar {
@@ -154,8 +154,8 @@ body {
   gap: 20px 20px;
   height: 200px;
   grid-template-areas:
-    "jStars . jDate"
-    "ReviewText ReviewText ReviewText";
+    'jStars . jDate'
+    'ReviewText ReviewText ReviewText';
 }
 .jStars {
   grid-area: jStars;
@@ -174,9 +174,9 @@ body {
   gap: 20px 20px;
   height: 600px;
   grid-template-areas:
-    "RatingSummary"
-    "RatingBreakdown"
-    "ProductBreakdown";
+    'RatingSummary'
+    'RatingBreakdown'
+    'ProductBreakdown';
 }
 
 .RatingSummary {
@@ -200,8 +200,7 @@ body {
   font-weight: bold;
 }
 
-<<<<<<< HEAD
-.c-related-items-and-outfit{
+.c-related-items-and-outfit {
   position: center;
   min-width: auto;
   height: auto;
@@ -212,7 +211,7 @@ body {
   row-gap: 20px;
 }
 
-.c-related-items{
+.c-related-items {
   position: center;
   min-width: auto;
   height: auto;
@@ -220,19 +219,19 @@ body {
   padding: 4px;
 }
 
-.c-related-items-carousel{
+.c-related-items-carousel {
   position: center;
   margin: 0 auto;
   padding: 4px;
 }
 
-.c-related-slide{
+.c-related-slide {
   height: auto;
   width: auto;
   margin: 0 auto;
   border: 1px solid black;
   padding: 10px;
-=======
+}
 /* Three column layout */
 .side {
   float: left;
@@ -253,7 +252,7 @@ body {
 
 /* Clear floats after the columns */
 .jrow:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -312,11 +311,10 @@ body {
   background-color: white;
   border: 1px solid black;
   text-align: center;
->>>>>>> 413e6a51482077162de0b602ce81f7af9f86cdd1
 }
 
-.c-related-card{
-  max-width:280px;
+.c-related-card {
+  max-width: 280px;
   height: 340px;
 }
 
@@ -324,14 +322,6 @@ body {
   max-height: 30px;
   max-width: 20px;
   padding: 0px;
-font-family: inherit;
-  font-size: 25px;
-  color: purple;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.c-related-card-header-title{
   font-family: inherit;
   font-size: 25px;
   color: purple;
@@ -339,29 +329,36 @@ font-family: inherit;
   margin: 0;
 }
 
-.c-related-card-button{
+.c-related-card-header-title {
+  font-family: inherit;
+  font-size: 25px;
+  color: purple;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.c-related-card-button {
   border: none;
   box-shadow: none;
   font-family: inherit;
-  background-color:transparent;
+  background-color: transparent;
   color: blue;
   font-size: 15px;
-  transition:.25s;
+  transition: 0.25s;
 }
 
-.c-related-card-button:hover{
+.c-related-card-button:hover {
   transform: translate(10px, 0);
 }
 
-.c-related-card-body{
+.c-related-card-body {
   padding: 5px;
-  background-color:#fff;
-  width:100%;
+  background-color: #fff;
+  width: 100%;
 }
 
-.c-related-card-body-product-info{
+.c-related-card-body-product-info {
   padding-bottom: 40px;
   font-size: 13px;
   line-height: 1.8;
 }
-

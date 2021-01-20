@@ -12,9 +12,7 @@ export const ProductOverview = () => {
       <div className="row">
         <div
           // onClick={() => setZoomIn(!zoomIn)}
-          className={
-            zoomIn ? 'col-12 bg-secondary d-flex' : 'col-7 bg-secondary d-flex'
-          }
+          className={zoomIn ? 'col-12 d-flex' : 'col-7 d-flex'}
           style={zoomIn ? { cursor: 'zoom-out' } : { cursor: 'zoom-in' }}
         >
           <ImageGallery />

@@ -41,7 +41,6 @@ export const ImageGallery = () => {
         dragEnabled={false}
       >
         <div
-          className="bg-secondary"
           style={{
             height: '700px',
             width: '700px',
