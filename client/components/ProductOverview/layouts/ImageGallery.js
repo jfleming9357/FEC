@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -83,15 +84,15 @@ export const ImageGallery = () => {
               })}
               {curStyle.photos.length - 6 > 0 &&
                 curSlide !== curStyle.photos.length - 1 && (
-                  <ButtonNext
-                    onClick={() => nextImg()}
-                    className="mCarouselStyle"
-                  >
-                    <span>
-                      <i className="fas fa-arrow-down text-light fs-3"></i>
-                    </span>
-                  </ButtonNext>
-                )}
+                <ButtonNext
+                  onClick={() => nextImg()}
+                  className="mCarouselStyle"
+                >
+                  <span>
+                    <i className="fas fa-arrow-down text-light fs-3"></i>
+                  </span>
+                </ButtonNext>
+              )}
             </div>
           </div>
           <div className="col-10 d-flex justify-content-between align-items-center">
