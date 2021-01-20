@@ -21,10 +21,15 @@ export const IndividualReview = ({ counter, result, date }) => {
           <div id="jResponse">{result.response}</div>
           <div id="helpfulAndReport">Helpful?&nbsp;
             <span
-              className="d-underlined"
               onClick={helpfulClick}
+              className="d-underlined"
+              id={result.review_id}
             >Yes</span> {result.helpfulness}   |&nbsp;
-            <span onClick={reportClick}>Report</span></div>
+            <span
+              onClick={reportClick}
+              className="d-underlined"
+              id={result.review_id}
+            >Report</span></div>
         </div>
       </div>
     </div>
