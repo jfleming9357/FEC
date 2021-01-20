@@ -21,7 +21,7 @@ body {
   column-gap: 20px;
   row-gap: 20px;
   max-height: 100vh;
-  position: relative;
+  /* position: relative; */
 }
 
 .d-search-bar {
@@ -31,7 +31,7 @@ body {
 .d-question-list {
   grid-column: 1;
   display: grid;
-  position: absolute;
+  /* position: absolute; */
   overflow-y: scroll;
   row-gap: 20px;
 }
@@ -44,8 +44,8 @@ body {
 .d-module-bottom {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
   z-index: 100;
 }
 
@@ -166,8 +166,8 @@ body {
   gap: 20px 20px;
   height: 200px;
   grid-template-areas:
-    'jStars . jDate'
-    'ReviewText ReviewText ReviewText';
+    "jStars . jDate"
+    "ReviewText ReviewText ReviewText";
   border: 2px solid black;
   border-width: 0px 0px 2px 0px;
 }
@@ -214,7 +214,7 @@ body {
   font-weight: bold;
 }
 
-.c-related-items-and-outfit{
+.c-related-items-and-outfit {
   position: center;
   min-width: auto;
   height: auto;
@@ -225,7 +225,7 @@ body {
   row-gap: 20px;
 }
 
-.c-related-items{
+.c-related-items {
   position: center;
   min-width: auto;
   height: auto;
@@ -233,13 +233,13 @@ body {
   padding: 4px;
 }
 
-.c-related-items-carousel{
+.c-related-items-carousel {
   position: center;
   margin: 0 auto;
   padding: 4px;
 }
 
-.c-related-slide{
+.c-related-slide {
   height: auto;
   width: auto;
   margin: 0 auto;
@@ -280,7 +280,10 @@ body {
 }
 
 /* Individual bars */
-.jbars {height: 10px; background-color: black;}
+.jbars {
+  height: 10px;
+  background-color: black;
+}
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 300px) {
@@ -324,8 +327,8 @@ body {
   text-align: center;
 }
 
-.c-related-card{
-  max-width:280px;
+.c-related-card {
+  max-width: 280px;
   height: 340px;
 }
 
@@ -337,14 +340,6 @@ body {
   max-height: 30px;
   max-width: 20px;
   padding: 0px;
-font-family: inherit;
-  font-size: 25px;
-  color: purple;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.c-related-card-header-title{
   font-family: inherit;
   font-size: 25px;
   color: purple;
@@ -352,29 +347,36 @@ font-family: inherit;
   margin: 0;
 }
 
-.c-related-card-button{
+.c-related-card-header-title {
+  font-family: inherit;
+  font-size: 25px;
+  color: purple;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.c-related-card-button {
   border: none;
   box-shadow: none;
   font-family: inherit;
-  background-color:transparent;
+  background-color: transparent;
   color: blue;
   font-size: 15px;
-  transition:.25s;
+  transition: 0.25s;
 }
 
-.c-related-card-button:hover{
+.c-related-card-button:hover {
   transform: translate(10px, 0);
 }
 
-.c-related-card-body{
+.c-related-card-body {
   padding: 5px;
-  background-color:#fff;
-  width:100%;
+  background-color: #fff;
+  width: 100%;
 }
 
-.c-related-card-body-product-info{
+.c-related-card-body-product-info {
   padding-bottom: 40px;
   font-size: 13px;
   line-height: 1.8;
 }
-
