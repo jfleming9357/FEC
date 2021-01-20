@@ -5,10 +5,21 @@ export const Header = () => {
     <nav className="navbar navbar-dark bg-dark">
       <div className="container">
         <a className="navbar-brand">
-          <img src="./logo.png" alt="logo" style={{ height: '40px' }} />
+          <img
+            draggable
+            src="./logo.png"
+            alt="logo"
+            style={{ height: '40px' }}
+          />
         </a>
         <div className="d-flex">
-          <button className="btn btn-outline-light" type="submit">
+          <button
+            onDragLeaveCapture={() => {
+              document.getElementById('myAudio').play();
+            }}
+            className="btn btn-outline-light"
+            type="submit"
+          >
             Search
           </button>
         </div>
