@@ -7,8 +7,7 @@ import {
   singleProd,
   singleProdStyle,
 } from '../ProductOverview/tempData';
-
-// import ComparisonModal from './ComparisonModal.jsx';
+import ComparisonModal from './ComparisonModal.jsx';
 
 export const HooksRelatedItems = () => {
   const [relatedProductIds, setRelatedProductIds] = useState([]);
@@ -76,16 +75,16 @@ export const HooksRelatedItems = () => {
         </div>
         <Slider>
           {relatedProductInfo.map((product) => (
-            <Slide key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
+            <Slide key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0}>
               <div style={{height:'450px', width:'280px'}}>
-                <div style={{height:'70%', width: '100%', backgroundImage: `url(${(product.thumbnail)})`, backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => (<ComparisonModal product={product}/>)}>&#9733;</p>
+                <div style={{height:'70%', width: '100%', backgroundImage: `url(${(product.thumbnail)})`, backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => console.log(`Star ${product.id} was clicked!`)}    >&#9733;</p>
+                {/* <button type="button" data-toggle="modal" data-target="#ComparisonModal">Compare</button> */}
                 </div>
                 <div style={{height:'30%', width: '100%'}}>
                   <p className="fs-6 m-0">{product.category}</p>
                   <p className="fs-6 m-0">{product.name}</p>
                   <p className="fs-6 m-0">${product.default_price}</p>
                   <p className="fs-6 m-0">STARS</p>
-                  {/* <p  onClick={() => console.log(relatedProductInfo)} className="fs-6 m-0"></p> */}
                 </div>
               </div>
             </Slide>
