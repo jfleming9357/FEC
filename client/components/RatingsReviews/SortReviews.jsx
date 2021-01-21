@@ -13,7 +13,6 @@ export const SortProvider = ({children}) => {
 };
 
 export const sort = (reviews, method) => {
-  console.log(method);
   const sortHelpful = (a, b) => (
     b.helpfulness - a.helpfulness
   );
