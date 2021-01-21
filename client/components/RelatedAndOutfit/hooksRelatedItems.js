@@ -58,7 +58,8 @@ export const HooksRelatedItems = () => {
     getRelatedProductInfo();
   }, [relatedProductIds]);
 
-  return (
+  return <>
+    <b>RELATED PRODUCTS</b>
     <div className="border" style={{ height: '450px', overflow: 'hidden' }}>
       <CarouselProvider
         className='c-related-items-carousel'
@@ -93,6 +94,6 @@ export const HooksRelatedItems = () => {
       </CarouselProvider>
 
     </div>
-  )
+  </>;
 };
 

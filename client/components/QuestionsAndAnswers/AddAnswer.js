@@ -37,7 +37,7 @@ const AddAnswer = ({ question_id, handleSubmit }) => {
         <Form>
           <Form.Group>
             <Form.Label>Your Answer</Form.Label>
-            <Form.Control required type="text" as="textarea" onChange={(e) => setAnswer(e.target.value)} />
+            <Form.Control required type="text" as="textarea" placeholder="As many as you want" onChange={(e) => setAnswer(e.target.value)} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Your Nickname</Form.Label>
