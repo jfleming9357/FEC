@@ -197,9 +197,7 @@ body {
   font-weight: bold;
 }
 
-<<<<<<< HEAD
-=======
-.c-related-items-and-outfit{
+/* .c-related-items-and-outfit{
   position: center;
   min-width: auto;
   height: auto;
@@ -230,8 +228,7 @@ body {
   margin: 0 auto;
   border: 1px solid black;
   padding: 10px;
-}
->>>>>>> aa27796a2bb24c760620befdc56dbfb5f1e715df
+} */
 /* Three column layout */
 .side {
   float: left;
@@ -319,7 +316,7 @@ body {
   height: 200%;
   width: 200%;
 }
-.c-related-card-header {
+/* .c-related-card-header {
   max-height: 30px;
   max-width: 20px;
   padding: 0px;
@@ -362,5 +359,5 @@ font-family: inherit;
   padding-bottom: 40px;
   font-size: 13px;
   line-height: 1.8;
-}
+} */
 
