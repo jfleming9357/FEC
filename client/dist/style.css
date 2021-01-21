@@ -15,12 +15,12 @@ body {
 .d-module {
   display: grid;
   border: 1px solid black;
-  margin: 0 auto;
+  margin: 20px 0;
   grid-template-columns: 1fr;
   padding: 20px;
   column-gap: 20px;
   row-gap: 20px;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   /* position: relative; */
 }
 
@@ -38,18 +38,22 @@ body {
 
 .d-question {
   display: grid;
+  row-gap: 10px;
   grid-template-columns: 3ch auto;
 }
 
 .d-module-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
   /* position: absolute; */
   /* bottom: 0; */
-  z-index: 100;
+  /* z-index: 100; */
+  display: flex;
+  gap: 20px;
 }
 
 .d-more-questions {
+  text-align: left;
 }
 
 .d-add-question {
@@ -57,12 +61,22 @@ body {
 }
 
 .d-border-button {
+  display: inline-block;
   border: 1px solid black;
-  padding: 20px;
+  padding: 20px 60px;
 }
 
 .d-underlined {
   text-decoration: underline;
+}
+
+.d-light {
+  font-weight: lighter;
+  font-size: smaller;
+}
+
+.d-bold {
+  font-weight: bold;
 }
 
 .d-question-toolbar {
@@ -78,6 +92,15 @@ body {
 .d-border-button:hover {
   filter: brightness(200%);
   cursor: pointer;
+}
+
+.d-adjust-answers {
+  display: inline-block;
+  padding: 20px;
+}
+
+.d-adjust-answers:hover {
+  border: 1px solid black;
 }
 
 .mBody {
@@ -114,18 +137,19 @@ body {
 .jcontainer {
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
-  grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
   gap: 0px 0px;
   font-family: "adobe-clean", sans-serif;
   grid-template-areas:
     "ReviewSideBar ReviewList"
     "ReviewSideBar ReviewList"
     "ReviewSideBar ReviewList";
+  margin: 20px 0;
+  border: 1px solid black;
+  padding: 20px;
 }
 
 .ReviewSideBar {
   grid-area: ReviewSideBar;
-  height: 500px;
 }
 
 .SortReviews {
@@ -140,21 +164,9 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  font-weight: 300;
-  line-height: 80px;
+  justify-content: left;
+  gap: 20px;
   cursor: pointer;
-}
-
-.jbutton {
-  width: 120px;
-  padding: 22px 22px;
-  font-size: 20px;
-  align-items: center;
-  border-width: 2px 2px 2px 2px;
-  border-style: solid;
-  border-color: #394a6d;
-  background: #ffffff;
 }
 
 .IndividualReview {
@@ -163,13 +175,15 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1.8fr;
   gap: 20px 20px;
-  height: 200px;
+  height: 150px;
   grid-template-areas:
     "jStars . jDate"
     "ReviewText ReviewText ReviewText";
   border: 2px solid black;
   border-width: 0px 0px 2px 0px;
+  margin-bottom: 20px;
 }
+
 .jStars {
   grid-area: jStars;
 }
@@ -190,6 +204,7 @@ body {
     "RatingSummary"
     "RatingBreakdown"
     "ProductBreakdown";
+  margin: 0 20px;
 }
 
 .RatingSummary {
@@ -219,7 +234,7 @@ body {
   height: auto;
   display: grid;
   border: 1px solid black;
-  margin: 0 auto;
+  margin: 20px 0;
   padding: 20px;
   row-gap: 20px;
 }

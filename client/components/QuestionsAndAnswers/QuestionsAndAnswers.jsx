@@ -56,7 +56,7 @@ const QuestionsAndAnswers = (props) => {
       <div className="d-module-bottom">
         {questions.length > 0 && numQuestions < questions.length &&
           <button
-            className="d-border-button d-more-questions"
+            className="d-border-button d-more-questions d-bold"
             onClick={() => setNumQuestions(numQuestions + 2)}
           >
             More Questions

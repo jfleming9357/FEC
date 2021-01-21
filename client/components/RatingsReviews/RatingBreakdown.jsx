@@ -19,7 +19,7 @@ const RatingBreakdown = ({ allRatings }) => {
         {ratingPercentages.map((percentage) => {
           counter--;
           return (
-            <div key={counter}>
+            <React.Fragment key={counter}>
               <div className="side">
                 <div className='jXAxis'>{counter} stars</div>
               </div>
@@ -28,7 +28,7 @@ const RatingBreakdown = ({ allRatings }) => {
                   <div className="jbars" style={{'width': `${percentage}%`}}></div>
                 </div>
               </div>
-            </div>);
+            </React.Fragment>);
         })}
       </div>
     </div>

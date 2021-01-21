@@ -24,35 +24,37 @@ const Question = ({ question }) => {
 
   return (
     <div className="d-question">
-      <strong className="d-question-Q">Q:</strong>
+      <strong className="d-bold">Q:</strong>
+
       <div className="d-question-top">
-        <span className="d-question-body">{question.question_body}</span>
-        <span className="d-question-toolbar">
+        <span className="d-bold">{question.question_body}</span>
+        <span className="d-question-toolbar d-light">
           {'Helpful ? '}
           <span
             className="d-underlined"
             onClick={helpful ? null : handleHelpful}
             style={helpful ? {textDecoration: 'none'} : null}
           >Yes </span>
-          {`${helpful ? question.question_helpfulness + 1 : question.question_helpfulness} | `}
+          {`(${helpful ? question.question_helpfulness + 1 : question.question_helpfulness}) | `}
           <AddAnswer handleSubmit={handleNewAnswer} question_id={question.question_id} />
         </span>
       </div>
-      <strong className="d-question-A">A:</strong>
+      <strong className="d-bold">A:</strong>
+
       <div className="d-question-bottom">
         <AnswerList
           answers={answers.length > numAnswers ? answers.slice(0, numAnswers) : answers}
           asker={question.asker_name}
         />
         {numAnswers < answers.length
-          ? (<strong
-            className="d-adjust-answers"
+          ? (<div
+            className="d-adjust-answers d-bold"
             onClick={() => setNumAnswers(answers.length)}>SEE MORE ANSWERS
-          </strong>)
-          : (numAnswers === answers.length && numAnswers > 2 && <strong
+          </div>)
+          : (numAnswers === answers.length && numAnswers > 2 && <div
             className="d-adjust-answers"
             onClick={() => setNumAnswers(2)}>Collapse Answers
-          </strong>)
+          </div>)
         }
       </div>
     </div>
