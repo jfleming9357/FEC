@@ -101,8 +101,6 @@ body {
   gap: 0px 0px;
   font-family: 'adobe-clean', sans-serif;
   grid-template-areas:
-    'ReviewSideBar ReviewList'
-    'ReviewSideBar ReviewList'
     'ReviewSideBar ReviewList';
 }
 
@@ -146,13 +144,14 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1.8fr;
   gap: 20px 20px;
-  height: 200px;
+  height: 150px;
   grid-template-areas:
     'jStars . jDate'
     'ReviewText ReviewText ReviewText';
   border: 2px solid black;
   border-width: 0px 0px 2px 0px;
 }
+
 .jStars {
   grid-area: jStars;
 }
