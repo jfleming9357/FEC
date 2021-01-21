@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
 
 body {
   margin: 0;
@@ -116,12 +116,12 @@ body {
   grid-template-columns: 0.5fr 1.5fr;
   grid-template-rows: 0.2fr 1.2fr 1.2fr 1.2fr;
   gap: 0px 0px;
-  font-family: "adobe-clean", sans-serif;
+  font-family: 'adobe-clean', sans-serif;
   grid-template-areas:
-    "SortReviews SortReviews"
-    "ReviewSideBar ReviewList"
-    "ReviewSideBar ReviewList"
-    "ReviewSideBar ReviewList";
+    'SortReviews SortReviews'
+    'ReviewSideBar ReviewList'
+    'ReviewSideBar ReviewList'
+    'ReviewSideBar ReviewList';
 }
 
 .ReviewSideBar {
@@ -188,9 +188,9 @@ body {
   gap: 20px 20px;
   height: 600px;
   grid-template-areas:
-    "RatingSummary"
-    "RatingBreakdown"
-    "ProductBreakdown";
+    'RatingSummary'
+    'RatingBreakdown'
+    'ProductBreakdown';
 }
 
 .RatingSummary {
@@ -266,7 +266,7 @@ body {
 
 /* Clear floats after the columns */
 .jrow:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -42,61 +41,65 @@ export const ImageGallery = () => {
         dragEnabled={false}
       >
         <div
-          className="bg-secondary"
           style={{
             height: '700px',
             width: '700px',
             position: 'relative',
           }}
         >
-          <div className="col-2">
-            <div className="col p-3">
-              {curSlide - 6 > 0 && curSlide !== 0 && (
-                <ButtonBack
-                  onClick={() => prevImg()}
-                  className="mCarouselStyle"
-                >
-                  <span>
-                    <i className="fas fa-arrow-up text-light fs-3"></i>
-                  </span>
-                </ButtonBack>
-              )}
-              {curStyle.photos.map(({ thumbnail_url }, i) => {
-                return (
-                  thumbnail_url &&
-                  i >= slideStart &&
-                  i < slideEnd && (
-                    <Dot
-                      onClick={() => setCurSlide(i)}
+          <div
+            className="position-absolute row h-100 w-100"
+            style={{ zIndex: '1' }}
+          >
+            <div className="col-2">
+              <div className="col p-3">
+                {curSlide - 6 > 0 && curSlide !== 0 && (
+                  <ButtonBack
+                    onClick={() => prevImg()}
+                    className="mCarouselStyle"
+                  >
+                    <span>
+                      <i className="fas fa-arrow-up text-light fs-3"></i>
+                    </span>
+                  </ButtonBack>
+                )}
+                {curStyle.photos.map(({ thumbnail_url }, i) => {
+                  return (
+                    thumbnail_url &&
+                    i >= slideStart &&
+                    i < slideEnd && (
+                      <Dot
+                        onClick={() => setCurSlide(i)}
+                        className="mCarouselStyle"
+                        slide={i}
+                        key={i}
+                      >
+                        <div
+                          className="bg-secondary my-2"
+                          style={{
+                            height: '50px',
+                            width: '50px',
+                            backgroundImage: `url(${thumbnail_url})`,
+                            opacity: curSlide === i ? '' : '50%',
+                            border: curSlide === i && '2px solid black',
+                          }}
+                        ></div>
+                      </Dot>
+                    )
+                  );
+                })}
+                {curStyle.photos.length - 6 > 0 &&
+                  curSlide !== curStyle.photos.length - 1 && (
+                    <ButtonNext
+                      onClick={() => nextImg()}
                       className="mCarouselStyle"
-                      slide={i}
-                      key={i}
                     >
-                      <div
-                        className="bg-secondary my-2"
-                        style={{
-                          height: '50px',
-                          width: '50px',
-                          backgroundImage: `url(${thumbnail_url})`,
-                          opacity: curSlide === i ? '' : '50%',
-                          border: curSlide === i && '2px solid black',
-                        }}
-                      ></div>
-                    </Dot>
-                  )
-                );
-              })}
-              {curStyle.photos.length - 6 > 0 &&
-                curSlide !== curStyle.photos.length - 1 && (
-                <ButtonNext
-                  onClick={() => nextImg()}
-                  className="mCarouselStyle"
-                >
-                  <span>
-                    <i className="fas fa-arrow-down text-light fs-3"></i>
-                  </span>
-                </ButtonNext>
-              )}
+                      <span>
+                        <i className="fas fa-arrow-down text-light fs-3"></i>
+                      </span>
+                    </ButtonNext>
+                  )}
+              </div>
             </div>
             <div className="col-10 d-flex justify-content-between align-items-center">
               {curSlide !== 0 ? (
