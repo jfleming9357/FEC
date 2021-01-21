@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import AddReview from './AddReview.jsx';
 import StarRatings from 'react-star-ratings';
 import { helpfulClick, reportClick } from './handleReviewClicks.jsx';
 import { IndividualReview } from './individualReview.jsx';
+import { sort, SortContext } from './SortReviews.jsx';
 
 const getReviews = (productId) => {
   let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' + productId;
   return axios.get(url)
     .then((response) => {
+      response = sort(response);
       return response;
     })
     .catch((err) => {
@@ -20,9 +22,13 @@ export const ReviewList = (props) => {
   // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [numReviews, setNumReviews] = useState(2);
+  const { sortMethod } = useContext(SortContext);
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
+
+
+
   useEffect(() => {
     getReviews(props.id)
       .then(((data) => {
@@ -45,6 +51,11 @@ export const ReviewList = (props) => {
         throw err;
       });
   }, [numReviews]);
+  // useEffect(() => {
+
+  //   setReviews(sort(reviews, sortMethod));
+  //   console.log(reviews);
+  // }, [sortMethod]);
 
   return (
     <div className='ReviewList'>

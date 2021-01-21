@@ -26,7 +26,6 @@ export const reportClick = (e) => {
 
 export const submitReview = (review, setReviews, reviews) => {
   let url = 'proxy/api/fec2/hratx/reviews/';
-  review = JSON.parse(JSON.stringify(review));
   axios.post(url, review)
     .then((res) => {
       console.log(res);
