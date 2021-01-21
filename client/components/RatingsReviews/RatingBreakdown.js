@@ -31,12 +31,7 @@ const RatingBreakdown = ({ allRatings }) => {
                   ></div>
                 </div>
               </div>
-<<<<<<< HEAD:client/components/RatingsReviews/RatingBreakdown.jsx
             </React.Fragment>);
-=======
-            </div>
-          );
->>>>>>> main:client/components/RatingsReviews/RatingBreakdown.js
         })}
       </div>
     </div>

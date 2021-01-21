@@ -25,11 +25,8 @@
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
-<<<<<<< HEAD
     "babel-jest": "^26.6.3",
-=======
     "@babel/preset-react": "^7.12.10",
->>>>>>> main
     "@babel/register": "^7.12.10",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -39,13 +36,9 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.17.0",
-<<<<<<< HEAD
     "express": "^4.17.1",
     "react-test-renderer": "^17.0.1",
     "jest": "^26.6.3",
-=======
-    "jest": "26.6.0",
->>>>>>> main
     "mocha": "^8.2.1",
     "react-scripts": "^4.0.1",
     "style-loader": "^2.0.0",

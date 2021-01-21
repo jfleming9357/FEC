@@ -31,16 +31,8 @@ const AddReview = ({ productId, characteristics, setReviews, reviews }) => {
 
   return (
     <div>
-<<<<<<< HEAD:client/components/RatingsReviews/AddReview.jsx
       <button className='d-bold d-border-button' onClick={handleShow}>Add A Review</button>
       <Modal show={show}
-=======
-      <button className="jButton" onClick={handleShow}>
-        Add A Review
-      </button>
-      <Modal
-        show={show}
->>>>>>> main:client/components/RatingsReviews/AddReview.js
         onHide={handleClose}
         dialogClassName="jModal"
         size="lg"
