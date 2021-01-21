@@ -35,7 +35,7 @@ const RatingsAndReviews = (props) => {
       <div className="ReviewSideBar">
         <div className="SideBarContainer">
           <RatingSummary allRatings={metaData.ratings}/>
-          <RatingBreakdown allRatings={metaData.ratings}/>
+          <RatingBreakdown allRatings={metaData.ratings} recommend={metaData.recommended}/>
           <ProductBreakdown characteristics={metaData.characteristics}/>
         </div>
       </div>
