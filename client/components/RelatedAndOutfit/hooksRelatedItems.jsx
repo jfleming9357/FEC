@@ -3,6 +3,10 @@ import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import {
+  singleProd,
+  singleProdStyle,
+} from '../ProductOverview/tempData';
 
 // import ComparisonModal from './ComparisonModal.jsx';
 
@@ -44,7 +48,7 @@ export const HooksRelatedItems = () => {
   };
 
   useEffect(() => {
-    let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12018/related';
+    let url = `http://localhost:3000/proxy/api/fec2/hratx/products/${singleProd.id}/related`;
     axios.get(url)
       .then((results) => {
         setRelatedProductIds(results.data);
