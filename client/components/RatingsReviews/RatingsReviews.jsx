@@ -4,8 +4,9 @@ import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import AddReview from './AddReview.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-import SortReviews from './SortReviews.jsx';
+// import SortReviews from './SortReviews.jsx';
 import axios from 'axios';
+import { SortProvider } from './SortReviews.jsx';
 
 const getMetaData = function (productId) {
   let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/meta?product_id=' + productId;
@@ -28,8 +29,9 @@ const RatingsAndReviews = (props) => {
   }, []);
   if (metaData) {
     return (<div className="jcontainer">
-      <SortReviews />
-      <ReviewList id={props.product_id || 12012}/>
+      <SortProvider>
+        <ReviewList id={props.product_id} characteristics={metaData.characteristics}/>
+      </SortProvider>
       <div className="ReviewSideBar">
         <div className="SideBarContainer">
           <RatingSummary allRatings={metaData.ratings}/>

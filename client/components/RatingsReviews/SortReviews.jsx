@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, createContext } from 'react';
+export const SortContext = createContext({
+  sortMethod: 'relevance',
+  setSortMethod: (method) => {}
+});
 
-const SortReviews = (props) => {
+export const SortProvider = ({children}) => {
+  const [sortMethod, setSortMethod] = useState('relevance');
   return (
-    <div className='SortReviews'>Sort Placeholder</div>
+    <SortContext.Provider value={{sortMethod, setSortMethod}}>{children}
+    </SortContext.Provider>
   );
 };
 
-export default SortReviews;
+export const sort = (reviews, method) => {
+  console.log(method);
+  const sortHelpful = (a, b) => (
+    b.helpfulness - a.helpfulness
+  );
+
+  const sortNewest = (a, b) => (
+    b.review_id - a.review_id
+  );
+
+  const sortRelevance = (a, b) => {
+    return (b.review_id / 1000 + b.helpfulness) - (a.review_id / 1000 + a.helpfulness);
+  };
+
+  if (method === 'helpfulness') {
+    return reviews.sort(sortHelpful);
+  } else if (method === 'newest') {
+    return reviews.sort(sortNewest);
+  } else if (method === 'relevance') {
+    return reviews.sort(sortRelevance);
+  }
+  return reviews;
+};
