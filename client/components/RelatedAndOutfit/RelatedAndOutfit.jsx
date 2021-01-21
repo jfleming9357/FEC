@@ -1,5 +1,4 @@
 import React from 'react';
-import RelatedItems from './RelatedItems.jsx';
 import Outfit from './Outfit.jsx';
 import exampleData from './exampleData.js';
 import { HooksRelatedItems } from './hooksRelatedItems.jsx';

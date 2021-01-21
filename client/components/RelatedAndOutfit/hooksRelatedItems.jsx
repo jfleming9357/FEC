@@ -3,8 +3,8 @@ import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import CardRelated from './CardRelated.jsx';
-import ComparisonModal from './ComparisonModal.jsx';
+
+// import ComparisonModal from './ComparisonModal.jsx';
 
 export const HooksRelatedItems = () => {
   const [relatedProductIds, setRelatedProductIds] = useState([]);
