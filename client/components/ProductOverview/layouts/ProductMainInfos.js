@@ -18,7 +18,9 @@ export const ProductMainInfos = () => {
     <>
       <Ratings />
       <div className="fs-4 text-muted">{curProduct.category}</div>
-      <div className="fs-1 fw-bold">{curProduct.name}</div>
+      <div data-testid="prodName" className="prodName fs-1 fw-bold">
+        {curProduct.name}
+      </div>
       {curStyle.sale_price ? (
         <div className="col fs-5 d-flex fw-bold">
           <p style={{ color: 'red' }}>${curStyle.sale_price}</p>

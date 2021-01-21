@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ratingCalculations from './ratingCalculations.jsx';
+import ratingCalculations from './ratingCalculations.js';
 
 const RatingBreakdown = ({ allRatings }) => {
   //set ratings with 0 reviews to 0 and convert to array
@@ -21,18 +21,21 @@ const RatingBreakdown = ({ allRatings }) => {
           return (
             <div key={counter}>
               <div className="side">
-                <div className='jXAxis'>{counter} stars</div>
+                <div className="jXAxis">{counter} stars</div>
               </div>
               <div className="middle">
                 <div className="jbar-container">
-                  <div className="jbars" style={{'width': `${percentage}%`}}></div>
+                  <div
+                    className="jbars"
+                    style={{ width: `${percentage}%` }}
+                  ></div>
                 </div>
               </div>
-            </div>);
+            </div>
+          );
         })}
       </div>
     </div>
-
   );
 };
 
