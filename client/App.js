@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Header } from './components/defaults/Header.js';
 import { ProductOverview } from './components/ProductOverview/index';
-import RatingsAndReviews from './components/RatingsReviews/RatingsReviews.jsx';
-import QuestionsAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers.jsx';
-import RelatedAndOutfit from './components/RelatedAndOutfit/RelatedAndOutfit.jsx';
+import RatingsAndReviews from './components/RatingsReviews/RatingsReviews.js';
+import QuestionsAndAnswers from './components/QuestionsAndAnswers/QuestionsAndAnswers.js';
+import RelatedAndOutfit from './components/RelatedAndOutfit/RelatedAndOutfit.js';
 import { ProductContext } from './context/ProductContext.js';
 import { Preloader, Circles } from 'react-preloader-icon';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
-import { helpfulClick, reportClick } from './handleReviewClicks.jsx';
+import { helpfulClick, reportClick } from './handleReviewClicks.js';
 
 export const IndividualReview = ({ counter, result, date }) => {
   const [helpful, setHelpful] = useState(result.helpfulness);

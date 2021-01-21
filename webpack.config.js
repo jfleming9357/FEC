@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/client/index.jsx',
+  entry: __dirname + '/client/index.js',
   module: {
     rules: [
       {
@@ -9,23 +9,21 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-react', '@babel/preset-env'],
-            'plugins': [
+            plugins: [
               [
                 '@babel/plugin-proposal-class-properties',
                 {
-                  'loose': true
-                }
-              ]
-            ]
+                  loose: true,
+                },
+              ],
+            ],
           },
         },
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader', 'css-loader'
-        ]
-      }
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   output: {

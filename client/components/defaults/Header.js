@@ -15,7 +15,9 @@ export const Header = () => {
         <div className="d-flex">
           <button
             onDragLeaveCapture={() => {
-              document.getElementById('myAudio').play();
+              let hiddenAudio = document.getElementById('myAudio');
+              hiddenAudio.volume = 0.5;
+              hiddenAudio.play();
             }}
             className="btn btn-outline-light"
             type="submit"

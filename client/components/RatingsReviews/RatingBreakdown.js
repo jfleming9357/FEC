@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ratingCalculations from './ratingCalculations.jsx';
+import ratingCalculations from './ratingCalculations.js';
 
 const RatingBreakdown = ({ allRatings, recommend }) => {
   //set ratings with 0 reviews to 0 and convert to array
@@ -38,7 +38,6 @@ const RatingBreakdown = ({ allRatings, recommend }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
