@@ -1,5 +1,4 @@
-# @githubAuth = githubAPI
-@githubAuth = 855b41edba3ba7a05482943494e8d12126dfdeb2
+@githubAuth = githubAPI 
 ##### PRODUCTOVERVIEW
 
 ### Retrieves the list of products.

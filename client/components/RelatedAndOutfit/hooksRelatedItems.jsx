@@ -44,7 +44,7 @@ export const HooksRelatedItems = () => {
   };
 
   useEffect(() => {
-    let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12016/related';
+    let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12018/related';
     axios.get(url)
       .then((results) => {
         setRelatedProductIds(results.data);
