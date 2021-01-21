@@ -101,7 +101,6 @@ body {
   gap: 0px 0px;
   font-family: 'adobe-clean', sans-serif;
   grid-template-areas:
-    'SortReviews SortReviews'
     'ReviewSideBar ReviewList'
     'ReviewSideBar ReviewList'
     'ReviewSideBar ReviewList';

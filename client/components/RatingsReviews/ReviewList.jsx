@@ -10,7 +10,6 @@ const getReviews = (productId) => {
   let url = 'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' + productId;
   return axios.get(url)
     .then((response) => {
-      response = sort(response);
       return response;
     })
     .catch((err) => {
@@ -18,11 +17,31 @@ const getReviews = (productId) => {
     });
 };
 
+const SortReviews = () => {
+  const { setSortMethod, sortMethod } = useContext(SortContext);
+  const handleChange = (e) => {
+    sortProvider(e.target.value);
+  };
+
+  const changeMethod = (e) => {
+    setSortMethod(e.target.value.toLowerCase());
+  };
+
+  return (
+    <select onChange={changeMethod}className='SortReviews'>
+      <option>Relevance</option>
+      <option>Helpfulness</option>
+      <option>Newest</option>
+    </select>
+  );
+};
+
 export const ReviewList = (props) => {
   // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [numReviews, setNumReviews] = useState(2);
   const { sortMethod } = useContext(SortContext);
+  const [allReviews, setAllReviews] = useState([]);
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
@@ -32,7 +51,9 @@ export const ReviewList = (props) => {
   useEffect(() => {
     getReviews(props.id)
       .then(((data) => {
-        setReviews(data.data.results.map((result, index) => {
+        data = sort(data.data.results, sortMethod);
+        setReviews(data.map((result, index) => {
+          result.dateForSort = result.date;
           let date = new Date(result.date);
           result.date = monthNames[date.getMonth()] + ' ' + (parseInt(date.getDate()) + 1) + ', ' + date.getFullYear();
           if (index < numReviews ) {
@@ -50,15 +71,11 @@ export const ReviewList = (props) => {
       .catch((err) => {
         throw err;
       });
-  }, [numReviews]);
-  // useEffect(() => {
-
-  //   setReviews(sort(reviews, sortMethod));
-  //   console.log(reviews);
-  // }, [sortMethod]);
+  }, [numReviews, sortMethod]);
 
   return (
     <div className='ReviewList'>
+      <SortReviews />
       <div>{reviews}</div>
       <div className='jButtonContainer'>
         { reviews.length > numReviews
