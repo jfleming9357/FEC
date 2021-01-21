@@ -5,7 +5,7 @@ export const SortContext = createContext({
 });
 
 export const SortProvider = ({children}) => {
-  const [sortMethod, setSortMethod] = useState('helpfulness');
+  const [sortMethod, setSortMethod] = useState('relevance');
   return (
     <SortContext.Provider value={{sortMethod, setSortMethod}}>{children}
     </SortContext.Provider>
@@ -13,6 +13,7 @@ export const SortProvider = ({children}) => {
 };
 
 export const sort = (reviews, method) => {
+  console.log(method);
   const sortHelpful = (a, b) => (
     b.helpfulness - a.helpfulness
   );
@@ -21,13 +22,16 @@ export const sort = (reviews, method) => {
     b.review_id - a.review_id
   );
 
+  const sortRelevance = (a, b) => {
+    return (b.review_id / 1000 + b.helpfulness) - (a.review_id / 1000 + a.helpfulness);
+  };
+
   if (method === 'helpfulness') {
     return reviews.sort(sortHelpful);
   } else if (method === 'newest') {
     return reviews.sort(sortNewest);
   } else if (method === 'relevance') {
-    reviews.sort(sortNewest);
-    return reviews.sort(sortHelpful);
+    return reviews.sort(sortRelevance);
   }
   return reviews;
 };
