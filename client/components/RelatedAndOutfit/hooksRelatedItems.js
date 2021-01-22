@@ -75,7 +75,7 @@ export const HooksRelatedItems = () => {
           {relatedProductInfo.map((product) => (
             <Slide key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
               <div style={{height:'450px', width:'280px'}}>
-                <div style={{height:'70%', width: '100%', backgroundImage: `url(${(product.thumbnail)})`, backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => (<ComparisonModal product={product}/>)}>&#9733;</p>
+                <div style={{height:'70%', width: '100%', backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null , backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => (<ComparisonModal product={product}/>)}>&#9733;</p>
                 </div>
                 <div style={{height:'30%', width: '100%'}}>
                   <p className="fs-6 m-0">{product.category}</p>
