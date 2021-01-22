@@ -20,6 +20,7 @@ class Outfit extends React.Component {
     // console.log('what is in this outfit?', this.state.outfitList)
     return (
       <div>
+        <b>YOUR OUTFIT</b>
       </div>
     );
   }
