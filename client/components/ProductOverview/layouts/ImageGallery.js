@@ -48,7 +48,7 @@ export const ImageGallery = () => {
           }}
         >
           <div className="position-absolute row w-100 h-100">
-            <Slider>
+            <Slider aria-label="product overview carousel">
               {curStyle.photos.map(({ url }, i) => {
                 return url ? (
                   <Slide index={i} key={i}>
@@ -61,6 +61,7 @@ export const ImageGallery = () => {
                     >
                       <img
                         src={url.split('&w=')[0] + '&w=900&h=700'}
+                        alt={curStyle.name}
                         height="700"
                         width="700"
                       />
