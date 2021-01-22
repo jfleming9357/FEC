@@ -14,7 +14,7 @@ export const Ratings = () => {
     <div className="col">
       <StarRatings starDimension="20px" rating={curRating} starSpacing="3px" />
       <small>
-        <u>Read all reveiws</u>
+        <u>Read all reviews</u>
       </small>
     </div>
   );

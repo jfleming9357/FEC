@@ -18,7 +18,7 @@ export const IndividualReview = ({ counter, result, date }) => {
       <div className="ReviewText">
         <strong>{result.summary}</strong>
         <div>{result.body}</div>
-        <div id="jResponse">{result.response}</div>
+        {!!result.response && <div id="jResponse">{result.response}</div>}
         <div id="helpfulAndReport">Helpful?&nbsp;
           <span
             onClick={(e) => {

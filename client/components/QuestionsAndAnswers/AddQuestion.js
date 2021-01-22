@@ -18,7 +18,7 @@ const AddQuestion = ({ handleSubmit }) => {
 
   return <>
     <div
-      className="d-border-button"
+      className="d-add-question d-border-button d-bold"
       onClick={() => setShow(true)}
     >
       Add A Question
@@ -37,7 +37,7 @@ const AddQuestion = ({ handleSubmit }) => {
         <Form>
           <Form.Group>
             <Form.Label>Your Question</Form.Label>
-            <Form.Control required type="text" as="textarea" onChange={(e) => setQuestion(e.target.value)} />
+            <Form.Control required type="text" as="textarea" placeholder="How many can I buy???" onChange={(e) => setQuestion(e.target.value)} />
           </Form.Group>
           <Form.Group>
             <Form.Label>Your Nickname</Form.Label>
