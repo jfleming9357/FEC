@@ -5,14 +5,16 @@
 
 ## Table of Contents
 
-- [Description](#Description)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Related Projects](#Related-Projects)
-- [Team Members](#Team-Members)
-- [Contributing](#Contributing)
-- [Roadmap](#Roadmap)
-- [License](#License)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Related Projects](#related-projects)
+  - [Team Members](#team-members)
+  - [Contributing](#contributing)
+  - [Roadmap](#roadmap)
+  - [License](#license)
 
 ## Description
 
@@ -20,8 +22,16 @@
 Run npm install for dependencies.
 
 Scripts:
-npm start (starts webpack with babel)
-npm server (starts server and hosts on localhost:3000)
+```js
+npm start 
+```
+(starts webpack with babel)
+```js
+npm server 
+```
+(starts server and hosts on localhost:3000)
+
+
 ## Usage
 
 Send server requests to http://localhost:3000/proxy/api/fec2/hratx/ plus your desired endpoint.
