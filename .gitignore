@@ -3,3 +3,4 @@ client/dist/bundle.js
 package-lock.json
 .env
 MithrilFEC.pem
+client/dist/bundle.js.br

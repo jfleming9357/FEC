@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StarRatings from 'react-star-ratings';
 import { helpfulClick, reportClick } from './handleReviewClicks.js';
 
 export const IndividualReview = ({ counter, result, date }) => {
+  const [helpful, setHelpful] = useState(result.helpfulness);
   return (
     <div className="IndividualReview" key={result.review_id}>
       <div className="jStars">
@@ -20,10 +21,13 @@ export const IndividualReview = ({ counter, result, date }) => {
         {!!result.response && <div id="jResponse">{result.response}</div>}
         <div id="helpfulAndReport">Helpful?&nbsp;
           <span
-            onClick={helpfulClick}
+            onClick={(e) => {
+              setHelpful(helpful + 1);
+              helpfulClick(e);
+            }}
             className="d-underlined"
             id={result.review_id}
-          >Yes</span> {result.helpfulness}   |&nbsp;
+          >Yes</span> {helpful}   |&nbsp;
           <span
             onClick={reportClick}
             className="d-underlined"

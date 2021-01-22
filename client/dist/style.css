@@ -133,12 +133,10 @@ body {
   gap: 0px 0px;
   font-family: "adobe-clean", sans-serif;
   grid-template-areas:
-    "ReviewSideBar ReviewList"
-    "ReviewSideBar ReviewList"
     "ReviewSideBar ReviewList";
-  margin: 20px 0;
+  margin: 15px 0;
   border: 1px solid black;
-  padding: 20px;
+  padding: 15px;
 }
 
 .ReviewSideBar {
@@ -202,7 +200,7 @@ body {
 
 .RatingSummary {
   grid-area: RatingSummary;
-  height: 75px;
+  height: 100px;
 }
 
 .RatingBreakdown {
@@ -307,7 +305,6 @@ body {
 
 .jbarGraph {
   font-size: 14px;
-  padding-left: 20px;
 }
 
 .jXAxis {
