@@ -27,7 +27,7 @@ const RatingsAndReviews = (props) => {
       .catch((err) => {
         throw err;
       });
-  }, []);
+  }, [props.product_id]);
   if (metaData) {
     return (
       <div className="jcontainer">
