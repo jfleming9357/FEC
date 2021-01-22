@@ -6,7 +6,7 @@ import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 // import { singleProd  } from '../ProductOverview/tempData';
 import { Modal } from 'react-bootstrap';
-import ComparisonModal from './ComparisonModal.jsx';
+// import ComparisonModal from './ComparisonModal.js';
 
 export const HooksRelatedItems = () => {
   const { curProduct } = useContext(ProductContext);
