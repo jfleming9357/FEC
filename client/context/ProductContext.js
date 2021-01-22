@@ -79,6 +79,7 @@ export const ProductProvider = ({ children }) => {
         curStyle,
         updateCurStyle,
         getProductRating,
+        getSingleProduct
       }}
     >
       {children}
