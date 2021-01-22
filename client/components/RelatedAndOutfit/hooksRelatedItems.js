@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ProductContext } from '../../context/ProductContext';
 import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-
-// import ComparisonModal from './ComparisonModal.jsx';
+// import { singleProd  } from '../ProductOverview/tempData';
+import { Modal } from 'react-bootstrap';
+// import ComparisonModal from './ComparisonModal.js';
 
 export const HooksRelatedItems = () => {
+  const { curProduct } = useContext(ProductContext);
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [combinedFeatures, setCombinedFeatures] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
 
   const getRelatedProductInfo = () => {
     let relatedProdInfoArr = [];
@@ -43,8 +50,16 @@ export const HooksRelatedItems = () => {
     });
   };
 
+  const updateSelectedProduct=(product) => {
+    // selectedProduct features + curProduct features
+    let tempFeatures = Array.from(new Set (product.features.map((i) => i.feature).concat(curProduct.features.map((i) => i.feature))));
+    setSelectedProduct(product);
+    setShow(true);
+    setCombinedFeatures(tempFeatures);
+  }
+
   useEffect(() => {
-    let url = 'http://localhost:3000/proxy/api/fec2/hratx/products/12018/related';
+    let url = `http://localhost:3000/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
     axios.get(url)
       .then((results) => {
         setRelatedProductIds(results.data);
@@ -70,10 +85,11 @@ export const HooksRelatedItems = () => {
         >
         <div>
           <ButtonBack>Back</ButtonBack>
+          <ButtonNext>Next</ButtonNext>
         </div>
-        <Slider>
+        <Slider aria-label="related products carousel">
           {relatedProductInfo.map((product) => (
-            <Slide key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
+            <Slide aria-label="product slide" key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
               <div style={{height:'450px', width:'280px'}}>
                 <div style={{height:'70%', width: '100%', backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null , backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => (<ComparisonModal product={product}/>)}>&#9733;</p>
                 </div>
@@ -82,16 +98,59 @@ export const HooksRelatedItems = () => {
                   <p className="fs-6 m-0">{product.name}</p>
                   <p className="fs-6 m-0">${product.default_price}</p>
                   <p className="fs-6 m-0">STARS</p>
-                  {/* <p  onClick={() => console.log(relatedProductInfo)} className="fs-6 m-0"></p> */}
                 </div>
               </div>
             </Slide>
           ))}
         </Slider>
-        <div>
-          <ButtonNext>Next</ButtonNext>
-        </div>
       </CarouselProvider>
+
+      {/* <ComparisonModal
+        compProduct={product}
+        //show={show}
+        //setShow={setShow}
+        curProduct={singleProd} /> */}
+        <Modal
+          show={show}
+          onHide={() => setShow(false)}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Choices, choices....</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <table>
+              <tbody>
+                <tr>
+                  <th>{selectedProduct && selectedProduct.name}</th>
+                  <th>Features</th>
+                  <th>{curProduct.name}</th>
+                </tr>
+                {combinedFeatures.map((feat) =>{
+                  let theValueL = "";
+                  let theValueR= "";
+                  selectedProduct.features.find((i) => {
+                    if (i.feature === feat) {
+                      theValueL = i.value;
+                    }
+                  })
+                  curProduct.features.find((i) => {
+                    if (i.feature === feat) {
+                      theValueR = i.value;
+                    }
+                  })
+                  return (
+                  <tr>
+                    <td>{theValueL}</td>
+                    <td>{feat}</td>
+                    <td>{theValueR}</td>
+                  </tr>
+                  )
+                })}
+
+              </tbody>
+            </table>
+          </Modal.Body>
+        </Modal>
 
     </div>
   </>;
