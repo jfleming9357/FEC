@@ -27,20 +27,20 @@ const RatingsAndReviews = (props) => {
         throw err;
       });
   }, []);
-  if (metaData) {
-    return (<div className="jcontainer">
-      <SortProvider>
-        <ReviewList id={props.product_id} characteristics={metaData.characteristics}/>
-      </SortProvider>
-      <div className="ReviewSideBar">
-        <div className="SideBarContainer">
-          <RatingSummary allRatings={metaData.ratings}/>
-          <RatingBreakdown allRatings={metaData.ratings} recommend={metaData.recommended}/>
-          <ProductBreakdown characteristics={metaData.characteristics}/>
+  metaData ?
+    (
+      <div className="jcontainer">
+        <SortProvider>
+          <ReviewList id={props.product_id} characteristics={metaData.characteristics}/>
+        </SortProvider>
+        <div className="ReviewSideBar">
+          <div className="SideBarContainer">
+            <RatingSummary allRatings={metaData.ratings}/>
+            <RatingBreakdown allRatings={metaData.ratings} recommend={metaData.recommended}/>
+            <ProductBreakdown characteristics={metaData.characteristics}/>
+          </div>
         </div>
-      </div>
-    </div>);
-  } else { return (<div>Loading...</div>); }
+      </div>) : (<div>Loading...</div>);
 };
 
 export default RatingsAndReviews;

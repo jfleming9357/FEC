@@ -141,9 +141,9 @@ body {
   font-family: "adobe-clean", sans-serif;
   grid-template-areas:
     "ReviewSideBar ReviewList";
-  margin: 20px 0;
+  margin: 15px 0;
   border: 1px solid black;
-  padding: 20px;
+  padding: 15px;
 }
 
 .ReviewSideBar {
@@ -311,7 +311,7 @@ body {
 }
 
 .jbarGraph {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .jXAxis {
