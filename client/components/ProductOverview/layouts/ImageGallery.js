@@ -132,7 +132,7 @@ export const ImageGallery = () => {
             </div>
           </div>
           <div className="position-absolute row w-100 h-100">
-            <Slider>
+            <Slider aria-label="product overview carousel">
               {curStyle.photos.map(({ url }, i) => {
                 return url ? (
                   <Slide index={i} key={i}>
