@@ -1,13 +1,12 @@
 const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const zlib = require('zlib');
 
 module.exports = {
   entry: __dirname + '/client/index.js',
   plugins: [
     new CompressionPlugin({
-      filename: "[path][base].br",
-      algorithm: "brotliCompress",
+      filename: '[path][base].br',
+      algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
         params: {
