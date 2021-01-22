@@ -142,7 +142,7 @@ export const ImageGallery = () => {
                         width: '700px',
                       }}
                     >
-                      <img src={url} className="d-block w-100 h-100" />
+                      <img src={url} alt={curStyle.name} className="d-block w-100 h-100" />
                     </div>
                   </Slide>
                 ) : (
