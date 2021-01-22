@@ -3,6 +3,7 @@ let app = express();
 var proxy = require('express-http-proxy');
 require('dotenv').config();
 // const { createProxyMiddleware } = require('http-proxy-middleware');
+const expressStaticGzip = require('express-static-gzip');
 
 app.use(
   '/proxy',
@@ -16,7 +17,18 @@ app.use(
   })
 );
 
-app.use(express.static('client/dist'));
+// app.use(express.static('client/dist'));
+
+app.use(
+  '/',
+  expressStaticGzip('client/dist', {
+    enableBrotli: true,
+    orderPreference: ['br'],
+    setHeaders: function (res, path) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000');
+    }
+  })
+);
 
 let port = 3000;
 

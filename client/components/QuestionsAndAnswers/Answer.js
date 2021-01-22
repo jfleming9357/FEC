@@ -21,7 +21,7 @@ const Answer = ({ answer, asker }) => {
   return <>
     <div className="d-answer">
       <div>{answer.body}</div>
-      <div className="d-answer-toolbar">
+      <div className="d-answer-toolbar d-light">
         {`by ${answer.answerer_name}`}
         {asker === answer.answerer_name && <span> - <strong>Seller</strong></span>}
         {`, ${moment(answer.date).format('MMM DD, YYYY').toString()}  |  Helpful ? `}

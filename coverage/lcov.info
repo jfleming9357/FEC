@@ -1,5 +1,9 @@
 TN:
+<<<<<<< HEAD
 SF:src\testingFunctions.js
+=======
+SF:src/testingFunctions.js
+>>>>>>> ad35b2d3a61efe1d779fa6651858305b34f45723
 FN:3,(anonymous_0)
 FN:6,(anonymous_1)
 FN:9,(anonymous_2)

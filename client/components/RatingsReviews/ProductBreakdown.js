@@ -10,24 +10,19 @@ const ProductBreakdown = ({ characteristics }) => {
     <div className="jbarGraph">
       <div className="row">
         {charArray.map((array, index) => {
-          return (
-            <div key={index}>
-              <div className="side">
-                <div className="jXAxis">
-                  {array[0]}&nbsp;{array[1] / 20}&nbsp;
-                </div>
-              </div>{' '}
-              <br />
-              <div className="middle">
-                <div className="jbar-container">
-                  <div
-                    className="jbars"
-                    style={{ width: `${array[1]}%` }}
-                  ></div>
-                </div>
-              </div>
+          return <React.Fragment key={index}>
+            <div className="side">
+              <div className='jXAxis'>{array[0]}&nbsp;{array[1] / 20}&nbsp;</div>
             </div>
-          );
+            <div className="middle">
+              <div className="jbar-container">
+                <div
+                  className="jbars"
+                  style={{ width: `${array[1]}%` }}
+                ></div>
+              </div>
+            </div> <br />
+          </React.Fragment>;
         })}
       </div>
     </div>

@@ -11,9 +11,10 @@ const QuestionsAndAnswers = (props) => {
   const { curProduct } = useContext(ProductContext);
   const [numQuestions, setNumQuestions] = useState(2);
   //Initial questions set is sorted by helpfulness
-  const initialQuestions = tempProductQuestions.results.sort(
-    (a, b) => b.question_helpfulness - a.question_helpfulness
-  );
+  // let initialQuestions = tempProductQuestions.results.sort(
+  //   (a, b) => b.question_helpfulness - a.question_helpfulness
+  // );
+  let initialQuestions = [];
   const [questions, setQuestions] = useState([]);
 
   //Initial data fetch
@@ -23,6 +24,7 @@ const QuestionsAndAnswers = (props) => {
         `proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}&count=50`
       )
       .then((res) => {
+        initialQuestions = res.data.results;
         setQuestions(res.data.results);
       });
   }, [curProduct.id]);
