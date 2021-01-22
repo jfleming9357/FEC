@@ -48,7 +48,7 @@ export const ImageGallery = () => {
           }}
         >
           <div className="position-absolute row w-100 h-100">
-            <Slider>
+            <Slider aria-label="product overview carousel">
               {curStyle.photos.map(({ url }, i) => {
                 return url ? (
                   <Slide index={i} key={i}>
@@ -61,6 +61,7 @@ export const ImageGallery = () => {
                     >
                       <img
                         src={url.split('&w=')[0] + '&w=900&h=700'}
+                        alt={curStyle.name}
                         height="700"
                         width="700"
                       />
@@ -164,6 +165,35 @@ export const ImageGallery = () => {
                 <div></div>
               )}
             </div>
+          </div>
+          <div className="position-absolute row w-100 h-100">
+            <Slider aria-label="product overview carousel">
+              {curStyle.photos.map(({ url }, i) => {
+                return url ? (
+                  <Slide index={i} key={i}>
+                    <div
+                      style={{
+                        height: '700px',
+                        width: '700px',
+                      }}
+                    >
+                      <img src={url} alt={curStyle.name} className="d-block w-100 h-100" />
+                    </div>
+                  </Slide>
+                ) : (
+                  <div
+                    key={i}
+                    className="text-center d-flex bg-secondary"
+                    style={{
+                      height: '700px',
+                      width: '700px',
+                    }}
+                  >
+                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
         </div>
       </CarouselProvider>

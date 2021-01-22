@@ -87,10 +87,9 @@ export const HooksRelatedItems = () => {
           <ButtonBack>Back</ButtonBack>
           <ButtonNext>Next</ButtonNext>
         </div>
-        <Slider>
+        <Slider aria-label="related products carousel">
           {relatedProductInfo.map((product) => (
-
-            <Slide key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
+            <Slide aria-label="product slide" key={product.id} style={{height:'450px', width:'280px', marginLeft: '7px', marginRight: '7px'}} index={0} onClick={() => console.log(relatedProductInfo)}>
               <div style={{height:'450px', width:'280px'}}>
                 <div style={{height:'70%', width: '100%', backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null , backgroundRepeat: 'no-repeat'}}><p style={{color:'yellow', fontSize:'25px', textAlign:'right'}} onClick={() => (<ComparisonModal product={product}/>)}>&#9733;</p>
                 </div>
