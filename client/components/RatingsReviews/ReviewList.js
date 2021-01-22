@@ -44,7 +44,6 @@ export const ReviewList = (props) => {
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [numReviews, setNumReviews] = useState(2);
   const { sortMethod } = useContext(SortContext);
-  const [allReviews, setAllReviews] = useState([]);
   const monthNames = [
     'January',
     'February',
