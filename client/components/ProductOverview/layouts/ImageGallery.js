@@ -47,10 +47,42 @@ export const ImageGallery = () => {
             position: 'relative',
           }}
         >
-          <div
-            className="position-absolute row h-100 w-100"
-            style={{ zIndex: '1' }}
-          >
+          <div className="position-absolute row w-100 h-100">
+            <Slider>
+              {curStyle.photos.map(({ url }, i) => {
+                return url ? (
+                  <Slide index={i} key={i}>
+                    <div
+                      onClick={() => console.log(12312)}
+                      style={{
+                        height: '700px',
+                        width: '900px',
+                      }}
+                    >
+                      <img
+                        src={url.split('&w=')[0] + '&w=900&h=700'}
+                        height="700"
+                        width="700"
+                      />
+                    </div>
+                  </Slide>
+                ) : (
+                  <div
+                    key={i}
+                    className="text-center d-flex bg-secondary"
+                    style={{
+                      height: '700px',
+                      width: '700px',
+                    }}
+                  >
+                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+
+          <div className="position-absolute row h-100 w-100">
             <div className="col-2">
               <div className="col p-3">
                 {curSlide - 6 > 0 && curSlide !== 0 && (
@@ -77,9 +109,11 @@ export const ImageGallery = () => {
                         <div
                           className="bg-secondary my-2"
                           style={{
+                            backgroundImage: `url(${
+                              thumbnail_url.split('&w=')[0] + '&w=50&h=50'
+                            })`,
                             height: '50px',
                             width: '50px',
-                            backgroundImage: `url(${thumbnail_url})`,
                             opacity: curSlide === i ? '' : '50%',
                             border: curSlide === i && '2px solid black',
                           }}
@@ -130,35 +164,6 @@ export const ImageGallery = () => {
                 <div></div>
               )}
             </div>
-          </div>
-          <div className="position-absolute row w-100 h-100">
-            <Slider>
-              {curStyle.photos.map(({ url }, i) => {
-                return url ? (
-                  <Slide index={i} key={i}>
-                    <div
-                      style={{
-                        height: '700px',
-                        width: '700px',
-                      }}
-                    >
-                      <img src={url} className="d-block w-100 h-100" />
-                    </div>
-                  </Slide>
-                ) : (
-                  <div
-                    key={i}
-                    className="text-center d-flex bg-secondary"
-                    style={{
-                      height: '700px',
-                      width: '700px',
-                    }}
-                  >
-                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
-                  </div>
-                );
-              })}
-            </Slider>
           </div>
         </div>
       </CarouselProvider>
