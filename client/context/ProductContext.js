@@ -10,6 +10,8 @@ export const ProductProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState(null);
   const [curProduct, setCurProduct] = useState(null);
   const [curStyle, setCurStyle] = useState(null);
+  const [zoomIn, setZoomIn] = useState(false);
+
   useEffect(() => {
     if (!allProducts) {
       getAllProduct();
@@ -79,6 +81,8 @@ export const ProductProvider = ({ children }) => {
         curStyle,
         updateCurStyle,
         getProductRating,
+        zoomIn,
+        setZoomIn,
       }}
     >
       {children}
