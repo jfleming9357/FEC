@@ -1,10 +1,30 @@
-// import React, { useState, useEffect } from 'react';
-// import exampleData from './exampleData.js';
+import React, { useContext, useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import { ProductContext } from '../../context/ProductContext';
 
-// export const ComparisonModal = (props) => {
-//   return (
-//     <div>
+export const ComparisonModal = (props) => {
+  const [show, setShow] = useState(props);
+  const handleClose = () => setShow(false);
 
-//     </div>
-//   )
-// }
+  return (
+    <Modal
+      show={show}
+      onHide={handleClose}
+      keyboard={false}
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>Choices, choices....</Modal.Title>
+      </Modal.Header>
+        <Modal.Body>
+          <table>
+            <tr>
+              <th>{features[0]}</th>
+              <th>{features[1]}</th>
+            </tr>
+          </table>
+        </Modal.Body>
+    </Modal>
+  );
+}
+
+export default ComparisonModal;
