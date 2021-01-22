@@ -10,6 +10,7 @@ export const ProductProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState(null);
   const [curProduct, setCurProduct] = useState(null);
   const [curStyle, setCurStyle] = useState(null);
+
   useEffect(() => {
     if (!allProducts) {
       getAllProduct();

@@ -77,9 +77,11 @@ export const ImageGallery = () => {
                         <div
                           className="bg-secondary my-2"
                           style={{
+                            backgroundImage: `url(${
+                              thumbnail_url.split('&w=')[0] + '&w=50&h=50'
+                            })`,
                             height: '50px',
                             width: '50px',
-                            backgroundImage: `url(${thumbnail_url})`,
                             opacity: curSlide === i ? '' : '50%',
                             border: curSlide === i && '2px solid black',
                           }}
@@ -142,7 +144,11 @@ export const ImageGallery = () => {
                         width: '700px',
                       }}
                     >
-                      <img src={url} className="d-block w-100 h-100" />
+                      <img
+                        src={url.split('&w=')[0] + '&w=700&h=700'}
+                        height="700"
+                        width="700"
+                      />
                     </div>
                   </Slide>
                 ) : (
