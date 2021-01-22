@@ -4,8 +4,8 @@
   "description": "## Overview",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "testB": "react-scripts test",
+    "test:coverage": "react-scripts test -- --coverage --watchAll=false",
+    "test": "react-scripts test",
     "start": "webpack -d --progress --watch",
     "server": "nodemon server.js",
     "build": "webpack"
