@@ -47,5 +47,6 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/client/dist',
   },
-  mode: 'development',
+  // mode: 'development',
+  mode: 'production',
 };

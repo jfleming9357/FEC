@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  font-family: Calibri;
 }
 
 .mHeader {
@@ -132,8 +131,7 @@ body {
   grid-template-columns: 0.5fr 1.5fr;
   gap: 0px 0px;
   /* font-family: "adobe-clean", sans-serif; */
-  grid-template-areas:
-    "ReviewSideBar ReviewList";
+  grid-template-areas: "ReviewSideBar ReviewList";
   margin: 15px 0;
   border: 1px solid black;
   padding: 15px;
