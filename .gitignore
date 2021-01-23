@@ -8,3 +8,5 @@ key.pem
 cert.pem
 coverage
 coverage/
+.eslintignore
+.eslintrc.js
