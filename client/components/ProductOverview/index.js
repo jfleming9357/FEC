@@ -5,7 +5,7 @@ import { ProductMainInfos } from './layouts/ProductMainInfos';
 
 export const ProductOverview = () => {
   const { curProduct, zoomIn, setZoomIn } = useContext(ProductContext);
-  const [curWidth, setCurWidth] = useState(null);
+  const [curWidth, setCurWidth] = useState(window.innerWidth);
 
   window.addEventListener('resize', () => {
     setCurWidth(window.innerWidth);
@@ -19,9 +19,7 @@ export const ProductOverview = () => {
         </div>
         <div
           className={`row flex-wrap ${curWidth > 1400 ? 'd-flex' : 'd-none'} ${
-            zoomIn
-              ? 'col-12 align-content-around'
-              : 'col-5 align-content-center'
+            zoomIn ? 'd-none' : 'col-5 align-content-center'
           } `}
         >
           <ProductMainInfos />
