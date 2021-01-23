@@ -5,6 +5,7 @@ import StarRatings from 'react-star-ratings';
 import { helpfulClick, reportClick } from './handleReviewClicks.js';
 import { IndividualReview } from './individualReview.js';
 import { sort, SortContext } from './SortReviews.js';
+import { ProductContext } from '../../context/ProductContext.js';
 
 const getReviews = (productId) => {
   let url =
@@ -40,6 +41,7 @@ const SortReviews = () => {
 };
 
 export const ReviewList = (props) => {
+  const { curProduct } = useContext(ProductContext);
   // const [loading, setLoading] = useState(true);
   const [reviews, setReviews] = useState(<div>Loading reviews...</div>);
   const [numReviews, setNumReviews] = useState(2);
@@ -60,7 +62,7 @@ export const ReviewList = (props) => {
   ];
 
   useEffect(() => {
-    getReviews(props.id)
+    getReviews(curProduct.id)
       .then((data) => {
         data = sort(data.data.results, sortMethod);
         setReviews(
@@ -89,7 +91,7 @@ export const ReviewList = (props) => {
       .catch((err) => {
         throw err;
       });
-  }, [numReviews, sortMethod]);
+  }, [numReviews, sortMethod, curProduct]);
 
   return (
     <div className="ReviewList">
@@ -107,7 +109,7 @@ export const ReviewList = (props) => {
           </button>
         )}
         <AddReview
-          productId={props.id}
+          productId={curProduct.id}
           characteristics={props.characteristics}
         />
       </div>

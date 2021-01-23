@@ -83,6 +83,7 @@ export const ProductProvider = ({ children }) => {
         getProductRating,
         zoomIn,
         setZoomIn,
+        getSingleProduct,
       }}
     >
       {children}
