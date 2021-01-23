@@ -26,33 +26,19 @@ export const HooksRelatedItems = () => {
     let relatedProdInfoArr = [];
     relatedProductIds.map((item) => {
       let tempObj = {};
-      let url1 =
-        '/proxy/api/fec2/hratx/products/' +
-        item.toString();
-      let url2 =
-        '/proxy/api/fec2/hratx/products/' +
-        item.toString() +
-        '/styles';
-      axios
-        .get(url1)
-        .then((results) => {
-          tempObj = results.data;
-        })
-        .then(() => {
-          return axios
-            .get(url2)
-            .then((results) => {
-              if (results.data.results[0].photos[0].thumbnail_url) {
-                tempObj.thumbnail =
-                  results.data.results[0].photos[0].thumbnail_url.split('&w=')[0] + '&crop=faces&w=300&h=450&q=80';
-              }
-            })
-            .catch((error) => {
-              console.error(
-                error,
-                `OH NOOOOO there was an error getting the thumbnail for product ${item.id}`
-              );
-            });
+      let urls = [
+        '/proxy/api/fec2/hratx/products/' + item.toString(),
+        '/proxy/api/fec2/hratx/products/' + item.toString() + '/styles'
+      ];
+      Promise.all(urls.map(url => {
+        return axios.get(url)
+          .then(res => res.data);
+      }))
+        .then(data => {
+          tempObj = data[0];
+          if (data[1].results[1].photos[0].thumbnail_url) {
+            tempObj.thumbnail = data[1].results[0].photos[0].thumbnail_url;
+          }
         })
         .then(() => {
           relatedProdInfoArr.push(tempObj);
