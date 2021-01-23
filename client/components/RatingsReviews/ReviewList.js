@@ -126,7 +126,6 @@ export const ReviewList = (props) => {
             More Reviews
           </button>
         }
-
       </div>
 
     </>
