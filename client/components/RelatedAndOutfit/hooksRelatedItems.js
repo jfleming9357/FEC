@@ -37,7 +37,6 @@ export const HooksRelatedItems = () => {
       }))
         .then(data => {
           tempObj = data[0];
-          console.log(data);
           if (data[1].results[0].photos[0].thumbnail_url) {
             tempObj.thumbnail = data[1].results[0].photos[0].thumbnail_url;
           }
