@@ -22,7 +22,7 @@ const RatingBreakdown = ({ allRatings, recommend }) => {
 
   return (
     <div>
-      {!(isNan(recommendPercent)) ? Math.round(recommendPercent) : 100}% of users recommend this item.
+      {!(isNaN(recommendPercent)) ? Math.round(recommendPercent) : 100}% of users recommend this item.
       <div className="jbarGraph">
         <div className="row">
           {ratingPercentages.map((percentage) => {
