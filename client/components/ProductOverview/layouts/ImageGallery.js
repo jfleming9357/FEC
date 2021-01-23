@@ -135,15 +135,15 @@ export const ImageGallery = () => {
                   })}
                   {curStyle.photos.length - 6 > 0 &&
                     curSlide !== curStyle.photos.length - 1 && (
-                    <ButtonNext
-                      onClick={() => nextImg()}
-                      className="mCarouselStyle"
-                    >
-                      <span>
-                        <i className="fas fa-arrow-down text-light fs-3"></i>
-                      </span>
-                    </ButtonNext>
-                  )}
+                      <ButtonNext
+                        onClick={() => nextImg()}
+                        className="mCarouselStyle"
+                      >
+                        <span>
+                          <i className="fas fa-arrow-down text-light fs-3"></i>
+                        </span>
+                      </ButtonNext>
+                    )}
                 </div>
               </div>
               <div className="col-10 d-flex justify-content-between align-items-center">
@@ -262,7 +262,9 @@ export const ImageGallery = () => {
                             }}
                           >
                             <img
-                              src={url.split('&w=')[0] + '&w=1000&h=700'}
+                              src={
+                                url.split('&w=')[0] + '&w=1000&h=700&crop=faces'
+                              }
                               alt={curStyle.name}
                               height="700"
                               width="1000"
