@@ -4,3 +4,5 @@ package-lock.json
 .env
 MithrilFEC.pem
 client/dist/bundle.js.br
+coverage
+coverage/

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ReviewList } from './ReviewList.js';
 import RatingSummary from './RatingSummary.js';
 import RatingBreakdown from './RatingBreakdown.js';
@@ -7,6 +7,7 @@ import ProductBreakdown from './ProductBreakdown.js';
 // import SortReviews from './SortReviews.js';
 import axios from 'axios';
 import { SortProvider } from './SortReviews.js';
+import { ProductContext } from '../../context/ProductContext.js';
 
 const getMetaData = function (productId) {
   let url =
@@ -17,30 +18,31 @@ const getMetaData = function (productId) {
   });
 };
 
-const RatingsAndReviews = (props) => {
+const RatingsAndReviews = () => {
+  const { curProduct } = useContext(ProductContext);
   const [metaData, setMetaData] = useState(undefined);
   useEffect(() => {
-    getMetaData(props.product_id)
+    getMetaData(curProduct.id)
       .then((data) => {
         setMetaData(data.data);
       })
       .catch((err) => {
         throw err;
       });
-  }, [props.product_id]);
+  }, [curProduct]);
   if (metaData) {
     return (
       <div className="jcontainer">
         <SortProvider>
-          <ReviewList
-            id={props.product_id}
-            characteristics={metaData.characteristics}
-          />
+          <ReviewList characteristics={metaData.characteristics} />
         </SortProvider>
         <div className="ReviewSideBar">
           <div className="SideBarContainer">
             <RatingSummary allRatings={metaData.ratings} />
-            <RatingBreakdown allRatings={metaData.ratings} recommend={metaData.recommended} />
+            <RatingBreakdown
+              allRatings={metaData.ratings}
+              recommend={metaData.recommended}
+            />
             <ProductBreakdown characteristics={metaData.characteristics} />
           </div>
         </div>
