@@ -220,39 +220,18 @@ body {
   font-weight: bold;
 }
 
-/* .c-related-items-and-outfit{
-  position: center;
-  min-width: auto;
-  height: auto;
-  display: grid;
-  border: 1px solid black;
-  margin: 20px 0;
-  padding: 20px;
-  row-gap: 20px;
+
+.c-related-items-carousel {
+  border: '2px';
+  border-color: 'black'
 }
 
 .c-related-items {
-  position: center;
-  min-width: auto;
-  height: auto;
-  margin: 0 auto;
-  padding: 4px;
+  border: '2px';
+  border-color: 'black'
 }
 
-.c-related-items-carousel {
-  position: center;
-  margin: 0 auto;
-  padding: 4px;
-}
 
-.c-related-slide {
-  height: auto;
-  width: auto;
-  margin: 0 auto;
-  border: 1px solid black;
-  padding: 10px;
-}
-*/
 /* Three column layout */
 .side {
   float: left;
@@ -331,11 +310,6 @@ body {
   background-color: white;
   border: 1px solid black;
   text-align: center;
-}
-
-.c-related-card {
-  max-width: 280px;
-  height: 340px;
 }
 
 .jModal {
