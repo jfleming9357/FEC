@@ -89,7 +89,7 @@ export const HooksRelatedItems = () => {
           {relatedProductInfo.map((product) => (
             <Slide
               key={product.id}
-              // onClick={setCurProduct(product)}
+              onClick={setCurProduct(product)}
               style={
                 {height:'450px',
                 width:'280px',
