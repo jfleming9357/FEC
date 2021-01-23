@@ -148,7 +148,7 @@ export const ImageGallery = () => {
                         width: '700px',
                       }}
                     >
-                      <img src={url.split('&w=')[0] + '&crop=faces&w=700&h=700&q=80'}className="d-block w-100"/>
+                      <img src={url.split('&w=')[0] + '&crop=faces&w=700&h=700&q=80'} alt={curStyle.name} className="d-block w-100"/>
                     </div>
                   </Slide>
                 ) : (
