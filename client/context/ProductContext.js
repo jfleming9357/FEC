@@ -56,9 +56,9 @@ export const ProductProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const getProductRating = () => {
+  const getProductRating = (id) => {
     return axios
-      .get('/proxy/api/fec2/hratx/reviews?product_id=12012')
+      .get('/proxy/api/fec2/hratx/reviews?product_id=' + id)
       .then(({ data }) => {
         let totalRatings = data.results.length;
         let curRatings = 0;
