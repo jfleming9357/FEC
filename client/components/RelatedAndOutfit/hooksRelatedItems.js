@@ -4,9 +4,7 @@ import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-// import { singleProd  } from '../ProductOverview/tempData';
 import { Modal } from 'react-bootstrap';
-// import ComparisonModal from './ComparisonModal.js';
 
 export const HooksRelatedItems = () => {
   const { curProduct } = useContext(ProductContext);
@@ -31,7 +29,7 @@ export const HooksRelatedItems = () => {
           return axios.get(url2)
           .then((results) => {
             if (results.data.results[0].photos[0].thumbnail_url) {
-              tempObj.thumbnail = results.data.results[0].photos[0].thumbnail_url;
+              tempObj.thumbnail = results.data.results[0].photos[0].thumbnail_url.split('&w-').concat('&w-');
             }
           })
           .catch((error) => {
@@ -91,7 +89,7 @@ export const HooksRelatedItems = () => {
           {relatedProductInfo.map((product) => (
             <Slide
               key={product.id}
-              // onClick={function to set product overview to this product!}
+              // onClick={setCurProduct(product)}
               style={
                 {height:'450px',
                 width:'280px',
@@ -129,12 +127,6 @@ export const HooksRelatedItems = () => {
           ))}
         </Slider>
       </CarouselProvider>
-
-      {/* <ComparisonModal
-        compProduct={product}
-        //show={show}
-        //setShow={setShow}
-        curProduct={singleProd} /> */}
         <Modal
           show={show}
           onHide={() => setShow(false)}
@@ -147,7 +139,7 @@ export const HooksRelatedItems = () => {
               <tbody>
                 <tr>
                   <th>{selectedProduct && selectedProduct.name}</th>
-                  <th>Features</th>
+                  <th>vs.</th>
                   <th>{curProduct.name}</th>
                 </tr>
                 {combinedFeatures.map((feat) =>{
