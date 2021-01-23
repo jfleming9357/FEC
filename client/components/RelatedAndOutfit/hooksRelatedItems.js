@@ -15,7 +15,7 @@ import { Modal } from 'react-bootstrap';
 // import ComparisonModal from './ComparisonModal.js';
 
 export const HooksRelatedItems = () => {
-  const { curProduct } = useContext(ProductContext);
+  const { curProduct, getSingleProduct } = useContext(ProductContext);
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -28,10 +28,10 @@ export const HooksRelatedItems = () => {
     relatedProductIds.map((item) => {
       let tempObj = {};
       let url1 =
-        'http://localhost:3000/proxy/api/fec2/hratx/products/' +
+        '/proxy/api/fec2/hratx/products/' +
         item.toString();
       let url2 =
-        'http://localhost:3000/proxy/api/fec2/hratx/products/' +
+        '/proxy/api/fec2/hratx/products/' +
         item.toString() +
         '/styles';
       axios
@@ -85,7 +85,7 @@ export const HooksRelatedItems = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3000/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
+    let url = `/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
     axios
       .get(url)
       .then((results) => {
@@ -132,7 +132,9 @@ export const HooksRelatedItems = () => {
                 index={0}
                 onClick={() => console.log(relatedProductInfo)}
               >
-                <div style={{ height: '450px', width: '280px' }}>
+                <div onClick={() => {
+                  getSingleProduct(product.id);
+                }} style={{ height: '450px', width: '280px' }}>
                   <div
                     style={{
                       height: '70%',
