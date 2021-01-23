@@ -9,8 +9,7 @@ import { ProductContext } from '../../context/ProductContext.js';
 
 const getReviews = (productId) => {
   let url =
-    '/proxy/api/fec2/hratx/reviews/?product_id=' +
-    productId;
+    '/proxy/api/fec2/hratx/reviews/?product_id=' + productId;
   return axios
     .get(url)
     .then((response) => {
