@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import axios from 'axios';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import exampleData from './exampleData.js';
+// import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Modal } from 'react-bootstrap';
 
@@ -88,8 +88,8 @@ export const HooksRelatedItems = () => {
         <Slider aria-label="related products carousel">
           {relatedProductInfo.map((product) => (
             <Slide
-              key={product.id}
-              /*onClick={setCurProduct(product)}*/
+              key={Math.random()}
+              // onClick={() => {setCurProduct(product)}}
               style={
                 {height:'450px',
                 width:'280px',
