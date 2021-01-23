@@ -7,12 +7,12 @@ export const Ratings = () => {
   const [curRating, setCurRating] = useState(0);
 
   useEffect(() => {
-    getProductRating().then((data) => setCurRating(data));
+    getProductRating(curProduct.id).then((data) => setCurRating(data));
   }, [curProduct]);
 
   return (
     <div className="col">
-      <StarRatings starDimension="20px" rating={curRating} starSpacing="3px" />
+      <StarRatings starDimension="20px" rating={curRating || 0} starSpacing="3px" />
       <small>
         <u>Read all reviews</u>
       </small>
