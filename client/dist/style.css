@@ -50,6 +50,7 @@ body {
 }
 
 .d-more-questions {
+  display: inline-block;
   text-align: left;
 }
 
