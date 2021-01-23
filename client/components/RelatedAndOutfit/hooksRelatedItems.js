@@ -28,10 +28,10 @@ export const HooksRelatedItems = () => {
     relatedProductIds.map((item) => {
       let tempObj = {};
       let url1 =
-        'http://localhost:3000/proxy/api/fec2/hratx/products/' +
+        '/proxy/api/fec2/hratx/products/' +
         item.toString();
       let url2 =
-        'http://localhost:3000/proxy/api/fec2/hratx/products/' +
+        '/proxy/api/fec2/hratx/products/' +
         item.toString() +
         '/styles';
       axios
@@ -85,7 +85,7 @@ export const HooksRelatedItems = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3000/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
+    let url = `/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
     axios
       .get(url)
       .then((results) => {
