@@ -4,6 +4,8 @@ import { helpfulClick, reportClick } from './handleReviewClicks.js';
 
 export const IndividualReview = ({ counter, result, date }) => {
   const [helpful, setHelpful] = useState(result.helpfulness);
+  const [clicked, setClicked] = useState(false);
+  // console.log(helpful);
   return (
     <div className="IndividualReview" key={result.review_id}>
       <div className="jStars">
@@ -22,12 +24,14 @@ export const IndividualReview = ({ counter, result, date }) => {
         <div id="helpfulAndReport">Helpful?&nbsp;
           <span
             onClick={(e) => {
-              setHelpful(helpful + 1);
+              setClicked(true);
+              result.helpfulness++;
+              setHelpful(result.helpfulness);
               helpfulClick(e);
             }}
             className="d-underlined"
             id={result.review_id}
-          >Yes</span> {helpful}   |&nbsp;
+          >Yes</span> {clicked ? helpful : result.helpfulness}   |&nbsp;
           <span
             onClick={reportClick}
             className="d-underlined"

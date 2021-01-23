@@ -132,44 +132,45 @@ export const HooksRelatedItems = () => {
                 index={0}
               >
                 <div style={{ height: '450px', width: '280px', position: 'relative'}}>
-                <p
-                      style={{
-                        color: 'yellow',
-                        fontSize: '25px',
-                        textAlign: 'right',
-                        zIndex: '100',
-                        position: 'absolute'
-                      }}
-                      onClick={() => {setShow(true); updateSelectedProduct(product)}}
-                    >
-                      &#9733;
-                    </p>
-                  <div onClick={() => {
-                  getSingleProduct(product.id)}}
+                  <p
                     style={{
-                      height: '450px',
-                      width: '300px',
-                      backgroundImage: product.thumbnail
-                        ? `url(${product.thumbnail})`
-                        : null,
-                      backgroundRepeat: 'no-repeat',
+                      color: 'yellow',
+                      fontSize: '25px',
+                      textAlign: 'right',
+                      zIndex: '100',
+                      position: 'absolute'
                     }}
+                    onClick={() => { setShow(true); updateSelectedProduct(product); }}
+                  >
+                      &#9733;
+                  </p>
+                  <div onClick={() => {
+                    getSingleProduct(product.id);
+                  }}
+                  style={{
+                    height: '450px',
+                    width: '300px',
+                    backgroundImage: product.thumbnail
+                      ? `url(${product.thumbnail})`
+                      : null,
+                    backgroundRepeat: 'no-repeat',
+                  }}
                   >
 
                   </div>
                   <div style={{ height: '30%', width: '100%' }}>
-                    <p className="fs-6 m-0">{product.category}</p>
-                    <p className="fs-6 m-0">{product.name}</p>
-                    <p className="fs-6 m-0">${product.default_price}</p>
-                    <p className="fs-6 m-0">
-                    <StarRatings
-                      rating={4.2}
-                      starRatedColor="#394a6d"
-                      numberOfStars={5}
-                      name="rating"
-                      starDimension="20px"
-                    />
-                    </p>
+                    <div className="fs-6 m-0">{product.category}</div>
+                    <div className="fs-6 m-0">{product.name}</div>
+                    <div className="fs-6 m-0">${product.default_price}</div>
+                    <div className="fs-6 m-0">
+                      <StarRatings
+                        rating={4.2}
+                        starRatedColor="#394a6d"
+                        numberOfStars={5}
+                        name="rating"
+                        starDimension="20px"
+                      />
+                    </div>
                   </div>
                 </div>
               </Slide> )
