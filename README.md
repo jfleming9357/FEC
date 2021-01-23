@@ -15,7 +15,6 @@
   - [Contributing](#contributing)
   - [Roadmap](#roadmap)
   - [License](#license)
-
 ## Description
 
 ## Installation
