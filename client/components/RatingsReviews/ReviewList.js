@@ -98,7 +98,7 @@ export const ReviewList = (props) => {
       <div className="jButtonContainer">
         {reviews.length > numReviews && (
           <button
-            className="jButton"
+            className='d-bold d-border-button'
             onClick={() => {
               setNumReviews(numReviews + 2);
             }}

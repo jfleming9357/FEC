@@ -10,7 +10,7 @@ const RatingSummary = ({ allRatings }) => {
       <div className='RatingSummary'>
         <div className='jstars'>
           <StarRatings
-            rating={ratingAverage}
+            rating={ratingAverage || 0}
             starRatedColor="#394a6d"
             numberOfStars={5}
             name="rating"
