@@ -9,31 +9,32 @@ import { Preloader, Circles } from 'react-preloader-icon';
 
 export const App = () => {
   const { curStyle, curProduct } = useContext(ProductContext);
-  return curStyle 
+
+  return curStyle
     ?
-      <>
-        <Header />
-        <br />
-        <div style={{ overflow: 'hidden' }} className="container">
-          <ProductOverview />
-          <RelatedAndOutfit />
-          <QuestionsAndAnswers />
-          <RatingsAndReviews product_id={curProduct.id} />
-        </div>
-      </>
+    <>
+      <Header />
+      <br />
+      <div style={{ overflow: 'hidden' }} className="container">
+        <ProductOverview />
+        <RelatedAndOutfit />
+        <QuestionsAndAnswers />
+        <RatingsAndReviews product_id={curProduct.id} />
+      </div>
+    </>
     :
-      <div
-        className="bg-secondary"
-        style={{ height: '100vh', width: '100vw', display: 'flex' }}
-      >
-        <div className="m-auto">
-          <Preloader
-            use={Circles}
-            size={100}
-            strokeWidth={21}
-            strokeColor="#262626"
-            duration={2000}
-          />
-        </div>
-      </div>;
+    <div
+      className="bg-secondary"
+      style={{ height: '100vh', width: '100vw', display: 'flex' }}
+    >
+      <div className="m-auto">
+        <Preloader
+          use={Circles}
+          size={100}
+          strokeWidth={21}
+          strokeColor="#262626"
+          duration={2000}
+        />
+      </div>
+    </div>;
 };

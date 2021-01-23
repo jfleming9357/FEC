@@ -12,7 +12,7 @@ const ProductBreakdown = ({ characteristics }) => {
         {charArray.map((array, index) => {
           return <React.Fragment key={index}>
             <div className="side">
-              <div className='jXAxis'>{array[0]}&nbsp;{array[1] / 20}&nbsp;</div>
+              <div className='jXAxis'>{array[0]}:&nbsp;{array[1] / 20}</div>
             </div>
             <div className="middle">
               <div className="jbar-container">

@@ -131,7 +131,7 @@ body {
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
   gap: 0px 0px;
-  font-family: "adobe-clean", sans-serif;
+  /* font-family: "adobe-clean", sans-serif; */
   grid-template-areas:
     "ReviewSideBar ReviewList";
   margin: 15px 0;
