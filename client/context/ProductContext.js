@@ -14,15 +14,15 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     getSingleProduct(12012);
-  }, [])
+  }, []);
 
   const getSingleProduct = (prodID) => {
-    let tempProduct;
-    let tempStyle;
+    let tempProduct,
+      tempStyle;
     let urls = [`/proxy/api/fec2/hratx/products/${prodID}`, `/proxy/api/fec2/hratx/products/${prodID}/styles`, `/proxy/api/fec2/hratx/reviews?product_id=${prodID}`];
     Promise.all(urls.map(url => {
       return axios.get(url)
-        .then(res => res.data)
+        .then(res => res.data);
     }))
       .then(results => {
         //Product Details
@@ -30,13 +30,13 @@ export const ProductProvider = ({ children }) => {
         //Product Styles
         tempProduct.styles = results[1];
         tempStyle = tempProduct.styles.results[0];
-        
+
         tempProduct.styles.results.forEach((prod) => {
           if (prod['default?']) {
             tempStyle = prod;
           }
         });
-        
+
         //Product Rating
         let totalRatings = results[2].results.length;
         let curRatings = 0;
