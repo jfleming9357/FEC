@@ -25,7 +25,8 @@ export const ProductOverview = () => {
           <ProductMainInfos />
         </div>
       </div>
-      <div className="row">
+      <br />
+      <div className="row container">
         <div className="col-7">
           <div className="fs-3">{curProduct.slogan}</div>
           <div className="fs-6">{curProduct.description}</div>
@@ -42,6 +43,7 @@ export const ProductOverview = () => {
           })}
         </div>
       </div>
+      <br />
     </div>
   );
 };

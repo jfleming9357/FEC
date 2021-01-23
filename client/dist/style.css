@@ -1,6 +1,10 @@
+::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .mHeader {
@@ -131,8 +135,7 @@ body {
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "ReviewSideBar ReviewList";
+  grid-template-areas: "ReviewSideBar ReviewList";
   margin: 15px 0;
   border: 1px solid black;
   padding: 15px;
@@ -319,7 +322,7 @@ body {
 .jmarker {
   color: black;
   height: 10px;
-  font-size: '16px';
+  font-size: "16px";
   position: relative;
   bottom: 10px;
 }
