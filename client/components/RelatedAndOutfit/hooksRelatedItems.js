@@ -53,40 +53,6 @@ export const HooksRelatedItems = () => {
             'OOOPS!  There was an error getting the information about related product.'
           );
         });
-
-      // axios
-      //   .get(url1)
-      //   .then((results) => {
-      //     tempObj = results.data;
-      //   })
-      //   .then(() => {
-      //     return axios
-      //       .get(url2)
-      //       .then((results) => {
-      //         if (results.data.results[0].photos[0].thumbnail_url) {
-      //           tempObj.thumbnail =
-      //             results.data.results[0].photos[0].thumbnail_url;
-      //         }
-      //       })
-      //       .catch((error) => {
-      //         console.error(
-      //           error,
-      //           `OH NOOOOO there was an error getting the thumbnail for product ${item.id}`
-      //         );
-      //       });
-      //   })
-      //   .then(() => {
-      //     relatedProdInfoArr.push(tempObj);
-      //     if (relatedProdInfoArr.length === relatedProductIds.length) {
-      //       setRelatedProductInfo(relatedProdInfoArr);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(
-      //       error,
-      //       'OOOPS!  There was an error getting the information about related product.'
-      //     );
-      //   });
     });
   };
 
