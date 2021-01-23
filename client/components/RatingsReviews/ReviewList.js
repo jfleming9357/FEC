@@ -32,11 +32,14 @@ const SortReviews = () => {
   };
 
   return (
-    <select onChange={changeMethod} className="SortReviews" aria-label="sort reviews, select option">
-      <option>Relevance</option>
-      <option>Helpfulness</option>
-      <option>Newest</option>
-    </select>
+    <div>
+      Sort reviews by:&nbsp;
+      <select onChange={changeMethod} className="form-select row w-100" aria-label="sort reviews, select option">
+        <option>Relevance</option>
+        <option>Helpfulness</option>
+        <option>Newest</option>
+      </select>
+    </div>
   );
 };
 
@@ -94,11 +97,17 @@ export const ReviewList = (props) => {
   }, [numReviews, sortMethod, curProduct]);
 
   return (
-    <div className="ReviewList">
-      <SortReviews />
-      <div>{reviews}</div>
+    <>
+      <div className="ReviewList">
+        <SortReviews />
+        <div>{reviews}</div>
+      </div>
       <div className="jButtonContainer">
-        {reviews.length > numReviews && (
+        <AddReview
+          productId={curProduct.id}
+          characteristics={props.characteristics}
+        />
+        {reviews.length > numReviews ? (
           <button
             className='d-bold d-border-button'
             onClick={() => {
@@ -107,12 +116,20 @@ export const ReviewList = (props) => {
           >
             More Reviews
           </button>
-        )}
-        <AddReview
-          productId={curProduct.id}
-          characteristics={props.characteristics}
-        />
+        ) :
+          <button
+            disabled
+            className='d-bold d-border-button'
+            onClick={() => {
+              setNumReviews(numReviews + 2);
+            }}
+          >
+            More Reviews
+          </button>
+        }
+
       </div>
-    </div>
+
+    </>
   );
 };

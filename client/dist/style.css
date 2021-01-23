@@ -155,9 +155,10 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: right;
   gap: 20px;
-  cursor: pointer;
+  padding-right: 10px;
+  padding-top: 20px;
 }
 
 .IndividualReview {
@@ -280,7 +281,7 @@ body {
 /* The bar container */
 .jbar-container {
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: #b6b0b0;
   text-align: center;
   color: white;
 }
@@ -340,4 +341,18 @@ body {
 .jModal {
   height: 200%;
   width: 200%;
+}
+
+.jmarker {
+  color: black;
+  height: 10px;
+  font-size: '16px';
+  position: relative;
+  bottom: 10px;
+}
+
+.jMarkerContainer {
+  width: 100%;
+  background-color: #b6b0b0;
+  height: 10px;
 }
