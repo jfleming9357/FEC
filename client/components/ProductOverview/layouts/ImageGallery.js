@@ -35,7 +35,6 @@ export const ImageGallery = () => {
   const updateCurImg = (index) => {
     setCurSlide(index);
     setZoomIn(true);
-    console.log(`zoomIN is ${zoomIn}`);
   };
 
   return (
@@ -60,7 +59,6 @@ export const ImageGallery = () => {
                   return url ? (
                     <Slide index={i} key={i}>
                       <div
-                        onClick={() => console.log(12312)}
                         style={{
                           height: '700px',
                           width: '700px',
@@ -255,7 +253,6 @@ export const ImageGallery = () => {
                       return url ? (
                         <Slide index={i} key={i}>
                           <div
-                            onClick={() => console.log(12312)}
                             style={{
                               height: '700px',
                               width: '1000px',
