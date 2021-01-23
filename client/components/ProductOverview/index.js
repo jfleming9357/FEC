@@ -1,18 +1,29 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ImageGallery } from './layouts/ImageGallery';
 import { ProductContext } from '../../context/ProductContext';
 import { ProductMainInfos } from './layouts/ProductMainInfos';
 
 export const ProductOverview = () => {
   const { curProduct, zoomIn, setZoomIn } = useContext(ProductContext);
+  const [curWidth, setCurWidth] = useState(null);
+
+  window.addEventListener('resize', () => {
+    setCurWidth(window.innerWidth);
+  });
 
   return (
     <div className="d-block">
       <div className="row">
-        <div className={zoomIn ? 'col-12 d-flex' : 'col-7 d-flex'}>
+        <div className={`d-flex ${zoomIn ? 'col-12' : 'col-7'}`}>
           <ImageGallery />
         </div>
-        <div className="col-5 row d-flex flex-wrap align-content-around">
+        <div
+          className={`row flex-wrap ${curWidth > 1400 ? 'd-flex' : 'd-none'} ${
+            zoomIn
+              ? 'col-12 align-content-around'
+              : 'col-5 align-content-center'
+          } `}
+        >
           <ProductMainInfos />
         </div>
       </div>
