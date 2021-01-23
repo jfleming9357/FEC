@@ -44,7 +44,7 @@ export const HooksRelatedItems = () => {
             .then((results) => {
               if (results.data.results[0].photos[0].thumbnail_url) {
                 tempObj.thumbnail =
-                  results.data.results[0].photos[0].thumbnail_url.split('&w=')[0] + '&crop=faces&w=300&h=450&q=80';
+                  results.data.results[0].photos[0].thumbnail_url.split('&w=')[0] + '&crop=faces&w=200&h=300&q=80';
               }
             })
             .catch((error) => {
@@ -112,6 +112,7 @@ export const HooksRelatedItems = () => {
           naturalSlideWidth={100}
           totalSlides={relatedProductInfo.length}
           visibleSlides={3}
+          dragEnabled={false}
         >
           <div>
             <ButtonBack>Back</ButtonBack>
@@ -124,14 +125,14 @@ export const HooksRelatedItems = () => {
                 aria-label="product slide"
                 key={Math.random()}
                 style={{
-                  height: '450px',
-                  width: '280px',
+                  height: '400px',
+                  width: '300px',
                   marginLeft: '7px',
                   marginRight: '7px',
                 }}
                 index={0}
               >
-                <div style={{ height: '450px', width: '280px', position: 'relative'}}>
+                <div style={{ height: '300px', width: '200px', position: 'relative'}}>
                 <p
                       style={{
                         color: 'yellow',
@@ -147,8 +148,8 @@ export const HooksRelatedItems = () => {
                   <div onClick={() => {
                   getSingleProduct(product.id)}}
                     style={{
-                      height: '450px',
-                      width: '300px',
+                      height: '300px',
+                      width: '200px',
                       backgroundImage: product.thumbnail
                         ? `url(${product.thumbnail})`
                         : null,
@@ -161,15 +162,15 @@ export const HooksRelatedItems = () => {
                     <p className="fs-6 m-0">{product.category}</p>
                     <p className="fs-6 m-0">{product.name}</p>
                     <p className="fs-6 m-0">${product.default_price}</p>
-                    <p className="fs-6 m-0">
+                    <div className="fs-6 m-0">
                     <StarRatings
                       rating={4.2}
                       starRatedColor="#394a6d"
                       numberOfStars={5}
                       name="rating"
-                      starDimension="20px"
+                      starDimension="12px"
                     />
-                    </p>
+                    </div>
                   </div>
                 </div>
               </Slide> )
