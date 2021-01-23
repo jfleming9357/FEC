@@ -12,6 +12,7 @@ import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Modal } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
+import ratingCalculations from '../RatingsReviews/ratingCalculations.js'
 
 export const HooksRelatedItems = () => {
   const { curProduct, getSingleProduct, getProductRating } = useContext(ProductContext);
@@ -33,6 +34,9 @@ export const HooksRelatedItems = () => {
         '/proxy/api/fec2/hratx/products/' +
         item.toString() +
         '/styles';
+      let url3 = '/proxy/api/fec2/hratx/products/' +
+      item.toString() +
+      '/ratings';
       axios
         .get(url1)
         .then((results) => {
@@ -103,9 +107,8 @@ export const HooksRelatedItems = () => {
   }, [relatedProductIds]);
 
   return (
-    <>
-      <b>RELATED PRODUCTS</b>
-      <div className="border" style={{ height: '450px', overflow: 'hidden' }}>
+    <><b>CURATED FOR YOU:</b>
+      <div className="border" style={{ height: '500px', overflow: 'hidden' }}>
         <CarouselProvider
           className="c-related-items-carousel"
           naturalSlideHeight={100}
@@ -125,14 +128,14 @@ export const HooksRelatedItems = () => {
                 aria-label="product slide"
                 key={Math.random()}
                 style={{
-                  height: '400px',
+                  height: '300px',
                   width: '300px',
                   marginLeft: '7px',
                   marginRight: '7px',
                 }}
                 index={0}
               >
-                <div style={{ height: '450px', width: '280px', position: 'relative'}}>
+                <div style={{ height: '400px', width: '280px', position: 'relative'}}>
                   <p
                     style={{
                       color: 'yellow',
@@ -145,34 +148,36 @@ export const HooksRelatedItems = () => {
                   >
                       &#9733;
                   </p>
-                  <div onClick={() => {
-                    getSingleProduct(product.id);
-                  }}
-                  style={{
-                    height: '450px',
-                    width: '300px',
-                    backgroundImage: product.thumbnail
-                      ? `url(${product.thumbnail})`
-                      : null,
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                  >
-
-                  </div>
-                  <div style={{ height: '30%', width: '100%' }}>
-                    <div className="fs-6 m-0">{product.category}</div>
-                    <div className="fs-6 m-0">{product.name}</div>
-                    <div className="fs-6 m-0">${product.default_price}</div>
-                    <div className="fs-6 m-0">
-                      <StarRatings
-                        rating={4.2}
-                        starRatedColor="#394a6d"
-                        numberOfStars={5}
-                        name="rating"
-                        starDimension="20px"
-                      />
+                  <div style={{ height: '70%', width: '100%', position: 'absolute'}}>
+                    <div onClick={() => {
+                      getSingleProduct(product.id);
+                    }}
+                    style={{
+                      height: '300px',
+                      width: '300px',
+                      backgroundImage: product.thumbnail
+                        ? `url(${product.thumbnail})`
+                        : null,
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                    >
+                    </div>
+                    <div style={{ height: '30%', width: '100%' }}>
+                      <div className="fs-6 m-0">{product.category}</div>
+                      <div className="fs-6 m-0">{product.name}</div>
+                      <div className="fs-6 m-0">${product.default_price}</div>
+                      <div className="fs-6 m-0">
+                        <StarRatings
+                          rating={3.8}
+                          starRatedColor="#394a6d"
+                          numberOfStars={5}
+                          name="rating"
+                          starDimension="20px"
+                        />
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </Slide> )
             ))}

@@ -21,11 +21,11 @@ class RelatedAndOutfit extends React.Component {
             <HooksRelatedItems />
           </div>
         </section>
-        <section className="c-outfit">
+        {/* <section className="c-outfit">
           <div>
             <Outfit />
           </div>
-        </section>
+        </section> */}
       </div>
     );
   }
