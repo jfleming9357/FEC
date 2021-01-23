@@ -11,7 +11,7 @@ import {
 } from 'pure-react-carousel';
 
 export const ImageGallery = () => {
-  const { curStyle } = useContext(ProductContext);
+  const { curStyle, setZoomIn, zoomIn } = useContext(ProductContext);
   const [curSlide, setCurSlide] = useState(0);
   const [slideStart, setSlideStart] = useState(0);
   const [slideEnd, setSlideEnd] = useState(7);
@@ -30,6 +30,12 @@ export const ImageGallery = () => {
       setSlideStart(slideStart - 1);
       setSlideEnd(slideEnd - 1);
     }
+  };
+
+  const updateCurImg = (index) => {
+    setCurSlide(index);
+    setZoomIn(true);
+    console.log(`zoomIN is ${zoomIn}`);
   };
 
   return (
@@ -56,11 +62,11 @@ export const ImageGallery = () => {
                       onClick={() => console.log(12312)}
                       style={{
                         height: '700px',
-                        width: '900px',
+                        width: '700px',
                       }}
                     >
                       <img
-                        src={url.split('&w=')[0] + '&w=900&h=700'}
+                        src={url.split('&w=')[0] + '&w=700&h=700'}
                         alt={curStyle.name}
                         height="700"
                         width="700"
@@ -82,7 +88,6 @@ export const ImageGallery = () => {
               })}
             </Slider>
           </div>
-
           <div className="position-absolute row h-100 w-100">
             <div className="col-2">
               <div className="col p-3">
@@ -102,7 +107,7 @@ export const ImageGallery = () => {
                     i >= slideStart &&
                     i < slideEnd && (
                       <Dot
-                        onClick={() => setCurSlide(i)}
+                        onClick={() => updateCurImg(i)}
                         className="mCarouselStyle"
                         slide={i}
                         key={i}
@@ -125,15 +130,15 @@ export const ImageGallery = () => {
                 })}
                 {curStyle.photos.length - 6 > 0 &&
                   curSlide !== curStyle.photos.length - 1 && (
-                  <ButtonNext
-                    onClick={() => nextImg()}
-                    className="mCarouselStyle"
-                  >
-                    <span>
-                      <i className="fas fa-arrow-down text-light fs-3"></i>
-                    </span>
-                  </ButtonNext>
-                )}
+                    <ButtonNext
+                      onClick={() => nextImg()}
+                      className="mCarouselStyle"
+                    >
+                      <span>
+                        <i className="fas fa-arrow-down text-light fs-3"></i>
+                      </span>
+                    </ButtonNext>
+                  )}
               </div>
             </div>
             <div className="col-10 d-flex justify-content-between align-items-center">
@@ -166,35 +171,7 @@ export const ImageGallery = () => {
               )}
             </div>
           </div>
-          <div className="position-absolute row w-100 h-100">
-            <Slider aria-label="product overview carousel">
-              {curStyle.photos.map(({ url }, i) => {
-                return url ? (
-                  <Slide index={i} key={i}>
-                    <div
-                      style={{
-                        height: '700px',
-                        width: '700px',
-                      }}
-                    >
-                      <img src={url} alt={curStyle.name} className="d-block w-100 h-100" />
-                    </div>
-                  </Slide>
-                ) : (
-                  <div
-                    key={i}
-                    className="text-center d-flex bg-secondary"
-                    style={{
-                      height: '700px',
-                      width: '700px',
-                    }}
-                  >
-                    <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
-                  </div>
-                );
-              })}
-            </Slider>
-          </div>
+          <div className="position-absolute row h-100 w-100"></div>
         </div>
       </CarouselProvider>
     </div>

@@ -6,3 +6,5 @@ MithrilFEC.pem
 *bundle.js.br
 key.pem
 cert.pem
+coverage
+coverage/
