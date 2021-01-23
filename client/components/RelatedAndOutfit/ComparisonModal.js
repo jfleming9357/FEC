@@ -15,16 +15,16 @@ export const ComparisonModal = (props) => {
       <Modal.Header closeButton>
         <Modal.Title>Choices, choices....</Modal.Title>
       </Modal.Header>
-        <Modal.Body>
-          <table>
-            <tr>
-              <th>{features[0]}</th>
-              <th>{features[1]}</th>
-            </tr>
-          </table>
-        </Modal.Body>
+      <Modal.Body>
+        <table>
+          <tr>
+            <th>{features[0]}</th>
+            <th>{features[1]}</th>
+          </tr>
+        </table>
+      </Modal.Body>
     </Modal>
   );
-}
+};
 
 export default ComparisonModal;

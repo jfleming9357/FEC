@@ -13,7 +13,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Modal } from 'react-bootstrap';
 
 export const HooksRelatedItems = () => {
-  const { curProduct } = useContext(ProductContext);
+  const { curProduct, getSingleProduct } = useContext(ProductContext);
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -129,7 +129,9 @@ export const HooksRelatedItems = () => {
                 }}
                 index={0}
               >
-                <div style={{ height: '450px', width: '280px' }}>
+                <div onClick={() => {
+                  getSingleProduct(product.id);
+                }} style={{ height: '450px', width: '280px' }}>
                   <div
                     style={{
                       height: '70%',

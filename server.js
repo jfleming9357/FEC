@@ -1,6 +1,11 @@
-let express = require('express');
-let app = express();
-var proxy = require('express-http-proxy');
+
+const port = 3000;
+const express = require('express');
+const app = express();
+const spdy = require('spdy');
+const fs = require('fs');
+const path = require('path');
+const proxy = require('express-http-proxy');
 require('dotenv').config();
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 const expressStaticGzip = require('express-static-gzip');
@@ -30,11 +35,20 @@ app.use(
   })
 );
 
-let port = 3000;
+const options = {
+  key: fs.readFileSync(path.join(__dirname, 'key.pem')),
+  cert:  fs.readFileSync(path.join(__dirname, 'cert.pem')),
+  passphrase: 'hailmithril'
+}
 
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
-});
+spdy.createServer(options, app)
+  .listen(port, () => {
+    console.log(`HTTP/2 Express running at http://localhost:${port}`);
+  });
+
+// app.listen(port, () => {
+//   console.log(`Listening on ${port}`);
+// });
 
 // const onProxyReq = function(proxyReq, req, res) {
 //   proxyReq.setHeader('Authorization', process.env.TOKEN);
