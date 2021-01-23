@@ -118,6 +118,7 @@ export const HooksRelatedItems = () => {
           </div>
           <Slider aria-label="related products carousel">
             {relatedProductInfo.map((product) => (
+
               <Slide
                 aria-label="product slide"
                 key={Math.random()}
@@ -129,10 +130,21 @@ export const HooksRelatedItems = () => {
                 }}
                 index={0}
               >
-                <div onClick={() => {
-                  getSingleProduct(product.id);
-                }} style={{ height: '450px', width: '280px' }}>
-                  <div
+                <div style={{ height: '450px', width: '280px', position: 'relative'}}>
+                <p
+                      style={{
+                        color: 'yellow',
+                        fontSize: '25px',
+                        textAlign: 'right',
+                        zIndex: '100',
+                        position: 'absolute'
+                      }}
+                      onClick={() => {setShow(true); updateSelectedProduct(product)}}
+                    >
+                      &#9733;
+                    </p>
+                  <div onClick={() => {
+                  getSingleProduct(product.id)}}
                     style={{
                       height: '70%',
                       width: '100%',
@@ -142,16 +154,7 @@ export const HooksRelatedItems = () => {
                       backgroundRepeat: 'no-repeat',
                     }}
                   >
-                    <p
-                      style={{
-                        color: 'yellow',
-                        fontSize: '25px',
-                        textAlign: 'right',
-                      }}
-                      onClick={() => {setShow(true); updateSelectedProduct(product)}}
-                    >
-                      &#9733;
-                    </p>
+
                   </div>
                   <div style={{ height: '30%', width: '100%' }}>
                     <p className="fs-6 m-0">{product.category}</p>
