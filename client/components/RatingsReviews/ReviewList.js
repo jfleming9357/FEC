@@ -19,7 +19,7 @@ const getReviews = (productId) => {
       throw err;
     });
 };
-
+//adding comment to see if it shows up
 const SortReviews = () => {
   const { setSortMethod, sortMethod } = useContext(SortContext);
   const handleChange = (e) => {
