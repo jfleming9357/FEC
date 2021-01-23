@@ -15,7 +15,7 @@ class RelatedAndOutfit extends React.Component {
 
   render() {
     return (
-      <div className="c-related-items-and-outfit">
+      <div className="c-related-items-and-outfit d-module">
         <section className="c-related-items">
           <div>
             <HooksRelatedItems />

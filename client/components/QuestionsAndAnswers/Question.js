@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 import AnswerList from './AnswerList.js';
 import AddAnswer from './AddAnswer.js';

@@ -3,17 +3,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from './SearchBar.js';
 import QuestionList from './QuestionList.js';
 import AddQuestion from './AddQuestion.js';
-import tempProductQuestions from './tempData.js';
 import { ProductContext } from '../../context/ProductContext.js';
 import axios from 'axios';
 
 const QuestionsAndAnswers = (props) => {
   const { curProduct } = useContext(ProductContext);
   const [numQuestions, setNumQuestions] = useState(2);
-  //Initial questions set is sorted by helpfulness
-  // let initialQuestions = tempProductQuestions.results.sort(
-  //   (a, b) => b.question_helpfulness - a.question_helpfulness
-  // );
   let initialQuestions = [];
   const [questions, setQuestions] = useState([]);
 
@@ -24,8 +19,9 @@ const QuestionsAndAnswers = (props) => {
         `proxy/api/fec2/hratx/qa/questions?product_id=${curProduct.id}&count=50`
       )
       .then((res) => {
-        initialQuestions = res.data.results;
-        setQuestions(res.data.results);
+        let data = res.data.results.sort((a, b) => b.question_helpfulness - a.question_helpfulness);
+        initialQuestions = data;
+        setQuestions(data);
       });
   }, [curProduct.id]);
 
@@ -66,25 +62,25 @@ const QuestionsAndAnswers = (props) => {
       <strong>QUESTIONS &amp; ANSWERS</strong>
       <SearchBar handleInput={handleSearch} />
       {questions.length > 0 && (
-        <>
-          <QuestionList
-            questions={
-              questions.length > numQuestions
-                ? questions.slice(0, numQuestions)
-                : questions
-            }
-          />
-          {numQuestions < questions.length && (
-            <button
-              className="d-border-button"
-              onClick={() => setNumQuestions(numQuestions + 2)}
-            >
-              More Questions
-            </button>
-          )}
-        </>
+        <QuestionList
+          questions={
+            questions.length > numQuestions
+              ? questions.slice(0, numQuestions)
+              : questions
+          }
+        />
       )}
-      <AddQuestion handleSubmit={handleAddQuestion} />
+      <div className="d-module-bottom">
+        {numQuestions < questions.length && (
+          <button
+            className="d-border-button d-bold"
+            onClick={() => setNumQuestions(numQuestions + 2)}
+          >
+            More Questions
+          </button>
+        )}
+        <AddQuestion handleSubmit={handleAddQuestion} />
+      </div>
     </div>
   );
 };
