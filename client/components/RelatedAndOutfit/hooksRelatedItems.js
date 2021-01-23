@@ -85,11 +85,11 @@ export const HooksRelatedItems = () => {
           <ButtonBack>Back</ButtonBack>
           <ButtonNext>Next</ButtonNext>
         </div>
-        <Slider>
+        <Slider aria-label="related products carousel">
           {relatedProductInfo.map((product) => (
             <Slide
               key={product.id}
-              onClick={setCurProduct(product)}
+              /*onClick={setCurProduct(product)}*/
               style={
                 {height:'450px',
                 width:'280px',
@@ -104,7 +104,7 @@ export const HooksRelatedItems = () => {
                 <div style={
                   {height:'70%',
                   width: '100%',
-                  backgroundImage: `url(${(product.thumbnail)})`,
+                  backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null,
                   backgroundRepeat: 'no-repeat'}
                   }>
                   <p style={

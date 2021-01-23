@@ -41,6 +41,7 @@ export const GetSizeGetQty = () => {
           <p className="text-danger">{dropdownMsg}</p>
           <select
             id="sizeSelect"
+            aria-label="Select size"
             disabled={curStyle.skus.null ? true : false}
             onChange={getSizeHandler}
             className="form-select"
@@ -61,11 +62,11 @@ export const GetSizeGetQty = () => {
         <div className="col-4">
           <p></p>
           {!sizeSelected ? (
-            <select className="form-select" disabled>
+            <select className="form-select" aria-label="disabled quantity selection" disabled>
               <option value="empty">-</option>
             </select>
           ) : (
-            <select className="form-select">{totalQty}</select>
+            <select className="form-select" aria-label="quantity selection" >{totalQty}</select>
           )}
         </div>
       </div>
