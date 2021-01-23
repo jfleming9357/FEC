@@ -8,7 +8,8 @@ import { ProductContext } from './context/ProductContext.js';
 import { Preloader, Circles } from 'react-preloader-icon';
 
 export const App = () => {
-  const { curStyle } = useContext(ProductContext);
+  const { curStyle, curProduct } = useContext(ProductContext);
+
   return curStyle ? (
     <>
       <Header />
@@ -17,7 +18,7 @@ export const App = () => {
         <ProductOverview />
         <RelatedAndOutfit />
         <QuestionsAndAnswers />
-        <RatingsAndReviews />
+        <RatingsAndReviews product_id={curProduct.id} />
       </div>
     </>
   ) : (

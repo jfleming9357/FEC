@@ -32,7 +32,7 @@ const SortReviews = () => {
   };
 
   return (
-    <select onChange={changeMethod} className="SortReviews">
+    <select onChange={changeMethod} className="SortReviews" aria-label="sort reviews, select option">
       <option>Relevance</option>
       <option>Helpfulness</option>
       <option>Newest</option>
