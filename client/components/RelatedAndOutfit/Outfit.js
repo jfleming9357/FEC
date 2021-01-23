@@ -17,7 +17,6 @@ class Outfit extends React.Component {
   }
 
   render() {
-    // console.log('what is in this outfit?', this.state.outfitList)
     return (
       <div>
         <b>YOUR OUTFIT</b>
