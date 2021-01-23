@@ -10,7 +10,7 @@ import { SortProvider } from './SortReviews.js';
 
 const getMetaData = function (productId) {
   let url =
-    'http://localhost:3000/proxy/api/fec2/hratx/reviews/meta?product_id=' +
+    '/proxy/api/fec2/hratx/reviews/meta?product_id=' +
     productId;
   return axios.get(url).catch((err) => {
     throw err;
