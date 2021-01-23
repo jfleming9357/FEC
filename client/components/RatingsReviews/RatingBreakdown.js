@@ -15,7 +15,11 @@ const RatingBreakdown = ({ allRatings, recommend }) => {
   let counter = 6;
   recommend.true = parseInt(recommend.true);
   recommend.false = parseInt(recommend.false);
-  let recommendPercent = (recommend.true / (recommend.true + recommend.false)) * 100;
+  let recommendPercent = 100;
+  if (recommend.true || recommend.false) {
+    recommendPercent = (recommend.true / (recommend.true + recommend.false)) * 100;
+  }
+
   return (
     <div>
       {recommendPercent}% of users recommend this item.
@@ -32,7 +36,7 @@ const RatingBreakdown = ({ allRatings, recommend }) => {
                   <div className="jbar-container">
                     <div
                       className="jbars"
-                      style={{'width': `${percentage}%`}}
+                      style={{'width': `${percentage || 0}%`}}
                     ></div>
                   </div>
                 </div> <br />

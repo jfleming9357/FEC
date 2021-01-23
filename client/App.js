@@ -10,8 +10,7 @@ import { Preloader, Circles } from 'react-preloader-icon';
 export const App = () => {
   const { curStyle, curProduct } = useContext(ProductContext);
 
-  return curStyle
-    ?
+  return curStyle ? (
     <>
       <Header />
       <br />
@@ -22,7 +21,7 @@ export const App = () => {
         <RatingsAndReviews product_id={curProduct.id} />
       </div>
     </>
-    :
+  ) : (
     <div
       className="bg-secondary"
       style={{ height: '100vh', width: '100vw', display: 'flex' }}
@@ -36,5 +35,6 @@ export const App = () => {
           duration={2000}
         />
       </div>
-    </div>;
+    </div>
+  );
 };

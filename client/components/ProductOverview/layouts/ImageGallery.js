@@ -11,7 +11,7 @@ import {
 } from 'pure-react-carousel';
 
 export const ImageGallery = () => {
-  const { curStyle } = useContext(ProductContext);
+  const { curStyle, setZoomIn, zoomIn } = useContext(ProductContext);
   const [curSlide, setCurSlide] = useState(0);
   const [slideStart, setSlideStart] = useState(0);
   const [slideEnd, setSlideEnd] = useState(7);
@@ -30,6 +30,12 @@ export const ImageGallery = () => {
       setSlideStart(slideStart - 1);
       setSlideEnd(slideEnd - 1);
     }
+  };
+
+  const updateCurImg = (index) => {
+    setCurSlide(index);
+    setZoomIn(true);
+    console.log(`zoomIN is ${zoomIn}`);
   };
 
   return (
@@ -69,7 +75,7 @@ export const ImageGallery = () => {
                     i >= slideStart &&
                     i < slideEnd && (
                       <Dot
-                        onClick={() => setCurSlide(i)}
+                        onClick={() => updateCurImg(i)}
                         className="mCarouselStyle"
                         slide={i}
                         key={i}
