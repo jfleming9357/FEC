@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { ProductContext } from '../../context/ProductContext';
-import axios from 'axios';
 
-// eslint-disable-next-line camelcase
 const AddAnswer = ({ question_id, handleSubmit }) => {
   const { curProduct } = useContext(ProductContext);
   const [show, setShow] = useState(false);

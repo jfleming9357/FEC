@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { ProductContext } from '../../context/ProductContext';
