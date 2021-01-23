@@ -11,9 +11,10 @@ import {
 import exampleData from './exampleData.js';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Modal } from 'react-bootstrap';
+import StarRatings from 'react-star-ratings';
 
 export const HooksRelatedItems = () => {
-  const { curProduct, getSingleProduct } = useContext(ProductContext);
+  const { curProduct, getSingleProduct, getProductRating } = useContext(ProductContext);
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -43,7 +44,7 @@ export const HooksRelatedItems = () => {
             .then((results) => {
               if (results.data.results[0].photos[0].thumbnail_url) {
                 tempObj.thumbnail =
-                  results.data.results[0].photos[0].thumbnail_url;
+                  results.data.results[0].photos[0].thumbnail_url.split('&w=')[0] + '&crop=faces&w=300&h=450&q=80';
               }
             })
             .catch((error) => {
@@ -95,7 +96,7 @@ export const HooksRelatedItems = () => {
           'OOOPS!  There was an error getting the list of items related to this one.'
         );
       });
-  }, []);
+  }, [curProduct]);
 
   useEffect(() => {
     getRelatedProductInfo();
@@ -118,7 +119,7 @@ export const HooksRelatedItems = () => {
           </div>
           <Slider aria-label="related products carousel">
             {relatedProductInfo.map((product) => (
-
+              (product.thumbnail &&
               <Slide
                 aria-label="product slide"
                 key={Math.random()}
@@ -146,8 +147,8 @@ export const HooksRelatedItems = () => {
                   <div onClick={() => {
                   getSingleProduct(product.id)}}
                     style={{
-                      height: '70%',
-                      width: '100%',
+                      height: '450px',
+                      width: '300px',
                       backgroundImage: product.thumbnail
                         ? `url(${product.thumbnail})`
                         : null,
@@ -160,10 +161,18 @@ export const HooksRelatedItems = () => {
                     <p className="fs-6 m-0">{product.category}</p>
                     <p className="fs-6 m-0">{product.name}</p>
                     <p className="fs-6 m-0">${product.default_price}</p>
-                    <p className="fs-6 m-0">STARS</p>
+                    <p className="fs-6 m-0">
+                    <StarRatings
+                      rating={4.2}
+                      starRatedColor="#394a6d"
+                      numberOfStars={5}
+                      name="rating"
+                      starDimension="20px"
+                    />
+                    </p>
                   </div>
                 </div>
-              </Slide>
+              </Slide> )
             ))}
           </Slider>
         </CarouselProvider>
