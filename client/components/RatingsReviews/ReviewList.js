@@ -8,7 +8,7 @@ import { sort, SortContext } from './SortReviews.js';
 
 const getReviews = (productId) => {
   let url =
-    'http://localhost:3000/proxy/api/fec2/hratx/reviews/?product_id=' +
+    '/proxy/api/fec2/hratx/reviews/?product_id=' +
     productId;
   return axios
     .get(url)

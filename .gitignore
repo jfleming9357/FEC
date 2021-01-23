@@ -4,3 +4,5 @@ package-lock.json
 MithrilFEC.pem
 *bundle.js
 *bundle.js.br
+key.pem
+cert.pem

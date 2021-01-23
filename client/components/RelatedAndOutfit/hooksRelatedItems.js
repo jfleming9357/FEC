@@ -21,8 +21,8 @@ export const HooksRelatedItems = () => {
     let relatedProdInfoArr = [];
     relatedProductIds.map((item) => {
       let tempObj = {};
-      let url1 = 'http://localhost:3000/proxy/api/fec2/hratx/products/' + item.toString();
-      let url2 = 'http://localhost:3000/proxy/api/fec2/hratx/products/' + item.toString() + '/styles';
+      let url1 = '/proxy/api/fec2/hratx/products/' + item.toString();
+      let url2 = '/proxy/api/fec2/hratx/products/' + item.toString() + '/styles';
       axios.get(url1)
         .then((results) => {
           tempObj = results.data;
@@ -59,7 +59,7 @@ export const HooksRelatedItems = () => {
   }
 
   useEffect(() => {
-    let url = `http://localhost:3000/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
+    let url = `/proxy/api/fec2/hratx/products/${curProduct.id}/related`;
     axios.get(url)
       .then((results) => {
         setRelatedProductIds(results.data);
