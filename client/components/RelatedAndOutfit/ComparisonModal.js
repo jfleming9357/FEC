@@ -7,11 +7,7 @@ export const ComparisonModal = (props) => {
   const handleClose = () => setShow(false);
 
   return (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      keyboard={false}
-    >
+    <Modal show={show} onHide={handleClose} keyboard={false}>
       <Modal.Header closeButton>
         <Modal.Title>Choices, choices....</Modal.Title>
       </Modal.Header>
