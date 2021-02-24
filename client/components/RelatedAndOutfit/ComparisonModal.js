@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import { ProductContext } from '../../context/ProductContext';
 
 export const ComparisonModal = (props) => {

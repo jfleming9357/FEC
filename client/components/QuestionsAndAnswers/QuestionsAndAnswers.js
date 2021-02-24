@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect, useContext } from 'react';
 import SearchBar from './SearchBar.js';
 import QuestionList from './QuestionList.js';

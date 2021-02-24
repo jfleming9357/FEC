@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AnswerList from './AnswerList.js';
 import AddAnswer from './AddAnswer.js';
 import axios from 'axios';

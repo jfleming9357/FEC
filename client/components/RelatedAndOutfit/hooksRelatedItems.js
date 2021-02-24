@@ -5,16 +5,14 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Modal } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
-import ratingCalculations from '../RatingsReviews/ratingCalculations.js';
 
 export const HooksRelatedItems = () => {
-  const { curProduct, getSingleProduct, getProductRating } = useContext(ProductContext);
+  const { curProduct, getSingleProduct } = useContext(ProductContext);
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [combinedFeatures, setCombinedFeatures] = useState([]);
   const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
 
   const getRelatedProductInfo = () => {
     let relatedProdInfoArr = [];
