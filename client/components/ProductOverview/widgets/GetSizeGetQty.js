@@ -29,7 +29,7 @@ export const GetSizeGetQty = () => {
       alert('Product added');
     } else {
       setDropdownMsg('Please select size');
-      var s = $('#sizeSelect').attr('size') == 1 ? 5 : 1;
+      var s = $('#sizeSelect').attr('size') === 1 ? 5 : 1;
       $('#sizeSelect').attr('size', s);
     }
   };

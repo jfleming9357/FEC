@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useContext, useEffect, useState } from 'react';
 import { ProductContext } from '../../../context/ProductContext';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -36,7 +37,7 @@ export const ImageGallery = () => {
         <CarouselProvider
           totalSlides={curStyle.photos.length}
           naturalSlideHeight={100}
-          naturalSlideWidth={100}
+          naturalSlideWidth={95}
           dragEnabled={false}
         >
           <div

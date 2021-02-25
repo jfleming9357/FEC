@@ -47,6 +47,7 @@ export const ProductMainInfos = () => {
           </div>
         </div>
       </div>
+      <br></br>
 
       <StyleSelector />
       <GetSizeGetQty />

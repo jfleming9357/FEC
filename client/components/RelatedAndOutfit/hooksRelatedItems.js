@@ -81,7 +81,7 @@ export const HooksRelatedItems = () => {
 
   return (
     <>
-      <b>CURATED FOR YOU:</b>
+      <b>Related Items</b>
       <div className='border' style={{ height: '500px', overflow: 'hidden' }}>
         <CarouselProvider
           className='c-related-items-carousel'
@@ -92,8 +92,8 @@ export const HooksRelatedItems = () => {
           dragEnabled={false}
         >
           <div>
-            <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext>
+            <ButtonBack className='d-bold d-border-button'>Back</ButtonBack>
+            <ButtonNext className='d-bold d-border-button'>Next</ButtonNext>
           </div>
           <Slider aria-label='related products carousel'>
             {relatedProductInfo.map(
@@ -103,10 +103,12 @@ export const HooksRelatedItems = () => {
                     aria-label='product slide'
                     key={Math.random()}
                     style={{
+                      borderStyle: 'solid',
                       height: '300px',
-                      width: '300px',
+                      width: '325px',
                       marginLeft: '7px',
-                      marginRight: '7px'
+                      marginRight: '7px',
+                      position: 'relative'
                     }}
                     index={0}
                   >
@@ -114,23 +116,26 @@ export const HooksRelatedItems = () => {
                       style={{
                         height: '400px',
                         width: '280px',
-                        position: 'relative'
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        width: '95%'
                       }}
                     >
                       <p
-                        style={{
-                          color: 'yellow',
-                          fontSize: '25px',
-                          textAlign: 'right',
-                          zIndex: '100',
-                          position: 'absolute'
-                        }}
+                        // style={{
+                        //   color: 'yellow',
+                        //   fontSize: '25px',
+                        //   textAlign: 'right',
+                        //   zIndex: '100',
+                        //   position: 'absolute'
+                        // }}
                         onClick={() => {
                           setShow(true);
                           updateSelectedProduct(product);
                         }}
                       >
-                        &#9733;
+                        {/* &#9733; */}
                       </p>
                       <div
                         style={{
@@ -146,7 +151,11 @@ export const HooksRelatedItems = () => {
                           style={{
                             height: '300px',
                             width: '300px',
-                            backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null,
+                            backgroundImage: product.thumbnail
+                              ? `url(${
+                                  product.thumbnail.split('&w=')[0] + '&w=300&h=300&crop=faces'
+                                })`
+                              : null,
                             backgroundRepeat: 'no-repeat'
                           }}
                         ></div>

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import StarRatings from 'react-star-ratings';
