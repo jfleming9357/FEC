@@ -81,7 +81,7 @@ export const HooksRelatedItems = () => {
 
   return (
     <>
-      <b>CURATED FOR YOU:</b>
+      <b>Related Items</b>
       <div className='border' style={{ height: '500px', overflow: 'hidden' }}>
         <CarouselProvider
           className='c-related-items-carousel'
@@ -92,8 +92,8 @@ export const HooksRelatedItems = () => {
           dragEnabled={false}
         >
           <div>
-            <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext>
+            <ButtonBack className='d-bold d-border-button'>Back</ButtonBack>
+            <ButtonNext className='d-bold d-border-button'>Next</ButtonNext>
           </div>
           <Slider aria-label='related products carousel'>
             {relatedProductInfo.map(
@@ -151,7 +151,11 @@ export const HooksRelatedItems = () => {
                           style={{
                             height: '300px',
                             width: '300px',
-                            backgroundImage: product.thumbnail ? `url(${product.thumbnail})` : null,
+                            backgroundImage: product.thumbnail
+                              ? `url(${
+                                  product.thumbnail.split('&w=')[0] + '&w=300&h=300&crop=faces'
+                                })`
+                              : null,
                             backgroundRepeat: 'no-repeat'
                           }}
                         ></div>

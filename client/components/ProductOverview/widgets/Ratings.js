@@ -14,7 +14,7 @@ export const Ratings = () => {
       <StarRatings starDimension='20px' rating={curProduct.rating || 0} starSpacing='3px' />
       {'  '}
       <small>
-        <Link to='jcontainer' style={{ 'text-decoration': 'underline' }}>
+        <Link to='jcontainer' style={{ 'text-decoration': 'underline', cursor: 'pointer' }}>
           Read all reviews
         </Link>
       </small>
