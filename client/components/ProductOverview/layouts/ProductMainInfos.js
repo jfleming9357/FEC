@@ -1,8 +1,8 @@
-import { ProductContext } from '../../../context/ProductContext';
-import React, { useContext } from 'react';
-import { StyleSelector } from '../widgets/StyleSelector';
-import { GetSizeGetQty } from '../widgets/GetSizeGetQty';
-import { Ratings } from '../widgets/Ratings';
+import { ProductContext } from "../../../context/ProductContext";
+import React, { useContext } from "react";
+import { StyleSelector } from "../widgets/StyleSelector";
+import { GetSizeGetQty } from "../widgets/GetSizeGetQty";
+import { Ratings } from "../widgets/Ratings";
 
 export const ProductMainInfos = () => {
   const { curProduct, curStyle } = useContext(ProductContext);
@@ -23,8 +23,8 @@ export const ProductMainInfos = () => {
       </div>
       {curStyle.sale_price ? (
         <div className="col fs-5 d-flex fw-bold">
-          <p style={{ color: 'red' }}>${curStyle.sale_price}</p>
-          <u style={{ marginLeft: '10px', textDecoration: 'line-through' }}>
+          <p style={{ color: "red" }}>${curStyle.sale_price}</p>
+          <u style={{ marginLeft: "10px", textDecoration: "line-through" }}>
             ${curStyle.original_price}
           </u>
         </div>
@@ -47,6 +47,7 @@ export const ProductMainInfos = () => {
           </div>
         </div>
       </div>
+      <br></br>
 
       <StyleSelector />
       <GetSizeGetQty />

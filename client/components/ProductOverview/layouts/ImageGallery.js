@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ProductContext } from '../../../context/ProductContext';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import React, { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../../../context/ProductContext";
+import "pure-react-carousel/dist/react-carousel.es.css";
 import {
   CarouselProvider,
   Slider,
@@ -8,7 +8,7 @@ import {
   ButtonNext,
   ButtonBack,
   Dot,
-} from 'pure-react-carousel';
+} from "pure-react-carousel";
 
 export const ImageGallery = () => {
   const { curStyle, setZoomIn, zoomIn } = useContext(ProductContext);
@@ -43,14 +43,14 @@ export const ImageGallery = () => {
         <CarouselProvider
           totalSlides={curStyle.photos.length}
           naturalSlideHeight={100}
-          naturalSlideWidth={100}
+          naturalSlideWidth={95}
           dragEnabled={false}
         >
           <div
             style={{
-              height: '700px',
-              width: '700px',
-              position: 'relative',
+              height: "700px",
+              width: "700px",
+              position: "relative",
             }}
           >
             <div className="position-absolute row w-100 h-100">
@@ -60,12 +60,12 @@ export const ImageGallery = () => {
                     <Slide index={i} key={i}>
                       <div
                         style={{
-                          height: '700px',
-                          width: '700px',
+                          height: "700px",
+                          width: "700px",
                         }}
                       >
                         <img
-                          src={url.split('&w=')[0] + '&w=700&h=700&crop=faces'}
+                          src={url.split("&w=")[0] + "&w=700&h=700&crop=faces"}
                           alt={curStyle.name}
                           height="700"
                           width="700"
@@ -77,8 +77,8 @@ export const ImageGallery = () => {
                       key={i}
                       className="text-center d-flex bg-secondary"
                       style={{
-                        height: '700px',
-                        width: '700px',
+                        height: "700px",
+                        width: "700px",
                       }}
                     >
                       <div className="fs-1 m-auto text-light">OUT OF STOCK</div>
@@ -88,7 +88,7 @@ export const ImageGallery = () => {
               </Slider>
             </div>
             <div
-              style={zoomIn ? { marginRight: '123px' } : {}}
+              style={zoomIn ? { marginRight: "123px" } : {}}
               className="position-absolute row h-100 w-100"
             >
               <div className="col-2">
@@ -118,13 +118,13 @@ export const ImageGallery = () => {
                             className="bg-secondary my-2"
                             style={{
                               backgroundImage: `url(${
-                                thumbnail_url.split('&w=')[0] +
-                                '&w=50&h=50&crop=faces'
+                                thumbnail_url.split("&w=")[0] +
+                                "&w=50&h=50&crop=faces"
                               })`,
-                              height: '50px',
-                              width: '50px',
-                              opacity: curSlide === i ? '' : '50%',
-                              border: curSlide === i && '2px solid black',
+                              height: "50px",
+                              width: "50px",
+                              opacity: curSlide === i ? "" : "50%",
+                              border: curSlide === i && "2px solid black",
                             }}
                           ></div>
                         </Dot>
@@ -176,17 +176,17 @@ export const ImageGallery = () => {
             </div>
             <div
               style={{
-                top: '0px',
-                right: '0px',
-                color: 'white',
-                marginRight: '23px',
+                top: "0px",
+                right: "0px",
+                color: "white",
+                marginRight: "23px",
               }}
               className="position-absolute"
             >
               {!zoomIn && (
                 <i
                   onClick={() => setZoomIn(true)}
-                  style={{ cursor: 'zoom-in' }}
+                  style={{ cursor: "zoom-in" }}
                   className="fs-3 bi bi-zoom-in"
                 ></i>
               )}
@@ -194,7 +194,7 @@ export const ImageGallery = () => {
               {zoomIn && (
                 <i
                   onClick={() => setZoomIn(false)}
-                  style={{ cursor: 'zoom-out' }}
+                  style={{ cursor: "zoom-out" }}
                   className="fs-3 bi bi-zoom-out"
                 ></i>
               )}
@@ -225,13 +225,13 @@ export const ImageGallery = () => {
                         className="bg-secondary my-2"
                         style={{
                           backgroundImage: `url(${
-                            thumbnail_url.split('&w=')[0] +
-                            '&w=100&h=100&crop=faces'
+                            thumbnail_url.split("&w=")[0] +
+                            "&w=100&h=100&crop=faces"
                           })`,
-                          height: '100px',
-                          width: '100px',
-                          opacity: curSlide === i ? '' : '50%',
-                          border: curSlide === i && '2px solid black',
+                          height: "100px",
+                          width: "100px",
+                          opacity: curSlide === i ? "" : "50%",
+                          border: curSlide === i && "2px solid black",
                         }}
                       ></div>
                     </Dot>
@@ -242,9 +242,9 @@ export const ImageGallery = () => {
             <div className="col-9">
               <div
                 style={{
-                  height: '700px',
-                  width: '700px',
-                  position: 'relative',
+                  height: "700px",
+                  width: "700px",
+                  position: "relative",
                 }}
               >
                 <div className="position-absolute row w-100 h-100">
@@ -254,13 +254,13 @@ export const ImageGallery = () => {
                         <Slide index={i} key={i}>
                           <div
                             style={{
-                              height: '700px',
-                              width: '1000px',
+                              height: "700px",
+                              width: "1000px",
                             }}
                           >
                             <img
                               src={
-                                url.split('&w=')[0] + '&w=1000&h=700&crop=faces'
+                                url.split("&w=")[0] + "&w=1000&h=700&crop=faces"
                               }
                               alt={curStyle.name}
                               height="700"
@@ -273,8 +273,8 @@ export const ImageGallery = () => {
                           key={i}
                           className="text-center d-flex bg-secondary"
                           style={{
-                            height: '700px',
-                            width: '1000px',
+                            height: "700px",
+                            width: "1000px",
                           }}
                         >
                           <div className="fs-1 m-auto text-light">
@@ -286,7 +286,7 @@ export const ImageGallery = () => {
                   </Slider>
                 </div>
                 <div
-                  style={zoomIn ? { marginRight: '123px' } : {}}
+                  style={zoomIn ? { marginRight: "123px" } : {}}
                   className="position-absolute row h-100 w-100"
                 >
                   <div className="col-12 d-flex justify-content-between align-items-center">
@@ -321,17 +321,17 @@ export const ImageGallery = () => {
                 </div>
                 <div
                   style={{
-                    top: '0px',
-                    right: '0px',
-                    color: 'white',
-                    marginRight: '23px',
+                    top: "0px",
+                    right: "0px",
+                    color: "white",
+                    marginRight: "23px",
                   }}
                   className="position-absolute"
                 >
                   {!zoomIn && (
                     <i
                       onClick={() => setZoomIn(true)}
-                      style={{ cursor: 'zoom-in' }}
+                      style={{ cursor: "zoom-in" }}
                       className="fs-3 bi bi-zoom-in"
                     ></i>
                   )}
@@ -339,7 +339,7 @@ export const ImageGallery = () => {
                   {zoomIn && (
                     <i
                       onClick={() => setZoomIn(false)}
-                      style={{ cursor: 'zoom-out' }}
+                      style={{ cursor: "zoom-out" }}
                       className="fs-3 bi bi-zoom-out"
                     ></i>
                   )}

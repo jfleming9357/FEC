@@ -149,6 +149,8 @@ body {
 
 .ReviewList {
   grid-area: ReviewList;
+  height: 600px;
+  overflow: auto;
 }
 
 .jButtonContainer {
@@ -220,17 +222,15 @@ body {
   font-weight: bold;
 }
 
-
 .c-related-items-carousel {
-  border: '2px';
-  border-color: 'black'
+  border: "2px";
+  border-color: "black";
 }
 
 .c-related-items {
-  border: '2px';
-  border-color: 'black'
+  border: "2px";
+  border-color: "black";
 }
-
 
 /* Three column layout */
 .side {
@@ -329,4 +329,8 @@ body {
   width: 100%;
   background-color: #b6b0b0;
   height: 10px;
+}
+
+.row {
+  padding: 10px;
 }

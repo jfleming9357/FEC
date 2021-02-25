@@ -1,21 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { ProductContext } from '../../context/ProductContext';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
+import axios from "axios";
 import {
   CarouselProvider,
   Slider,
   Slide,
   ButtonBack,
   ButtonNext,
-} from 'pure-react-carousel';
-import exampleData from './exampleData.js';
-import 'pure-react-carousel/dist/react-carousel.es.css';
-import { Modal } from 'react-bootstrap';
-import StarRatings from 'react-star-ratings';
-import ratingCalculations from '../RatingsReviews/ratingCalculations.js'
+} from "pure-react-carousel";
+import exampleData from "./exampleData.js";
+import "pure-react-carousel/dist/react-carousel.es.css";
+import { Modal } from "react-bootstrap";
+import StarRatings from "react-star-ratings";
+import ratingCalculations from "../RatingsReviews/ratingCalculations.js";
 
 export const HooksRelatedItems = () => {
-  const { curProduct, getSingleProduct, getProductRating } = useContext(ProductContext);
+  const { curProduct, getSingleProduct, getProductRating } = useContext(
+    ProductContext
+  );
   const [relatedProductIds, setRelatedProductIds] = useState([]);
   const [relatedProductInfo, setRelatedProductInfo] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -28,14 +30,15 @@ export const HooksRelatedItems = () => {
     relatedProductIds.map((item) => {
       let tempObj = {};
       let urls = [
-        '/proxy/api/fec2/hratx/products/' + item.toString(),
-        '/proxy/api/fec2/hratx/products/' + item.toString() + '/styles'
+        "/proxy/api/fec2/hratx/products/" + item.toString(),
+        "/proxy/api/fec2/hratx/products/" + item.toString() + "/styles",
       ];
-      Promise.all(urls.map(url => {
-        return axios.get(url)
-          .then(res => res.data);
-      }))
-        .then(data => {
+      Promise.all(
+        urls.map((url) => {
+          return axios.get(url).then((res) => res.data);
+        })
+      )
+        .then((data) => {
           tempObj = data[0];
           if (data[1].results[0].photos[0].thumbnail_url) {
             tempObj.thumbnail = data[1].results[0].photos[0].thumbnail_url;
@@ -50,7 +53,7 @@ export const HooksRelatedItems = () => {
         .catch((error) => {
           console.error(
             error,
-            'OOOPS!  There was an error getting the information about related product.'
+            "OOOPS!  There was an error getting the information about related product."
           );
         });
     });
@@ -80,7 +83,7 @@ export const HooksRelatedItems = () => {
       .catch((error) => {
         console.error(
           error,
-          'OOOPS!  There was an error getting the list of items related to this one.'
+          "OOOPS!  There was an error getting the list of items related to this one."
         );
       });
   }, [curProduct]);
@@ -90,8 +93,9 @@ export const HooksRelatedItems = () => {
   }, [relatedProductIds]);
 
   return (
-    <><b>CURATED FOR YOU:</b>
-      <div className="border" style={{ height: '500px', overflow: 'hidden' }}>
+    <>
+      <b>CURATED FOR YOU:</b>
+      <div className="border" style={{ height: "500px", overflow: "hidden" }}>
         <CarouselProvider
           className="c-related-items-carousel"
           naturalSlideHeight={100}
@@ -105,65 +109,88 @@ export const HooksRelatedItems = () => {
             <ButtonNext>Next</ButtonNext>
           </div>
           <Slider aria-label="related products carousel">
-            {relatedProductInfo.map((product) => (
-              (product.thumbnail &&
-              <Slide
-                aria-label="product slide"
-                key={Math.random()}
-                style={{
-                  height: '300px',
-                  width: '300px',
-                  marginLeft: '7px',
-                  marginRight: '7px',
-                }}
-                index={0}
-              >
-                <div style={{ height: '400px', width: '280px', position: 'relative'}}>
-                  <p
+            {relatedProductInfo.map(
+              (product) =>
+                product.thumbnail && (
+                  <Slide
+                    aria-label="product slide"
+                    key={Math.random()}
                     style={{
-                      color: 'yellow',
-                      fontSize: '25px',
-                      textAlign: 'right',
-                      zIndex: '100',
-                      position: 'absolute'
+                      borderStyle: "solid",
+                      height: "300px",
+                      width: "325px",
+                      marginLeft: "7px",
+                      marginRight: "7px",
+                      position: "relative",
                     }}
-                    onClick={() => { setShow(true); updateSelectedProduct(product); }}
+                    index={0}
                   >
-                      &#9733;
-                  </p>
-                  <div style={{ height: '70%', width: '100%', position: 'absolute'}}>
-                    <div onClick={() => {
-                      getSingleProduct(product.id);
-                    }}
-                    style={{
-                      height: '300px',
-                      width: '300px',
-                      backgroundImage: product.thumbnail
-                        ? `url(${product.thumbnail})`
-                        : null,
-                      backgroundRepeat: 'no-repeat',
-                    }}
+                    <div
+                      style={{
+                        height: "400px",
+                        width: "280px",
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                        width: "95%",
+                      }}
                     >
-                    </div>
-                    <div style={{ height: '30%', width: '100%' }}>
-                      <div className="fs-6 m-0">{product.category}</div>
-                      <div className="fs-6 m-0">{product.name}</div>
-                      <div className="fs-6 m-0">${product.default_price}</div>
-                      <div className="fs-6 m-0">
-                        <StarRatings
-                          rating={3.8}
-                          starRatedColor="#394a6d"
-                          numberOfStars={5}
-                          name="rating"
-                          starDimension="20px"
-                        />
+                      <p
+                        // style={{
+                        //   color: 'yellow',
+                        //   fontSize: '25px',
+                        //   textAlign: 'right',
+                        //   zIndex: '100',
+                        //   position: 'absolute'
+                        // }}
+                        onClick={() => {
+                          setShow(true);
+                          updateSelectedProduct(product);
+                        }}
+                      >
+                        {/* &#9733; */}
+                      </p>
+                      <div
+                        style={{
+                          height: "70%",
+                          width: "100%",
+                          position: "absolute",
+                        }}
+                      >
+                        <div
+                          onClick={() => {
+                            getSingleProduct(product.id);
+                          }}
+                          style={{
+                            height: "300px",
+                            width: "300px",
+                            backgroundImage: product.thumbnail
+                              ? `url(${product.thumbnail})`
+                              : null,
+                            backgroundRepeat: "no-repeat",
+                          }}
+                        ></div>
+                        <div style={{ height: "30%", width: "100%" }}>
+                          <div className="fs-6 m-0">{product.category}</div>
+                          <div className="fs-6 m-0">{product.name}</div>
+                          <div className="fs-6 m-0">
+                            ${product.default_price}
+                          </div>
+                          <div className="fs-6 m-0">
+                            <StarRatings
+                              rating={3.8}
+                              starRatedColor="#394a6d"
+                              numberOfStars={5}
+                              name="rating"
+                              starDimension="20px"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                </div>
-              </Slide> )
-            ))}
+                  </Slide>
+                )
+            )}
           </Slider>
         </CarouselProvider>
         <Modal show={show} onHide={() => setShow(false)}>
@@ -179,8 +206,8 @@ export const HooksRelatedItems = () => {
                   <th>{curProduct.name}</th>
                 </tr>
                 {combinedFeatures.map((feat) => {
-                  let theValueL = '';
-                  let theValueR = '';
+                  let theValueL = "";
+                  let theValueR = "";
                   selectedProduct.features.find((i) => {
                     if (i.feature === feat) {
                       theValueL = i.value;
